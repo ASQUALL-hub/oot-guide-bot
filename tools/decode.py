@@ -3,44 +3,24 @@
 Every bit layout here was taken from the zeldaret/oot decomp source of the
 actor in question (src/overlays/actors/ovl_<Actor>/).
 """
-import os
-import re
-
-from headers import parse_enum
-
-_enum_cache = {}
+# Actor-local enums this module reads. make_metadata.py exports exactly these into the metadata pack,
+# so a ROM-only build can decode params without the decomp source. Add new ones here.
+ACTOR_ENUMS = [
+    ("Item_Etcetera", "ItemEtceteraType"), ("En_Kusa", "EnKusaType"), ("En_Wonder_Item", "EnWonderItemMode"),
+    ("En_Wonder_Item", "EnWonderItemDrop"), ("En_G_Switch", "EnGSwitchType"), ("En_Door", "EnDoorType"),
+    ("Door_Shutter", "DoorShutterType"), ("En_Holl", "EnHollType"), ("Door_Warp1", "DoorWarp1Type"),
+    ("En_Dns", "EnDnsType"), ("En_GirlA", "EnGirlAShopItem"), ("Obj_Switch", "ObjSwitchType"),
+    ("Obj_Switch", "ObjSwitchSubType"), ("Bg_Breakwall", "BombableWallType"),
+]
+ACTOR_PREFIXED = [("En_Owl", "OWL_", "OWL_REPEAT")]
 
 
 def _enum(decomp, actor, enum_name):
-    key = (actor, enum_name)
-    if key not in _enum_cache:
-        d = decomp.actor_dir(actor)
-        res = {}
-        if os.path.isdir(d):
-            for fn in os.listdir(d):
-                if fn.endswith((".h", ".c")):
-                    with open(os.path.join(d, fn), encoding="utf-8", errors="replace") as f:
-                        res = parse_enum(f.read(), enum_name)
-                    if res:
-                        break
-        _enum_cache[key] = res
-    return _enum_cache[key]
+    return decomp.actor_enum(actor, enum_name)
 
 
 def _prefixed_list(decomp, actor, prefix, stop):
-    key = (actor, prefix)
-    if key not in _enum_cache:
-        res = {}
-        d = decomp.actor_dir(actor)
-        for fn in os.listdir(d):
-            if fn.endswith(".c"):
-                with open(os.path.join(d, fn), encoding="utf-8", errors="replace") as f:
-                    for m in re.finditer(r"/\*\s*(0x[0-9A-Fa-f]+)\s*\*/\s*(" + prefix + r"\w+)", f.read()):
-                        if m.group(2) == stop:
-                            break
-                        res[int(m.group(1), 16)] = m.group(2)
-        _enum_cache[key] = res
-    return _enum_cache[key]
+    return decomp.actor_prefixed(actor, prefix, stop)
 
 
 def bits(v, shift, n):

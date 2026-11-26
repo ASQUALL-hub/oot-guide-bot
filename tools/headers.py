@@ -1,4 +1,5 @@
 """Read names/enums out of the zeldaret/oot decomp headers (as plain text, never executed)."""
+import json
 import os
 import re
 
@@ -150,3 +151,92 @@ class Decomp:
         txt = _read(os.path.join(self.root, "src", "overlays", "actors", "ovl_Door_Ana", "z_door_ana.c"))
         m = re.search(r"static s16 sGrottoEntrances\[\] = \{(.*?)\};", txt, re.S)
         return [x.strip() for x in m.group(1).split(",") if x.strip()]
+
+    def segments(self, version="ntsc-1.0"):
+        """[(file name, vram or None)] in DMA-table order."""
+        import csv
+        with open(os.path.join(self.root, "baseroms", version, "segments.csv"), newline="") as f:
+            rows = list(csv.reader(f))[1:]
+        return [(r[0], int(r[1], 16) if len(r) > 1 and r[1] else None) for r in rows]
+
+    def actor_enum(self, actor, enum_name):
+        """{value: NAME} for an enum declared in an actor's own .h/.c files."""
+        key = ("enum", actor, enum_name)
+        if key not in self._actor_src_cache:
+            d, res = self.actor_dir(actor), {}
+            if os.path.isdir(d):
+                for fn in sorted(os.listdir(d)):
+                    if fn.endswith((".h", ".c")):
+                        res = parse_enum(_read(os.path.join(d, fn)), enum_name)
+                        if res:
+                            break
+            self._actor_src_cache[key] = res
+        return self._actor_src_cache[key]
+
+    def actor_prefixed(self, actor, prefix, stop):
+        """{value: NAME} for `/* 0xNN */ PREFIX_...` entries in an actor's .c file, up to `stop`."""
+        key = ("prefixed", actor, prefix)
+        if key not in self._actor_src_cache:
+            res = {}
+            d = self.actor_dir(actor)
+            for fn in sorted(os.listdir(d)):
+                if fn.endswith(".c"):
+                    for m in re.finditer(r"/\*\s*(0x[0-9A-Fa-f]+)\s*\*/\s*(" + prefix + r"\w+)", _read(os.path.join(d, fn))):
+                        if m.group(2) == stop:
+                            break
+                        res[int(m.group(1), 16)] = m.group(2)
+            self._actor_src_cache[key] = res
+        return self._actor_src_cache[key]
+
+
+def _intkeys(d):
+    return {int(k): v for k, v in d.items()}
+
+
+class MetaDecomp:
+    """Same interface as Decomp, but served from the bundled metadata pack (data/meta/decomp.json),
+    so a build only needs the ROM."""
+
+    def __init__(self, path):
+        with open(path, encoding="utf-8") as f:
+            m = json.load(f)
+        self._m = m
+        self.scenes = _intkeys(m["scenes"])
+        self.entrances = _intkeys(m["entrances"])
+        self.actors = _intkeys(m["actors"])
+        self.objects = _intkeys(m["objects"])
+        for k in ("item_ids", "gi_ids", "item00", "floor_types", "wall_types", "floor_props", "materials", "floor_effects"):
+            setattr(self, k, _intkeys(m[k]))
+
+    def entrance_by_enum(self):
+        return {v["enum"]: k for k, v in self.entrances.items()}
+
+    def actor_description(self, actor_name):
+        return self._m["actor_descriptions"].get(actor_name)
+
+    def get_item_table(self):
+        return self._m["get_item_table"]
+
+    def warp_song_entrances(self):
+        return self._m["warp_song_entrances"]
+
+    def grotto_entrances(self):
+        return self._m["grotto_entrances"]
+
+    def segments(self, version="ntsc-1.0"):
+        return [tuple(x) for x in self._m["segments"]]
+
+    def actor_enum(self, actor, enum_name):
+        return _intkeys(self._m["actor_enums"].get(f"{actor}:{enum_name}", {}))
+
+    def actor_prefixed(self, actor, prefix, stop):
+        return _intkeys(self._m["actor_enums"].get(f"{actor}:{prefix}*", {}))
+
+
+def load_decomp(path):
+    """A decomp checkout directory, or a metadata pack directory / decomp.json file."""
+    if os.path.isdir(path) and os.path.exists(os.path.join(path, "decomp.json")):
+        return MetaDecomp(os.path.join(path, "decomp.json"))
+    if path.endswith(".json"):
+        return MetaDecomp(path)
+    return Decomp(path)

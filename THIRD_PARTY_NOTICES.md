@@ -1,7 +1,10 @@
 # Third-party notices
 
-The files under `ootmap/logic/` and the `logic_rule` fields in `ootmap/items.json` are derived from the
-OoT Randomizer logic data (https://github.com/OoTRandomizer/OoT-Randomizer), used under the license below.
+`data/meta/decomp.json` and `data/meta/code/` contain names, enums, layouts and a function index taken from
+the zeldaret/oot decompilation (https://github.com/zeldaret/oot), pinned in `data/meta/manifest.json`.
+
+`data/meta/ootr.json`, the files under `ootmap/logic/` and the `logic_rule` fields in `ootmap/items.json` are
+derived from the OoT Randomizer logic data (https://github.com/OoTRandomizer/OoT-Randomizer), used under the license below.
 
 ```
 All files are MIT licensed unless stated otherwise.

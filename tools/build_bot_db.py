@@ -1,21 +1,19 @@
 """Join the ROM extraction (ootmap/) with OoT Randomizer logic data into bot-facing tables.
 
 Reads the randomizer repo as data only (ast/json, never imported or executed).
-usage: python -I build_bot_db.py <tools_dir> <decomp_root> <ootr_root> <ootmap_dir>
+usage: python -I build_bot_db.py <tools_dir> <decomp_root | data/meta> <ootr_root | data/meta> <ootmap_dir>
 """
 import sys
 import os
-import re
-import ast
 import json
-import glob
 from collections import defaultdict
 
 sys.path.insert(0, sys.argv[1])
-from headers import Decomp  # noqa: E402
+from headers import load_decomp  # noqa: E402
+import ootr_data  # noqa: E402
 
 DECOMP, OOTR, OUT = sys.argv[2], sys.argv[3], sys.argv[4]
-D = Decomp(DECOMP)
+D = load_decomp(DECOMP)
 
 
 def jload(p):
@@ -33,56 +31,20 @@ def jdump(obj, *parts, compact=False):
             json.dump(obj, f, indent=1, ensure_ascii=False)
 
 
-def read_logic_file(path):
-    s = ""
-    with open(path, encoding="utf-8") as f:
-        for line in f:
-            s += line.split("#")[0].replace("\n", " ")
-    return json.loads(re.sub(" +", " ", s))
-
-
-def py_literal_assign(path, var):
-    with open(path, encoding="utf-8") as f:
-        tree = ast.parse(f.read())
-    for node in tree.body:
-        targets = []
-        if isinstance(node, ast.Assign):
-            targets = [t.id for t in node.targets if isinstance(t, ast.Name)]
-            val = node.value
-        elif isinstance(node, ast.AnnAssign) and isinstance(node.target, ast.Name):
-            targets = [node.target.id]
-            val = node.value
-        if var in targets:
-            if isinstance(val, ast.Call) and val.args:  # OrderedDict([...])
-                val = val.args[0]
-
-            class NoCalls(ast.NodeTransformer):  # e.g. shop_address(0, 0) -> None (ROM addresses we don't need)
-                def visit_Call(self, node):
-                    return ast.copy_location(ast.Constant(None), node)
-            val = ast.fix_missing_locations(NoCalls().visit(val))
-            return ast.literal_eval(val)
-    raise KeyError(var)
-
-
 # ------------------------------------------------------------------ load ROM map
 index = jload(os.path.join(OUT, "scenes", "_index.json"))
 scenes = {}
 for row in index:
     scenes[row["scene_id"]] = jload(os.path.join(OUT, row["scene_json"]))
 entrances = jload(os.path.join(OUT, "entrances.json"))
-scene_names = {k: v[2] for k, v in py_literal_assign(os.path.join(OOTR, "SceneList.py"), "SCENE_TABLE").items()}
+OOTR_DATA = ootr_data.load(OOTR)  # randomizer checkout, or the bundled metadata pack (data/meta)
+scene_names = OOTR_DATA["scene_names"]
 
 # ------------------------------------------------------------------ load logic
-locs = dict(py_literal_assign(os.path.join(OOTR, "LocationList.py"), "location_table"))
-regions = []
-for p in sorted(glob.glob(os.path.join(OOTR, "data", "World", "*.json"))):
-    if p.endswith(" MQ.json"):
-        continue  # this ROM is the original (non-Master-Quest) game
-    for r in read_logic_file(p):
-        r["_file"] = os.path.basename(p)
-        regions.append(r)
-helpers = read_logic_file(os.path.join(OOTR, "data", "LogicHelpers.json"))
-shuffle_table = py_literal_assign(os.path.join(OOTR, "EntranceShuffle.py"), "entrance_shuffle_table")
+locs = OOTR_DATA["locations"]
+regions = OOTR_DATA["regions"]
+helpers = OOTR_DATA["helpers"]
+shuffle_table = OOTR_DATA["shuffle_table"]
 
 loc_region = {}
 for r in regions:

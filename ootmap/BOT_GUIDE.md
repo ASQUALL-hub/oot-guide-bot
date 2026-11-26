@@ -131,7 +131,8 @@ use `Logic(items).solve().location_status(name)`.
 
 ## Rebuilding
 
-Run `..\build.ps1 -Rom <path to your ROM>`. It fetches the two reference checkouts into `../ref` at pinned commits,
-then runs the scripts in `../tools`:
-`extract_map.py` (ROM → scenes/collision/entrances/tables), `scan_source.py` (decomp C source → code/),
-`build_bot_db.py` (joins it all with the randomizer logic → items, graphs, warps).
+Run `python tools/build.py --rom <path to your ROM>` from the repo root. It needs only Python 3 and the ROM:
+names, enums, logic and the function index come from the bundled metadata pack in `data/meta/`.
+`tools/extract_map.py` reads the ROM (scenes, collision, entrances, tables), and `tools/build_bot_db.py` joins it with
+the logic (items, graphs, warps). Maintainers regenerate `data/meta/` with `tools/fetch_refs.py` +
+`tools/make_metadata.py`.
