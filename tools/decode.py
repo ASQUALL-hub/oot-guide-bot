@@ -232,7 +232,14 @@ def decode_actor(name, p, rot, ctx):
 
 SURFACE_NOTES = {
     "floor_property": {5: "void out (respawn at last entrance)", 12: "falling into this triggers the polygon's exit"},
-    "wall_type": {2: "climbable (ladder)", 3: "climbable (vines/climb wall)", 5: "crawlspace entrance", 6: "crawlspace"},
+    # From the decomp: z_bgcheck.c D_80119D90 maps wall type -> WALL_FLAG_*, and z_player.c acts on the flags.
+    # FLAG_0 (types 1-3) disables ledge grabs on that wall; FLAG_1 (type 2) and FLAG_3 (type 4) start a
+    # face-the-wall climb; FLAG_2 alone (type 3) grabs from the top to climb down backwards.
+    "wall_type": {1: "no ledge grab / climb-up on this wall",
+                  2: "ladder: climbable (no ledge grab)",
+                  3: "ladder top: grab from above to climb down (no ledge grab)",
+                  4: "climbable surface (vines / climb wall)",
+                  5: "crawlspace (child only)", 6: "crawlspace (child only)"},
 }
 
 

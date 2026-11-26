@@ -54,6 +54,26 @@ current items (see "Logic evaluator" below).
   for example "adult → `ENTR_SACRED_FOREST_MEADOW_3`, else `_2`".
 - Void-outs: a floor whose surface `floor_property` is 5 respawns Link at the last entrance.
 
+## Moving between floors (for path planners)
+
+Collision floors are **not a welded mesh**. Neighbouring triangles often duplicate vertices or meet at
+T-junctions, so joining floors only where they share an exact edge leaves false islands. Merge vertices by
+position, or join edges that overlap. Then add these links, taken from the player code
+(`z_player.c` `sAgeProperties` and the ledge checks):
+
+| Move | Adult | Child | Conditions |
+|---|---|---|---|
+| Ledge climb-up | top 18–111 units above feet | top 18–71 units above feet | top floor is fairly flat (normal.y > ~0.855); the wall is **not** type 1, 2 or 3 |
+| Climb type by height | <41 hop, 41–59, 59–79.4, ≥79.4 hang-and-pull | <27, 27–39, 39–47, ≥47 | same as above |
+| Catch a ledge while falling/jumping | ledge up to ~150 above Link, after falling >70 | same rule (scaled) | moving toward the wall |
+| Ladder (wall type 2), climbable surface (type 4) | any height | any height | a face-the-wall climb starts when the top is ≥79 above |
+| Ladder top (type 3) | climb down from above | climb down from above | marks where a ladder can be grabbed from the top |
+| Crawlspace (types 5/6) | no | yes | child only |
+| Drop | any height | any height | fall damage only; avoid landing on void floors (`floor_property` 5) |
+
+Wall types 1–3 block ledge grabs. Moving platforms, bridges, doors and pushable blocks are actors with their
+own collision, so they aren't in `collision/*.json`. Check `scenes/*.json` actors for those.
+
 ## Items: how they're tracked
 
 Each `items.json` record has `type`:
