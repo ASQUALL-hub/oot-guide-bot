@@ -7,7 +7,8 @@ Run it after bumping the pinned decomp / randomizer commits:
   python -I tools/make_metadata.py
 
 The pack holds names, enums and layouts (from zeldaret/oot), the randomizer's logic (MIT, from
-OoT-Randomizer) and the decomp function index. It contains no data read from the ROM.
+OoT-Randomizer), the decomp function index, and the game's item/combat rule tables (game_rules.json: ages,
+ammo, magic costs, damage tables, colliders, song notes). It contains no data read from the ROM.
 """
 import json
 import os
@@ -20,6 +21,7 @@ sys.path.insert(0, TOOLS)
 from headers import Decomp  # noqa: E402
 import decode  # noqa: E402
 import ootr_data  # noqa: E402
+import game_meta  # noqa: E402
 import player_actions_meta  # noqa: E402
 from fetch_refs import REFS  # noqa: E402
 
@@ -65,8 +67,10 @@ def main():
     print("wrote", dump(actions, "player_actions.json", indent=1), f"({len(actions)} actions)")
     print("wrote", dump(player_actions_meta.player_anim_offsets(os.path.join(REF, "oot")), "player_anims.json"))
     subprocess.run([sys.executable, "-I", os.path.join(TOOLS, "write_actions_doc.py")], check=True)
+    rules = game_meta.game_rules(os.path.join(REF, "oot"))
+    print("wrote", dump(rules, "game_rules.json"), f"({len(rules['actors'])} actors with combat data)")
     manifest = dict(
-        note="Reference metadata only (names, enums, layouts, randomizer logic, function index). No ROM data.",
+        note="Reference metadata only (names, enums, layouts, randomizer logic, function index, game rule tables). No ROM data.",
         rom=dict(name="Ocarina of Time NTSC-J 1.0", md5="9f04c8e68534b870f707c247fa4b50fc"),
         sources={r["dir"]: dict(url=r["url"], commit=r["commit"]) for r in REFS})
     print("wrote", dump(manifest, "manifest.json", indent=1))

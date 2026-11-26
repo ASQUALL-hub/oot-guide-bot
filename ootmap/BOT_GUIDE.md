@@ -15,6 +15,11 @@ with vanilla settings. All files are plain UTF-8 JSON.
 | What does a rule word mean? | `logic/helpers.json`, `logic/vanilla_settings.json` | see "Reading logic rules" |
 | Warp songs, blue warps, owls, grottos, cutscene exits | `warps.json` | |
 | Everything inside one scene | `scenes/<id>_<ENUM>.json` | layers → spawns, exits, doors; rooms → layers → actors (decoded) |
+| What does item X do, how do I use it, at which age? | `game.json` `items[]`, `songs[]` (readable: `GAME_GUIDE.md`) | `use`, `usable_by`, `does`, `slot`/`menu_row`/`menu_col`, `capacity_by_upgrade_level`, `magic_cost`, `found_at` |
+| What does item/event X unlock? What does location Y need? | `game.json` | `strictly_needed_for[X]` (`directly_unlocks`, `locations`), `location_needs[Y]` (`directly`, `all`) |
+| In what order is the game played? | `game.json` | `main_quest[]`, `playthrough.spheres[]` |
+| What hurts enemy X? What can hit object Y? | `game.json` `actors` | `health`, `damage_tables[]`, `can_be_hit_by`, `attacks` |
+| How do I equip things? | `game.json` `menus` | item grid, equipment grid, buttons |
 | What can Link do, and how does each move behave? (speed, height, airtime, distance) | `actions.json` (readable version: `ACTIONS.md`) | `ground_moves`, `jumps[].flat_ground/chained`, `rules`, `speedrun_tech`, `player_actions` (all 89 action states), `body`, `attack_hitboxes`, `world_collision` (clip conditions), `frame_order` |
 | Walkable geometry, walls, water, void planes | `collision/<id>_<ENUM>.json` | `vertices`, `polygons[].v/surface`, `surfaces[]`, `waterboxes` |
 | What entrance N is | `entrances.json` | `scene_enum`, `spawn`, `layer`, `base_entrance` |
@@ -26,7 +31,7 @@ with vanilla settings. All files are plain UTF-8 JSON.
 current items (see "Logic evaluator" below).
 
 `python query.py ...` answers the common questions directly (`find`, `scene`, `route`, `entrance`,
-`region`, `func`, `warps`; add `--json` for machine output). It needs only Python 3.
+`region`, `func`, `warps`, `item`, `unlocks`, `needs`, `quest`; add `--json` for machine output). It needs only Python 3.
 
 ## Coordinates and layers
 
@@ -74,6 +79,37 @@ position, or join edges that overlap. Then add these links, taken from the playe
 
 Wall types 1–3 block ledge grabs. Moving platforms, bridges, doors and pushable blocks are actors with their
 own collision, so they aren't in `collision/*.json`. Check `scenes/*.json` actors for those.
+
+## How the game fits together (`game.json`)
+
+Built by `tools/build_game.py` from the logic, the ROM and the game's own tables. Text with `curated: true` is
+hand-written; every number comes from the game code (`sources` names the file).
+
+- **`items[]`**: every inventory item, equipment piece, upgrade and quest item: how to use it (`use`), the age that
+  can use it (`usable_by`, from `gItemAgeReqs`), its pause-menu `slot` with `menu_row`/`menu_col`, ammo
+  `capacity_by_upgrade_level`, `magic_cost`, sword `damage_flags`, hookshot `reach_units`, where the original game
+  puts it (`found_at`, with the sphere), and `strictly_needed_for`.
+- **`songs[]`**: notes (from `gOcarinaSongButtons`), effect, where each is learned. `ocarina_spots[]` lists every
+  En_Okarina_Tag in the ROM (scene, room, position, which song, what it does, switch flag); `song_of_time_blocks[]`
+  lists every Song of Time block.
+- **`playthrough`**: the original item layout replayed through standard logic. Sphere 0 is everything in logic at
+  the start; each later sphere is what the previous one opens. Where standard logic can't model the original route,
+  a step says so (`trick_needed`, `key_rule_relaxed`) instead of silently stopping.
+- **`strictly_needed_for[X]`**: the game replayed from the start without X (an item, or `event: ...`).
+  `locations` counts what stays out of standard logic; `directly_unlocks` lists the checks where X is an immediate
+  requirement; `location_names` lists everything.
+- **`location_needs[Y]`**: the reverse: `all` key items and events Y strictly needs, and `directly` (minus anything
+  another item on the list already needs).
+- **`main_quest[]`**: the story in order, each step with its checks, sphere and needs.
+- **`events[]`**: every logic event, where it's set, its rule and what needs it.
+- **`trade_quests`**, **`menus`** (how to pause, switch pages, assign C buttons and equip; the Kokiri Sword is not put
+  on B automatically).
+- **`combat`**: the 32 damage types, what each sword uses for a swing and a jump attack, and the usual damage per
+  attack type. **`actors`**: per actor, `health`, `damage_tables` (damage and reaction per attack type),
+  `can_be_hit_by` (what its colliders accept), `attacks` (damage it deals to Link: 16 = one heart), and where it's
+  placed in the ROM.
+
+"Strictly needed" uses standard logic, so it never means unreachable: a trick or glitch may get there anyway.
 
 ## Items: how they're tracked
 
@@ -133,7 +169,8 @@ The evaluator collects events, refills (sticks, nuts, bugs, fish, fairies) and s
 they're in logic. It does not collect chest or NPC items for you: the bot reports what it actually has. Adult
 access opens once the Master Sword pedestal is in logic. Simplifications: time of day is always treated as
 available, rupees and wallet size are ignored, and `at()`/`here()` are approximated. From Python you can also
-use `Logic(items).solve().location_status(name)`.
+use `Logic(items).solve().location_status(name)`. Like the randomizer with keys in their original places, it counts one
+free Fire Temple small key.
 
 ## Limits
 
@@ -154,6 +191,6 @@ use `Logic(items).solve().location_status(name)`.
 
 Run `python tools/build.py --rom <path to your ROM>` from the repo root. It needs only Python 3 and the ROM:
 names, enums, logic and the function index come from the bundled metadata pack in `data/meta/`.
-`tools/extract_map.py` reads the ROM (scenes, collision, entrances, tables), and `tools/build_bot_db.py` joins it with
-the logic (items, graphs, warps). Maintainers regenerate `data/meta/` with `tools/fetch_refs.py` +
+`tools/extract_map.py` reads the ROM (scenes, collision, entrances, tables), `tools/build_bot_db.py` joins it with
+the logic (items, graphs, warps), `tools/build_actions.py` adds Link's moves, and `tools/build_game.py` adds `game.json`. Maintainers regenerate `data/meta/` with `tools/fetch_refs.py` +
 `tools/make_metadata.py`.

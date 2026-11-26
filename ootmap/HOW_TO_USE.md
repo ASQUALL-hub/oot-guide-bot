@@ -82,11 +82,35 @@ print(logic.location_status("Queen Gohma"))
 
 Each result has a `status` of `in_logic` (with `ages`) or `not_in_standard_logic` (with `logic_wants_*`).
 
+## What does an item do, and what does it unlock?
+
+`query.py` answers these from `game.json` (built with the rest of the map):
+
+```powershell
+python query.py item "hookshot"
+```
+```powershell
+python query.py unlocks "bomb bag"
+```
+```powershell
+python query.py needs "water temple longshot chest"
+```
+```powershell
+python query.py quest
+```
+
+- `item`: how to use it, which age, ammo or magic cost, where it is in the original game, and how much of the game is
+  out of standard logic without it.
+- `unlocks`: what an item or event opens directly, and how many locations sit behind it in total.
+- `needs`: the key items and events a location strictly needs (directly, and everything in all).
+- `quest`: the main story in order. `GAME_GUIDE.md` has all of this as a readable page.
+
 ## Good to know
 
 - Tell it everything you've collected. It doesn't add chest or NPC items by itself.
 - It does handle the small stuff automatically: refills (sticks, nuts, bugs, fish, fairies), shop purchases
   and story events.
 - It's basic: night and day are always treated as available, and rupees and wallet size are ignored.
+- Like the randomizer with keys in their original places, it counts one free Fire Temple small key.
 - To find where an item physically is (room and position), use `python query.py find "item name"`.
   `BOT_GUIDE.md` explains all the data files.

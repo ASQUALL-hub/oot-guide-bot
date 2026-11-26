@@ -217,8 +217,29 @@ def decode_actor(name, p, rot, ctx):
                     subtype=_enum(D, name, "ObjSwitchSubType").get(bits(p, 4, 3), bits(p, 4, 3)),
                     frozen=bool(bits(p, 7, 1)), switch_flag=bits(p, 8, 6))
     if name == "Bg_Breakwall":
+        # its collider accepts DMG_EXPLOSIVE | DMG_HAMMER_SWING (0x48) and any hit breaks it (BgBreakwall_Wait)
         return dict(kind="bombable_wall", wall_type=_enum(D, name, "BombableWallType").get(bits(p, 13, 2), bits(p, 13, 2)),
-                    switch_flag=bits(p, 0, 6), requires="explosive")
+                    switch_flag=bits(p, 0, 6), requires="explosive or Megaton Hammer swing")
+    if name == "En_Okarina_Tag":
+        # z_en_okarina_tag.c: type = params bits 10-15, song = bits 6-9, switch flag = bits 0-5 (0x3F = none)
+        t, song, flag = bits(p, 10, 6), bits(p, 6, 4), bits(p, 0, 6)
+        songs = ["Saria's Song", "Epona's Song", "Zelda's Lullaby", "Sun's Song", "Song of Time", "Song of Storms",
+                 "Scarecrow's Song"]
+        fixed = {1: ("Zelda's Lullaby", "sets its switch flag"),
+                 2: ("Song of Storms", "child only: speeds up the Kakariko windmill and drains the well"),
+                 4: ("Song of Time", "opens the Door of Time (with the three Spiritual Stones)"),
+                 6: ("Zelda's Lullaby", "opens the Royal Family's Tomb"),
+                 7: ("any song" if song == 0xF else (songs[song] if song < len(songs) else song), "sets its switch flag"),
+                 5: (None, "shows a hint message (text 0x5021)")}
+        play, effect = fixed.get(t, (None, "unused type (the actor deletes itself)"))
+        rng = 90 + max(rot[2], 0) * 40
+        return dict(kind="ocarina_spot", spot_type=t, play=play, effect=effect,
+                    switch_flag=None if flag == 0x3F else flag,
+                    range=f"within {rng} units horizontally and 80 vertically")
+    if name == "Obj_Timeblock":
+        return dict(kind="song_of_time_block", switch_flag=bits(p, 0, 6), size="large" if bits(p, 8, 1) == 0 else "small",
+                    note="play the Song of Time near it to make it appear or disappear. Whether it starts visible depends "
+                         "on its switch flag, params bit 15 and (for some) Link's age: ObjTimeblock_CalculateIsVisible")
     if name == "Obj_Bombiwa":
         return dict(kind="bombable_boulder", switch_flag=bits(p, 0, 6), requires="explosive or hammer")
     if name == "En_Torch":

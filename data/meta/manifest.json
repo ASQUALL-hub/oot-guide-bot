@@ -1,5 +1,5 @@
 {
- "note": "Reference metadata only (names, enums, layouts, randomizer logic, function index). No ROM data.",
+ "note": "Reference metadata only (names, enums, layouts, randomizer logic, function index, game rule tables). No ROM data.",
  "rom": {
   "name": "Ocarina of Time NTSC-J 1.0",
   "md5": "9f04c8e68534b870f707c247fa4b50fc"

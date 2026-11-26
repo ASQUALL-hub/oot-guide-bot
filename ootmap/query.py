@@ -8,6 +8,11 @@
   python query.py region "KF Links House"       logic region: locations, exits and their rules
   python query.py func EnBox_Init               a decomp function: file, line, signature, callees
   python query.py warps                          warp songs, blue warps, owls, grottos
+  python query.py item "hookshot"                what an item or song does, how to use it, where it is
+  python query.py unlocks "bomb bag"             what an item or event opens (directly, and everything behind it)
+  python query.py needs "water temple longshot chest"
+                                                  the key items and events a location strictly needs
+  python query.py quest                          the main story in order, with what each step needs
 Add --json to any command for machine-readable output.
 """
 import json
@@ -135,7 +140,41 @@ def cmd_func(q):
     return [f for f in fs if f["name"] == q] or [f for f in fs if q.lower() in f["name"].lower()][:25]
 
 
+def _pick(keys, q):
+    nq = norm(q)
+    return [k for k in keys if norm(k) == nq] or [k for k in keys if nq in norm(k)]
+
+
+def cmd_item(q):
+    g = load("game.json")
+    nq = norm(q)
+    hits = [i for i in g["items"] if nq in norm(i["name"]) or nq in norm(i.get("randomizer_name") or "") or nq == norm(i["item"])]
+    hits += [s for s in g["songs"] if nq in norm(s["name"])]
+    if not hits and nq.endswith("s"):
+        return cmd_item(q[:-1])  # "bombs" -> "bomb"
+    return hits
+
+
+def cmd_unlocks(q):
+    g = load("game.json")["strictly_needed_for"]
+    return {k: {kk: v for kk, v in g[k].items() if kk != "location_names"} for k in _pick(g, q)}
+
+
+def cmd_needs(q):
+    g = load("game.json")
+    ln = g["location_needs"]
+    sph = {}
+    for s in g["playthrough"]["spheres"]:
+        for k in s.get("key_items", []):
+            sph[k["location"]] = s["sphere"]
+    return {k: dict(ln[k], sphere=sph.get(k)) for k in _pick(ln, q)}
+
+
 def main():
+    try:
+        sys.stdout.reconfigure(encoding="utf-8")
+    except Exception:
+        pass
     args = [a for a in sys.argv[1:] if not a.startswith("--")]
     as_json = "--json" in sys.argv
     age = None
@@ -189,6 +228,45 @@ def main():
         res = cmd_func(rest[0])
     elif c == "warps":
         res = load("warps.json")
+    elif c == "item":
+        res = cmd_item(" ".join(rest))
+        if not as_json:
+            for i in res:
+                print(f"{i['name']}: {i.get('use', 'ocarina song')}" + (f", usable by {i['usable_by']}" if i.get("usable_by") else ""))
+                print(f"  {i.get('does') or i.get('effect')}")
+                for k in ("capacity_by_upgrade_level", "magic_cost", "reach_units", "notes"):
+                    if i.get(k):
+                        print(f"  {k}: {i[k]}")
+                for f in (i.get("found_at") or i.get("learned_at") or [])[:6]:
+                    print(f"  found at {f['location']} (sphere {f['sphere']})")
+                for label, v in (i.get("strictly_needed_for") or {}).items():
+                    print(f"  without {label}: {v['locations']} locations are out of standard logic")
+            print("nothing found" if not res else "")
+            return
+    elif c == "unlocks":
+        res = cmd_unlocks(" ".join(rest))
+        if not as_json:
+            for k, v in res.items():
+                print(f"{k}: {v['locations']} locations are out of standard logic without it. Directly unlocks:")
+                for d in v["directly_unlocks"]:
+                    print("  event " + d["event"] if "event" in d else f"  {d['location']} ({d['item']})")
+            print("nothing found" if not res else "")
+            return
+    elif c == "needs":
+        res = cmd_needs(" ".join(rest))
+        if not as_json:
+            for k, v in res.items():
+                print(f"{k}: directly needs {', '.join(v['directly']) or 'nothing extra'}; {len(v['all'])} things in all: {', '.join(v['all'])}")
+            print("nothing found (or it needs nothing beyond the start)" if not res else "")
+            return
+    elif c == "quest":
+        res = load("game.json")["main_quest"]
+        if not as_json:
+            for st in res:
+                print(f"{st['step']}. {st['title']}: {st['how']}")
+                for ch in st["checks"]:
+                    print(f"   - {ch['check']} (sphere {ch['sphere']}) directly needs: {', '.join(ch['directly_needs']) or 'nothing extra'}")
+            return
     else:
         print(__doc__)
         return

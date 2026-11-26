@@ -13,7 +13,8 @@ tricks, glitches and speedrun skips can bypass those requirements.
            --glitches (also enable glitch_/adv_ toggles), --hearts N (default 3)
 
 Simplifications (it is "basic"): time of day is treated as always reachable, rupees/wallet
-size are ignored, enemy souls are assumed, and at()/here() are approximated.
+size are ignored, enemy souls are assumed, and at()/here() are approximated. Like the randomizer with
+keys in their original places, it counts one free Fire Temple small key.
 """
 import ast
 import json
@@ -26,9 +27,15 @@ NOTE = ("Standard logic only (glitchless, no tricks unless enabled). Not being i
         "unreachable: tricks, glitches or skips used in speedruns may get there anyway.")
 
 
-def _load(rel):
-    with open(os.path.join(HERE, rel), encoding="utf-8") as f:
-        return json.load(f)
+_CACHE = {}
+
+
+def _load(rel, base=HERE):
+    p = os.path.join(base, rel)
+    if p not in _CACHE:
+        with open(p, encoding="utf-8") as f:
+            _CACHE[p] = json.load(f)
+    return _CACHE[p]
 
 
 def escape(name):
@@ -45,23 +52,30 @@ ALIASES = {  # friendly names -> (identifier, count)
     "Giants_Wallet": ("Progressive_Wallet", 2), "Bottle": ("Bottle", 1), "Master_Sword": ("Master_Sword", 1),
 }
 ITEM_HELPER_NAMES = {"Hookshot", "Longshot", "Silver_Gauntlets", "Golden_Gauntlets", "Bombs"}
+# With keys in their original places the randomizer starts you with one extra Fire Temple key (ItemPool.py: its
+# key rules assume a key could be spent on the locked door near the boss key). Mirror that so vanilla works.
+FREE_KEYS = {"Small_Key_Fire_Temple": 1}
 
 
 class Logic:
-    def __init__(self, items, all_keys=False, tricks=(), glitches=False, hearts=3):
-        self.graph = _load("logic/world_graph.json")["regions"]
+    def __init__(self, items, all_keys=False, tricks=(), glitches=False, hearts=3, data_dir=None):
+        base = data_dir or HERE
+        self.graph = _load("logic/world_graph.json", base)["regions"]
         self.regions = {r["region"]: r for r in self.graph}
-        self.settings = _load("logic/vanilla_settings.json")
-        self.helpers, self.helper_params = {}, {}
-        for k, v in _load("logic/helpers.json").items():
-            m = re.match(r"(\w+)\((.*)\)$", k)
-            body = ast.parse(v.strip(), mode="eval").body
-            if m:
-                self.helpers[m.group(1)] = body
-                self.helper_params[m.group(1)] = [p.strip() for p in m.group(2).split(",") if p.strip()]
-            else:
-                self.helpers[k] = body
-        self.locations = {i["name"]: i for i in _load("items.json")}
+        self.settings = _load("logic/vanilla_settings.json", base)
+        key = ("helpers", base)
+        if key not in _CACHE:
+            helpers, params = {}, {}
+            for k, v in _load("logic/helpers.json", base).items():
+                m = re.match(r"(\w+)\((.*)\)$", k)
+                body = ast.parse(v.strip(), mode="eval").body
+                if m:
+                    helpers[m.group(1)] = body
+                    params[m.group(1)] = [p.strip() for p in m.group(2).split(",") if p.strip()]
+                else:
+                    helpers[k] = body
+            _CACHE[key] = (helpers, params, {i["name"]: i for i in _load("items.json", base)})
+        self.helpers, self.helper_params, self.locations = _CACHE[key]
         self.inv = {}
         for raw in items:
             raw = raw.strip()
@@ -77,6 +91,7 @@ class Logic:
                 self.inv[ident] = max(self.inv.get(ident, 0), c * n if ident == "Bottle" else c)
             else:
                 self.inv[e] = self.inv.get(e, 0) + n
+        self.fast = False  # True: rules only answer yes/no (no "what's missing"); used by bulk replays
         self.all_keys = all_keys
         self.tricks = set(tricks)
         self.all_tricks = "all" in self.tricks
@@ -84,11 +99,11 @@ class Logic:
         self.hearts = hearts
         self.collected = set()  # events + auto-collected drops/shop items (escaped names)
         self.reached = set()    # (region, age)
-        self._rule_cache = {}
+        self._rule_cache = _CACHE.setdefault("rules", {})  # parsed rule ASTs are shared between instances
 
     # ------------------------------------------------------------ atoms
     def count(self, ident):
-        n = self.inv.get(ident, 0) + (1 if ident in self.collected else 0)
+        n = self.inv.get(ident, 0) + (1 if ident in self.collected else 0) + FREE_KEYS.get(ident, 0)
         if self.all_keys and (ident.startswith("Small_Key_") or ident.startswith("Boss_Key_") or ident.startswith("Silver_Rupee_")):
             n = max(n, 99)
         return n
@@ -126,6 +141,12 @@ class Logic:
         """Return (bool, missing:set[str]); missing is a small set of atoms that would satisfy a false rule."""
         T, F = (True, frozenset()), None
         if isinstance(node, ast.BoolOp):
+            if self.fast:  # yes/no only: short-circuit, no explanation of what is missing
+                want = isinstance(node.op, ast.Or)
+                for v in node.values:
+                    if self.ev(v, age, env)[0] == want:
+                        return (want, frozenset())
+                return (not want, frozenset())
             if isinstance(node.op, ast.And):
                 miss, ok = set(), True
                 for v in node.values:
@@ -144,7 +165,7 @@ class Logic:
             return False, best or frozenset()
         if isinstance(node, ast.UnaryOp) and isinstance(node.op, ast.Not):
             b, _ = self.ev(node.operand, age, env)
-            return (True, frozenset()) if not b else (False, frozenset({"not " + ast.unparse(node.operand)}))
+            return (True, frozenset()) if not b else (False, frozenset() if self.fast else frozenset({"not " + ast.unparse(node.operand)}))
         if isinstance(node, ast.Constant):
             if isinstance(node.value, bool):
                 return (node.value, frozenset() if node.value else frozenset({"False"}))
@@ -165,7 +186,9 @@ class Logic:
                     r = False
                 ok = ok and r
                 left = right
-            return (True, frozenset()) if ok else (False, frozenset({"condition: " + ast.unparse(node)}))
+            if ok:
+                return (True, frozenset())
+            return (False, frozenset() if self.fast else frozenset({"condition: " + ast.unparse(node)}))
         if isinstance(node, ast.Tuple):  # (Item, count)
             name = self.value(node.elts[0], age, env)
             n = self.value(node.elts[1], age, env)
