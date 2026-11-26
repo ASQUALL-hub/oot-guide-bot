@@ -1,0 +1,2270 @@
+[
+ {
+  "function": "Player_Action_80840450",
+  "file": "src/overlays/actors/ovl_player_actor/z_player.c",
+  "line": 8060,
+  "label": "Idle while locked on to an enemy (also where targeting jumps land)",
+  "category": "targeting",
+  "label_confidence": "high",
+  "decomp_named": false,
+  "entered_from": [
+   "Player_Action_808435C4",
+   "func_80839E88",
+   "func_80839FFC",
+   "func_8083CEAC"
+  ],
+  "setup_animations": [],
+  "setup_animation_groups": [
+   "defense",
+   "wait2waitR"
+  ],
+  "animations": [],
+  "animation_groups": [],
+  "sounds": [],
+  "state_flags": [
+   "PLAYER_STATE2_5",
+   "PLAYER_STATE2_6",
+   "PLAYER_STATE3_3"
+  ]
+ },
+ {
+  "function": "Player_Action_808407CC",
+  "file": "src/overlays/actors/ovl_player_actor/z_player.c",
+  "line": 8143,
+  "label": "Idle with Z held: no target or a friendly target (also where targeting jumps land)",
+  "category": "targeting",
+  "label_confidence": "high",
+  "decomp_named": false,
+  "entered_from": [
+   "func_80839F30",
+   "func_80839FFC"
+  ],
+  "setup_animations": [],
+  "setup_animation_groups": [],
+  "animations": [],
+  "animation_groups": [],
+  "sounds": [],
+  "state_flags": []
+ },
+ {
+  "function": "Player_Action_Idle",
+  "file": "src/overlays/actors/ovl_player_actor/z_player.c",
+  "line": 8293,
+  "label": "Standing idle",
+  "category": "idle",
+  "label_confidence": "high",
+  "decomp_named": true,
+  "entered_from": [
+   "Player_Action_808407CC",
+   "Player_Action_8084411C",
+   "func_80839FFC",
+   "func_8083C0E8",
+   "func_8083CE0C",
+   "func_80853080"
+  ],
+  "setup_animations": [
+   "gPlayerAnim_link_anchor_landingR",
+   "gPlayerAnim_link_normal_landing",
+   "gPlayerAnim_link_normal_run_jump",
+   "gPlayerAnim_link_normal_run_jump_end"
+  ],
+  "setup_animation_groups": [
+   "jump_climb_hold",
+   "landing",
+   "short_landing",
+   "waitL2wait",
+   "waitR2wait"
+  ],
+  "animations": [],
+  "animation_groups": [],
+  "sounds": [],
+  "state_flags": []
+ },
+ {
+  "function": "Player_Action_80840DE4",
+  "file": "src/overlays/actors/ovl_player_actor/z_player.c",
+  "line": 8358,
+  "label": "Z-targeted slow walk (forward)",
+  "category": "targeting",
+  "label_confidence": "medium",
+  "decomp_named": false,
+  "entered_from": [
+   "func_8083CB94"
+  ],
+  "setup_animations": [],
+  "setup_animation_groups": [
+   "walk"
+  ],
+  "animations": [
+   "gPlayerAnim_link_bow_side_walk"
+  ],
+  "animation_groups": [],
+  "sounds": [],
+  "state_flags": []
+ },
+ {
+  "function": "Player_Action_808414F8",
+  "file": "src/overlays/actors/ovl_player_actor/z_player.c",
+  "line": 8514,
+  "label": "Z-targeted backwalk (1.5x speed)",
+  "category": "targeting",
+  "label_confidence": "high",
+  "decomp_named": false,
+  "entered_from": [
+   "func_8083CB2C"
+  ],
+  "setup_animations": [],
+  "setup_animation_groups": [],
+  "animations": [],
+  "animation_groups": [],
+  "sounds": [],
+  "state_flags": []
+ },
+ {
+  "function": "Player_Action_8084170C",
+  "file": "src/overlays/actors/ovl_player_actor/z_player.c",
+  "line": 8558,
+  "label": "Brake skid after turning around at speed",
+  "category": "movement",
+  "label_confidence": "high",
+  "decomp_named": false,
+  "entered_from": [
+   "func_8084140C"
+  ],
+  "setup_animations": [
+   "gPlayerAnim_link_normal_back_brake"
+  ],
+  "setup_animation_groups": [],
+  "animations": [],
+  "animation_groups": [],
+  "sounds": [],
+  "state_flags": []
+ },
+ {
+  "function": "Player_Action_808417FC",
+  "file": "src/overlays/actors/ovl_player_actor/z_player.c",
+  "line": 8580,
+  "label": "End of the brake skid",
+  "category": "movement",
+  "label_confidence": "high",
+  "decomp_named": false,
+  "entered_from": [
+   "func_808416C0"
+  ],
+  "setup_animations": [
+   "gPlayerAnim_link_normal_back_brake_end"
+  ],
+  "setup_animation_groups": [],
+  "animations": [],
+  "animation_groups": [],
+  "sounds": [],
+  "state_flags": []
+ },
+ {
+  "function": "Player_Action_8084193C",
+  "file": "src/overlays/actors/ovl_player_actor/z_player.c",
+  "line": 8603,
+  "label": "Z-targeted strafe (side walk)",
+  "category": "targeting",
+  "label_confidence": "high",
+  "decomp_named": false,
+  "entered_from": [
+   "func_8083CC9C"
+  ],
+  "setup_animations": [],
+  "setup_animation_groups": [
+   "side_walkR"
+  ],
+  "animations": [],
+  "animation_groups": [],
+  "sounds": [],
+  "state_flags": []
+ },
+ {
+  "function": "Player_Action_TurnInPlace",
+  "file": "src/overlays/actors/ovl_player_actor/z_player.c",
+  "line": 8667,
+  "label": "Turning in place",
+  "category": "movement",
+  "label_confidence": "high",
+  "decomp_named": true,
+  "entered_from": [
+   "Player_SetupTurnInPlace"
+  ],
+  "setup_animations": [],
+  "setup_animation_groups": [
+   "45_turn"
+  ],
+  "animations": [],
+  "animation_groups": [],
+  "sounds": [],
+  "state_flags": []
+ },
+ {
+  "function": "Player_Action_80842180",
+  "file": "src/overlays/actors/ovl_player_actor/z_player.c",
+  "line": 8801,
+  "label": "Running (normal)",
+  "category": "movement",
+  "label_confidence": "high",
+  "decomp_named": false,
+  "entered_from": [
+   "func_8083C858"
+  ],
+  "setup_animations": [],
+  "setup_animation_groups": [
+   "run"
+  ],
+  "animations": [],
+  "animation_groups": [],
+  "sounds": [],
+  "state_flags": [
+   "PLAYER_STATE2_5"
+  ]
+ },
+ {
+  "function": "Player_Action_8084227C",
+  "file": "src/overlays/actors/ovl_player_actor/z_player.c",
+  "line": 8827,
+  "label": "Running while Z-targeting",
+  "category": "targeting",
+  "label_confidence": "medium",
+  "decomp_named": false,
+  "entered_from": [
+   "func_8083C858"
+  ],
+  "setup_animations": [],
+  "setup_animation_groups": [
+   "run"
+  ],
+  "animations": [],
+  "animation_groups": [],
+  "sounds": [],
+  "state_flags": [
+   "PLAYER_STATE2_5"
+  ]
+ },
+ {
+  "function": "Player_Action_808423EC",
+  "file": "src/overlays/actors/ovl_player_actor/z_player.c",
+  "line": 8860,
+  "label": "Z-targeted back-step (start of backing up)",
+  "category": "targeting",
+  "label_confidence": "high",
+  "decomp_named": false,
+  "entered_from": [
+   "func_8083CBF0"
+  ],
+  "setup_animations": [
+   "gPlayerAnim_link_anchor_back_walk"
+  ],
+  "setup_animation_groups": [],
+  "animations": [],
+  "animation_groups": [],
+  "sounds": [],
+  "state_flags": []
+ },
+ {
+  "function": "Player_Action_8084251C",
+  "file": "src/overlays/actors/ovl_player_actor/z_player.c",
+  "line": 8888,
+  "label": "Z-targeted back-step stop",
+  "category": "targeting",
+  "label_confidence": "high",
+  "decomp_named": false,
+  "entered_from": [
+   "func_8083CD00"
+  ],
+  "setup_animations": [
+   "gPlayerAnim_link_anchor_back_brake"
+  ],
+  "setup_animation_groups": [],
+  "animations": [],
+  "animation_groups": [],
+  "sounds": [],
+  "state_flags": []
+ },
+ {
+  "function": "Player_Action_8084279C",
+  "file": "src/overlays/actors/ovl_player_actor/z_player.c",
+  "line": 8938,
+  "label": "Holding up / checking an item",
+  "category": "items",
+  "label_confidence": "medium",
+  "decomp_named": false,
+  "entered_from": [
+   "Player_ActionHandler_13"
+  ],
+  "setup_animations": [
+   "gPlayerAnim_link_bottle_bug_out",
+   "gPlayerAnim_link_bottle_drink_demo_start",
+   "gPlayerAnim_link_bottle_fish_out",
+   "gPlayerAnim_link_normal_okarina_start"
+  ],
+  "setup_animation_groups": [
+   "check"
+  ],
+  "animations": [],
+  "animation_groups": [
+   "check_end",
+   "check_wait"
+  ],
+  "sounds": [],
+  "state_flags": []
+ },
+ {
+  "function": "Player_Action_80843188",
+  "file": "src/overlays/actors/ovl_player_actor/z_player.c",
+  "line": 9157,
+  "label": "Shield raised (R held)",
+  "category": "combat",
+  "label_confidence": "high",
+  "decomp_named": false,
+  "entered_from": [
+   "Player_ActionHandler_11",
+   "Player_Action_808435C4",
+   "func_808382DC",
+   "func_80842D20"
+  ],
+  "setup_animations": [],
+  "setup_animation_groups": [
+   "defense"
+  ],
+  "animations": [],
+  "animation_groups": [
+   "defense_end",
+   "defense_wait"
+  ],
+  "sounds": [
+   "IT_SHIELD_REMOVE"
+  ],
+  "state_flags": [
+   "PLAYER_STATE1_SHIELDING"
+  ]
+ },
+ {
+  "function": "Player_Action_808435C4",
+  "file": "src/overlays/actors/ovl_player_actor/z_player.c",
+  "line": 9254,
+  "label": "Raising the shield",
+  "category": "combat",
+  "label_confidence": "high",
+  "decomp_named": false,
+  "entered_from": [
+   "func_808382DC"
+  ],
+  "setup_animations": [],
+  "setup_animation_groups": [],
+  "animations": [],
+  "animation_groups": [
+   "defense"
+  ],
+  "sounds": [],
+  "state_flags": [
+   "PLAYER_STATE1_SHIELDING"
+  ]
+ },
+ {
+  "function": "Player_Action_8084370C",
+  "file": "src/overlays/actors/ovl_player_actor/z_player.c",
+  "line": 9283,
+  "label": "Hit / staggered by damage",
+  "category": "damage",
+  "label_confidence": "high",
+  "decomp_named": false,
+  "entered_from": [
+   "func_80837C0C"
+  ],
+  "setup_animations": [
+   "gPlayerAnim_link_normal_back_downA",
+   "gPlayerAnim_link_normal_electric_shock",
+   "gPlayerAnim_link_normal_front_downA",
+   "gPlayerAnim_link_normal_ice_down",
+   "gPlayerAnim_link_swimer_swim_hit"
+  ],
+  "setup_animation_groups": [
+   "damage_run"
+  ],
+  "animations": [],
+  "animation_groups": [],
+  "sounds": [],
+  "state_flags": []
+ },
+ {
+  "function": "Player_Action_8084377C",
+  "file": "src/overlays/actors/ovl_player_actor/z_player.c",
+  "line": 9296,
+  "label": "Knocked down (also frozen / electrocuted)",
+  "category": "damage",
+  "label_confidence": "high",
+  "decomp_named": false,
+  "entered_from": [
+   "Player_UpdateCamAndSeqModes",
+   "func_80837C0C"
+  ],
+  "setup_animations": [
+   "gPlayerAnim_link_normal_back_downA",
+   "gPlayerAnim_link_normal_electric_shock",
+   "gPlayerAnim_link_normal_front_downA",
+   "gPlayerAnim_link_normal_ice_down",
+   "gPlayerAnim_link_swimer_swim_hit"
+  ],
+  "setup_animation_groups": [
+   "damage_run"
+  ],
+  "animations": [
+   "gPlayerAnim_link_normal_back_downB",
+   "gPlayerAnim_link_normal_front_downB"
+  ],
+  "animation_groups": [],
+  "sounds": [
+   "PL_BOUND",
+   "VO_LI_FREEZE"
+  ],
+  "state_flags": [
+   "PLAYER_STATE1_26",
+   "PLAYER_STATE1_29",
+   "PLAYER_STATE2_5",
+   "PLAYER_STATE2_6"
+  ]
+ },
+ {
+  "function": "Player_Action_80843954",
+  "file": "src/overlays/actors/ovl_player_actor/z_player.c",
+  "line": 9345,
+  "label": "Getting up after a knockdown",
+  "category": "damage",
+  "label_confidence": "high",
+  "decomp_named": false,
+  "entered_from": [
+   "Player_Action_8084377C"
+  ],
+  "setup_animations": [
+   "gPlayerAnim_link_normal_back_downB",
+   "gPlayerAnim_link_normal_front_downB"
+  ],
+  "setup_animation_groups": [],
+  "animations": [
+   "gPlayerAnim_link_normal_back_down_wake",
+   "gPlayerAnim_link_normal_front_down_wake"
+  ],
+  "animation_groups": [],
+  "sounds": [],
+  "state_flags": [
+   "PLAYER_STATE1_26",
+   "PLAYER_STATE1_29",
+   "PLAYER_STATE2_5",
+   "PLAYER_STATE2_6"
+  ]
+ },
+ {
+  "function": "Player_Action_80843A38",
+  "file": "src/overlays/actors/ovl_player_actor/z_player.c",
+  "line": 9373,
+  "label": "Recovering after getting up",
+  "category": "damage",
+  "label_confidence": "medium",
+  "decomp_named": false,
+  "entered_from": [
+   "Player_Action_80843954"
+  ],
+  "setup_animations": [
+   "gPlayerAnim_link_normal_back_down_wake",
+   "gPlayerAnim_link_normal_front_down_wake"
+  ],
+  "setup_animation_groups": [],
+  "animations": [],
+  "animation_groups": [],
+  "sounds": [],
+  "state_flags": [
+   "PLAYER_STATE1_29",
+   "PLAYER_STATE2_5"
+  ]
+ },
+ {
+  "function": "Player_Action_80843CEC",
+  "file": "src/overlays/actors/ovl_player_actor/z_player.c",
+  "line": 9441,
+  "label": "Dying / revived by a fairy",
+  "category": "damage",
+  "label_confidence": "high",
+  "decomp_named": false,
+  "entered_from": [
+   "func_80836448"
+  ],
+  "setup_animations": [
+   "gPlayerAnim_link_derth_rebirth"
+  ],
+  "setup_animation_groups": [],
+  "animations": [
+   "gPlayerAnim_link_derth_rebirth",
+   "gPlayerAnim_link_normal_electric_shock_end"
+  ],
+  "animation_groups": [],
+  "sounds": [
+   "PL_BOUND"
+  ],
+  "state_flags": []
+ },
+ {
+  "function": "Player_Action_8084411C",
+  "file": "src/overlays/actors/ovl_player_actor/z_player.c",
+  "line": 9555,
+  "label": "In the air (jump, sidehop, backflip, falling)",
+  "category": "movement",
+  "label_confidence": "high",
+  "decomp_named": false,
+  "entered_from": [
+   "func_80837B9C",
+   "func_80838940",
+   "func_8083AA10"
+  ],
+  "setup_animations": [
+   "gPlayerAnim_link_normal_landing_wait",
+   "gPlayerAnim_link_normal_run_jump_water_fall"
+  ],
+  "setup_animation_groups": [],
+  "animations": [
+   "gPlayerAnim_link_anchor_landingR",
+   "gPlayerAnim_link_normal_landing",
+   "gPlayerAnim_link_normal_run_jump",
+   "gPlayerAnim_link_normal_run_jump_end"
+  ],
+  "animation_groups": [
+   "jump_climb_hold",
+   "landing",
+   "short_landing"
+  ],
+  "sounds": [
+   "VO_LI_FALL_L",
+   "VO_LI_FALL_S",
+   "VO_LI_HANG",
+   "VO_LI_HOOKSHOT_HANG"
+  ],
+  "state_flags": [
+   "PLAYER_STATE1_13",
+   "PLAYER_STATE1_2",
+   "PLAYER_STATE1_27",
+   "PLAYER_STATE1_CARRYING_ACTOR",
+   "PLAYER_STATE2_19"
+  ]
+ },
+ {
+  "function": "Player_Action_Roll",
+  "file": "src/overlays/actors/ovl_player_actor/z_player.c",
+  "line": 9685,
+  "label": "Rolling",
+  "category": "movement",
+  "label_confidence": "high",
+  "decomp_named": true,
+  "entered_from": [
+   "Player_SetupRoll"
+  ],
+  "setup_animations": [],
+  "setup_animation_groups": [
+   "landing_roll"
+  ],
+  "animations": [],
+  "animation_groups": [
+   "hip_down"
+  ],
+  "sounds": [
+   "PL_BODY_HIT",
+   "PL_ROLL_DUST",
+   "VO_LI_CLIMB_END"
+  ],
+  "state_flags": [
+   "PLAYER_STATE2_5"
+  ]
+ },
+ {
+  "function": "Player_Action_80844A44",
+  "file": "src/overlays/actors/ovl_player_actor/z_player.c",
+  "line": 9779,
+  "label": "Jumping/falling into deep water",
+  "category": "water",
+  "label_confidence": "high",
+  "decomp_named": false,
+  "entered_from": [
+   "func_8083AA10",
+   "func_8083D36C"
+  ],
+  "setup_animations": [
+   "gPlayerAnim_link_normal_landing_wait",
+   "gPlayerAnim_link_normal_run_jump_water_fall",
+   "gPlayerAnim_link_swimer_land2swim_wait",
+   "gPlayerAnim_link_swimer_wait2swim_wait"
+  ],
+  "setup_animation_groups": [],
+  "animations": [
+   "gPlayerAnim_link_normal_run_jump_water_fall_wait"
+  ],
+  "animation_groups": [],
+  "sounds": [],
+  "state_flags": [
+   "PLAYER_STATE2_5"
+  ]
+ },
+ {
+  "function": "Player_Action_80844AF4",
+  "file": "src/overlays/actors/ovl_player_actor/z_player.c",
+  "line": 9794,
+  "label": "Jumpslash (airborne attack)",
+  "category": "combat",
+  "label_confidence": "high",
+  "decomp_named": false,
+  "entered_from": [
+   "func_8083BA90"
+  ],
+  "setup_animations": [],
+  "setup_animation_groups": [],
+  "animations": [],
+  "animation_groups": [],
+  "sounds": [],
+  "state_flags": [
+   "PLAYER_STATE2_5"
+  ]
+ },
+ {
+  "function": "Player_Action_80844E68",
+  "file": "src/overlays/actors/ovl_player_actor/z_player.c",
+  "line": 9875,
+  "label": "Charging a spin attack (B held)",
+  "category": "combat",
+  "label_confidence": "high",
+  "decomp_named": false,
+  "entered_from": [
+   "func_808377DC",
+   "func_80844DC8",
+   "func_808524D0",
+   "func_80852514"
+  ],
+  "setup_animations": [],
+  "setup_animation_groups": [],
+  "animations": [],
+  "animation_groups": [],
+  "sounds": [],
+  "state_flags": [
+   "PLAYER_STATE1_CHARGING_SPIN_ATTACK",
+   "PLAYER_STATE1_PARALLEL"
+  ]
+ },
+ {
+  "function": "Player_Action_80845000",
+  "file": "src/overlays/actors/ovl_player_actor/z_player.c",
+  "line": 9915,
+  "label": "Walking while charging a spin attack",
+  "category": "combat",
+  "label_confidence": "medium",
+  "decomp_named": false,
+  "entered_from": [
+   "func_80844CF8"
+  ],
+  "setup_animations": [],
+  "setup_animation_groups": [],
+  "animations": [],
+  "animation_groups": [],
+  "sounds": [],
+  "state_flags": [
+   "PLAYER_STATE1_CHARGING_SPIN_ATTACK"
+  ]
+ },
+ {
+  "function": "Player_Action_80845308",
+  "file": "src/overlays/actors/ovl_player_actor/z_player.c",
+  "line": 9983,
+  "label": "Strafing while charging a spin attack",
+  "category": "combat",
+  "label_confidence": "medium",
+  "decomp_named": false,
+  "entered_from": [
+   "func_80844D30"
+  ],
+  "setup_animations": [],
+  "setup_animation_groups": [],
+  "animations": [],
+  "animation_groups": [],
+  "sounds": [],
+  "state_flags": [
+   "PLAYER_STATE1_CHARGING_SPIN_ATTACK"
+  ]
+ },
+ {
+  "function": "Player_Action_80845668",
+  "file": "src/overlays/actors/ovl_player_actor/z_player.c",
+  "line": 10051,
+  "label": "Climbing up onto a ledge",
+  "category": "movement",
+  "label_confidence": "high",
+  "decomp_named": false,
+  "entered_from": [
+   "Player_ActionHandler_12",
+   "Player_UpdateCamAndSeqModes",
+   "Player_UpdateCommon",
+   "func_8083D53C"
+  ],
+  "setup_animations": [
+   "gPlayerAnim_link_derth_rebirth",
+   "gPlayerAnim_link_normal_100step_up",
+   "gPlayerAnim_link_normal_150step_up",
+   "gPlayerAnim_link_normal_250jump_start",
+   "gPlayerAnim_link_normal_electric_shock_end",
+   "gPlayerAnim_link_normal_jump",
+   "gPlayerAnim_link_swimer_swim_15step_up",
+   "gPlayerAnim_link_swimer_swim_down",
+   "gPlayerAnim_link_uma_wait_1"
+  ],
+  "setup_animation_groups": [],
+  "animations": [
+   "gPlayerAnim_link_normal_100step_up",
+   "gPlayerAnim_link_normal_150step_up",
+   "gPlayerAnim_link_normal_250jump_start",
+   "gPlayerAnim_link_swimer_swim_15step_up"
+  ],
+  "animation_groups": [],
+  "sounds": [
+   "VO_LI_AUTO_JUMP",
+   "VO_LI_CLIMB_END"
+  ],
+  "state_flags": [
+   "PLAYER_STATE1_14",
+   "PLAYER_STATE1_18",
+   "PLAYER_STATE1_27",
+   "PLAYER_STATE2_5"
+  ]
+ },
+ {
+  "function": "Player_Action_WaitForPutAway",
+  "file": "src/overlays/actors/ovl_player_actor/z_player.c",
+  "line": 10131,
+  "label": "Putting away the held item first",
+  "category": "items",
+  "label_confidence": "high",
+  "decomp_named": true,
+  "entered_from": [
+   "Player_CanUpdateItems",
+   "Player_SetupWaitForPutAway"
+  ],
+  "setup_animations": [],
+  "setup_animation_groups": [],
+  "animations": [],
+  "animation_groups": [],
+  "sounds": [],
+  "state_flags": [
+   "PLAYER_STATE1_CARRYING_ACTOR",
+   "PLAYER_STATE2_5",
+   "PLAYER_STATE2_6"
+  ]
+ },
+ {
+  "function": "Player_Action_80845CA4",
+  "file": "src/overlays/actors/ovl_player_actor/z_player.c",
+  "line": 10224,
+  "label": "Walking into a loading zone / scene exit",
+  "category": "transitions",
+  "label_confidence": "high",
+  "decomp_named": false,
+  "entered_from": [
+   "Player_ProcessSceneCollision",
+   "func_80838E70"
+  ],
+  "setup_animations": [],
+  "setup_animation_groups": [],
+  "animations": [],
+  "animation_groups": [],
+  "sounds": [],
+  "state_flags": [
+   "PLAYER_STATE1_0",
+   "PLAYER_STATE1_29",
+   "PLAYER_STATE1_CARRYING_ACTOR"
+  ]
+ },
+ {
+  "function": "Player_Action_80845EF8",
+  "file": "src/overlays/actors/ovl_player_actor/z_player.c",
+  "line": 10284,
+  "label": "Walking through a door",
+  "category": "transitions",
+  "label_confidence": "high",
+  "decomp_named": false,
+  "entered_from": [
+   "Player_ActionHandler_1",
+   "Player_ProcessSceneCollision"
+  ],
+  "setup_animations": [],
+  "setup_animation_groups": [
+   "doorA",
+   "doorA_free",
+   "doorB",
+   "doorB_free"
+  ],
+  "animations": [],
+  "animation_groups": [],
+  "sounds": [],
+  "state_flags": [
+   "PLAYER_STATE1_29",
+   "PLAYER_STATE2_5"
+  ]
+ },
+ {
+  "function": "Player_Action_80846050",
+  "file": "src/overlays/actors/ovl_player_actor/z_player.c",
+  "line": 10315,
+  "label": "Lifting an object",
+  "category": "carry",
+  "label_confidence": "high",
+  "decomp_named": false,
+  "entered_from": [
+   "func_8083A0F4"
+  ],
+  "setup_animations": [
+   "gPlayerAnim_link_normal_heavy_carry",
+   "gPlayerAnim_link_normal_nocarry_free",
+   "gPlayerAnim_link_silver_carry"
+  ],
+  "setup_animation_groups": [
+   "carryB"
+  ],
+  "animations": [],
+  "animation_groups": [],
+  "sounds": [],
+  "state_flags": []
+ },
+ {
+  "function": "Player_Action_80846120",
+  "file": "src/overlays/actors/ovl_player_actor/z_player.c",
+  "line": 10343,
+  "label": "Lifting a heavy object (Gauntlets)",
+  "category": "carry",
+  "label_confidence": "medium",
+  "decomp_named": false,
+  "entered_from": [
+   "func_8083A0F4"
+  ],
+  "setup_animations": [
+   "gPlayerAnim_link_normal_heavy_carry",
+   "gPlayerAnim_link_normal_nocarry_free",
+   "gPlayerAnim_link_silver_carry"
+  ],
+  "setup_animation_groups": [
+   "carryB"
+  ],
+  "animations": [
+   "gPlayerAnim_link_normal_heavy_carry_end"
+  ],
+  "animation_groups": [],
+  "sounds": [],
+  "state_flags": []
+ },
+ {
+  "function": "Player_Action_80846260",
+  "file": "src/overlays/actors/ovl_player_actor/z_player.c",
+  "line": 10368,
+  "label": "Holding a huge rock overhead (Silver/Golden Gauntlets)",
+  "category": "carry",
+  "label_confidence": "high",
+  "decomp_named": false,
+  "entered_from": [
+   "func_8083A0F4"
+  ],
+  "setup_animations": [
+   "gPlayerAnim_link_normal_heavy_carry",
+   "gPlayerAnim_link_normal_nocarry_free",
+   "gPlayerAnim_link_silver_carry"
+  ],
+  "setup_animation_groups": [
+   "carryB"
+  ],
+  "animations": [
+   "gPlayerAnim_link_silver_throw",
+   "gPlayerAnim_link_silver_wait"
+  ],
+  "animation_groups": [],
+  "sounds": [
+   "VO_LI_SWORD_L"
+  ],
+  "state_flags": []
+ },
+ {
+  "function": "Player_Action_80846358",
+  "file": "src/overlays/actors/ovl_player_actor/z_player.c",
+  "line": 10390,
+  "label": "Throwing a huge rock",
+  "category": "carry",
+  "label_confidence": "high",
+  "decomp_named": false,
+  "entered_from": [
+   "Player_Action_80846260"
+  ],
+  "setup_animations": [
+   "gPlayerAnim_link_silver_throw",
+   "gPlayerAnim_link_silver_wait"
+  ],
+  "setup_animation_groups": [],
+  "animations": [],
+  "animation_groups": [],
+  "sounds": [
+   "PL_THROW",
+   "VO_LI_SWORD_N"
+  ],
+  "state_flags": []
+ },
+ {
+  "function": "Player_Action_80846408",
+  "file": "src/overlays/actors/ovl_player_actor/z_player.c",
+  "line": 10408,
+  "label": "Failing to lift (too heavy)",
+  "category": "carry",
+  "label_confidence": "high",
+  "decomp_named": false,
+  "entered_from": [
+   "func_8083A0F4"
+  ],
+  "setup_animations": [
+   "gPlayerAnim_link_normal_heavy_carry",
+   "gPlayerAnim_link_normal_nocarry_free",
+   "gPlayerAnim_link_silver_carry"
+  ],
+  "setup_animation_groups": [
+   "carryB"
+  ],
+  "animations": [
+   "gPlayerAnim_link_normal_nocarry_free_end",
+   "gPlayerAnim_link_normal_nocarry_free_wait"
+  ],
+  "animation_groups": [],
+  "sounds": [
+   "VO_LI_DAMAGE_S"
+  ],
+  "state_flags": [
+   "PLAYER_STATE1_CARRYING_ACTOR"
+  ]
+ },
+ {
+  "function": "Player_Action_808464B0",
+  "file": "src/overlays/actors/ovl_player_actor/z_player.c",
+  "line": 10425,
+  "label": "Putting down a carried object",
+  "category": "carry",
+  "label_confidence": "high",
+  "decomp_named": false,
+  "entered_from": [
+   "Player_ActionHandler_9"
+  ],
+  "setup_animations": [],
+  "setup_animation_groups": [
+   "put"
+  ],
+  "animations": [],
+  "animation_groups": [],
+  "sounds": [],
+  "state_flags": []
+ },
+ {
+  "function": "Player_Action_80846578",
+  "file": "src/overlays/actors/ovl_player_actor/z_player.c",
+  "line": 10447,
+  "label": "Throwing a carried object",
+  "category": "carry",
+  "label_confidence": "high",
+  "decomp_named": false,
+  "entered_from": [
+   "func_8083EA94"
+  ],
+  "setup_animations": [],
+  "setup_animation_groups": [
+   "throw"
+  ],
+  "animations": [],
+  "animation_groups": [],
+  "sounds": [],
+  "state_flags": []
+ },
+ {
+  "function": "Player_Action_8084B1D8",
+  "file": "src/overlays/actors/ovl_player_actor/z_player.c",
+  "line": 12487,
+  "label": "Using an item (first-person / aiming state)",
+  "category": "items",
+  "label_confidence": "low",
+  "decomp_named": false,
+  "entered_from": [
+   "Player_ActionHandler_13"
+  ],
+  "setup_animations": [
+   "gPlayerAnim_link_bottle_bug_out",
+   "gPlayerAnim_link_bottle_drink_demo_start",
+   "gPlayerAnim_link_bottle_fish_out",
+   "gPlayerAnim_link_normal_okarina_start"
+  ],
+  "setup_animation_groups": [
+   "check"
+  ],
+  "animations": [],
+  "animation_groups": [],
+  "sounds": [],
+  "state_flags": [
+   "PLAYER_STATE1_27"
+  ]
+ },
+ {
+  "function": "Player_Action_Talk",
+  "file": "src/overlays/actors/ovl_player_actor/z_player.c",
+  "line": 12557,
+  "label": "Talking",
+  "category": "interaction",
+  "label_confidence": "high",
+  "decomp_named": true,
+  "entered_from": [
+   "Player_SetupTalk"
+  ],
+  "setup_animations": [],
+  "setup_animation_groups": [],
+  "animations": [
+   "gPlayerAnim_link_normal_talk_free",
+   "gPlayerAnim_link_normal_talk_free_wait"
+  ],
+  "animation_groups": [],
+  "sounds": [],
+  "state_flags": [
+   "PLAYER_STATE1_23",
+   "PLAYER_STATE2_5",
+   "PLAYER_STATE2_LOCK_ON_WITH_SWITCH"
+  ]
+ },
+ {
+  "function": "Player_Action_8084B78C",
+  "file": "src/overlays/actors/ovl_player_actor/z_player.c",
+  "line": 12612,
+  "label": "Grabbing a block",
+  "category": "interaction",
+  "label_confidence": "medium",
+  "decomp_named": false,
+  "entered_from": [
+   "func_8083A388",
+   "func_8083F72C"
+  ],
+  "setup_animations": [],
+  "setup_animation_groups": [],
+  "animations": [],
+  "animation_groups": [],
+  "sounds": [],
+  "state_flags": [
+   "PLAYER_STATE2_0",
+   "PLAYER_STATE2_6",
+   "PLAYER_STATE2_8"
+  ]
+ },
+ {
+  "function": "Player_Action_8084B898",
+  "file": "src/overlays/actors/ovl_player_actor/z_player.c",
+  "line": 12648,
+  "label": "Pushing a block",
+  "category": "interaction",
+  "label_confidence": "high",
+  "decomp_named": false,
+  "entered_from": [
+   "func_8083FAB8"
+  ],
+  "setup_animations": [
+   "gPlayerAnim_link_normal_push_start"
+  ],
+  "setup_animation_groups": [],
+  "animations": [
+   "gPlayerAnim_link_normal_push_end",
+   "gPlayerAnim_link_normal_pushing"
+  ],
+  "animation_groups": [],
+  "sounds": [
+   "VO_LI_PUSH"
+  ],
+  "state_flags": [
+   "PLAYER_STATE2_0",
+   "PLAYER_STATE2_4",
+   "PLAYER_STATE2_6",
+   "PLAYER_STATE2_8"
+  ]
+ },
+ {
+  "function": "Player_Action_8084B9E4",
+  "file": "src/overlays/actors/ovl_player_actor/z_player.c",
+  "line": 12691,
+  "label": "Pulling a block",
+  "category": "interaction",
+  "label_confidence": "high",
+  "decomp_named": false,
+  "entered_from": [
+   "func_8083FB14"
+  ],
+  "setup_animations": [],
+  "setup_animation_groups": [
+   "pull_start"
+  ],
+  "animations": [],
+  "animation_groups": [
+   "pull_end",
+   "pulling"
+  ],
+  "sounds": [
+   "VO_LI_PUSH"
+  ],
+  "state_flags": [
+   "PLAYER_STATE2_0",
+   "PLAYER_STATE2_4",
+   "PLAYER_STATE2_6",
+   "PLAYER_STATE2_8"
+  ]
+ },
+ {
+  "function": "Player_Action_8084BBE4",
+  "file": "src/overlays/actors/ovl_player_actor/z_player.c",
+  "line": 12749,
+  "label": "Hanging from a ledge",
+  "category": "climbing",
+  "label_confidence": "high",
+  "decomp_named": false,
+  "entered_from": [
+   "func_8083A5C4"
+  ],
+  "setup_animations": [],
+  "setup_animation_groups": [],
+  "animations": [
+   "gPlayerAnim_link_normal_fall",
+   "gPlayerAnim_link_normal_fall_wait"
+  ],
+  "animation_groups": [
+   "fall_up",
+   "jump_climb_up",
+   "jump_climb_wait"
+  ],
+  "sounds": [
+   "PL_WALK_GROUND"
+  ],
+  "state_flags": [
+   "PLAYER_STATE1_13",
+   "PLAYER_STATE1_14",
+   "PLAYER_STATE2_6"
+  ]
+ },
+ {
+  "function": "Player_Action_8084BDFC",
+  "file": "src/overlays/actors/ovl_player_actor/z_player.c",
+  "line": 12805,
+  "label": "Pulling up from a ledge hang",
+  "category": "climbing",
+  "label_confidence": "high",
+  "decomp_named": false,
+  "entered_from": [
+   "func_8083A9B8",
+   "func_8083D53C"
+  ],
+  "setup_animations": [],
+  "setup_animation_groups": [],
+  "animations": [],
+  "animation_groups": [],
+  "sounds": [
+   "PL_CLIMB_CLIFF",
+   "VO_LI_CLIMB_END"
+  ],
+  "state_flags": [
+   "PLAYER_STATE1_13",
+   "PLAYER_STATE1_14",
+   "PLAYER_STATE2_6"
+  ]
+ },
+ {
+  "function": "Player_Action_8084BF1C",
+  "file": "src/overlays/actors/ovl_player_actor/z_player.c",
+  "line": 12828,
+  "label": "Climbing a ladder / vines",
+  "category": "climbing",
+  "label_confidence": "high",
+  "decomp_named": false,
+  "entered_from": [
+   "func_8083A3B0"
+  ],
+  "setup_animations": [],
+  "setup_animation_groups": [],
+  "animations": [
+   "gPlayerAnim_link_normal_jump_climb_up_free"
+  ],
+  "animation_groups": [],
+  "sounds": [],
+  "state_flags": [
+   "PLAYER_STATE1_14",
+   "PLAYER_STATE1_21",
+   "PLAYER_STATE2_12",
+   "PLAYER_STATE2_6"
+  ]
+ },
+ {
+  "function": "Player_Action_8084C5F8",
+  "file": "src/overlays/actors/ovl_player_actor/z_player.c",
+  "line": 12982,
+  "label": "Grabbing a ladder from the top",
+  "category": "climbing",
+  "label_confidence": "medium",
+  "decomp_named": false,
+  "entered_from": [
+   "func_8083F070"
+  ],
+  "setup_animations": [],
+  "setup_animation_groups": [],
+  "animations": [],
+  "animation_groups": [],
+  "sounds": [],
+  "state_flags": [
+   "PLAYER_STATE1_21",
+   "PLAYER_STATE2_6"
+  ]
+ },
+ {
+  "function": "Player_Action_8084C760",
+  "file": "src/overlays/actors/ovl_player_actor/z_player.c",
+  "line": 13037,
+  "label": "Getting on/off a climbing surface",
+  "category": "climbing",
+  "label_confidence": "low",
+  "decomp_named": false,
+  "entered_from": [
+   "func_8083A40C"
+  ],
+  "setup_animations": [],
+  "setup_animation_groups": [],
+  "animations": [],
+  "animation_groups": [],
+  "sounds": [],
+  "state_flags": [
+   "PLAYER_STATE1_0",
+   "PLAYER_STATE2_6"
+  ]
+ },
+ {
+  "function": "Player_Action_8084C81C",
+  "file": "src/overlays/actors/ovl_player_actor/z_player.c",
+  "line": 13071,
+  "label": "Crawling through a crawlspace (child)",
+  "category": "movement",
+  "label_confidence": "high",
+  "decomp_named": false,
+  "entered_from": [
+   "Player_TryLeavingCrawlspace"
+  ],
+  "setup_animations": [
+   "gPlayerAnim_link_child_tunnel_end",
+   "gPlayerAnim_link_child_tunnel_start"
+  ],
+  "setup_animation_groups": [],
+  "animations": [],
+  "animation_groups": [],
+  "sounds": [],
+  "state_flags": [
+   "PLAYER_STATE2_6",
+   "PLAYER_STATE2_CRAWLING"
+  ]
+ },
+ {
+  "function": "Player_Action_8084CC98",
+  "file": "src/overlays/actors/ovl_player_actor/z_player.c",
+  "line": 13225,
+  "label": "Riding Epona",
+  "category": "horse",
+  "label_confidence": "high",
+  "decomp_named": false,
+  "entered_from": [
+   "Player_Action_Talk",
+   "func_8083A360"
+  ],
+  "setup_animations": [
+   "gPlayerAnim_link_normal_talk_free",
+   "gPlayerAnim_link_normal_talk_free_wait"
+  ],
+  "setup_animation_groups": [],
+  "animations": [
+   "gPlayerAnim_link_uma_stop_muti",
+   "gPlayerAnim_link_uma_wait_1",
+   "gPlayerAnim_link_uma_wait_3"
+  ],
+  "animation_groups": [],
+  "sounds": [
+   "IT_LASH",
+   "PL_CLIMB_CLIFF",
+   "PL_SIT_ON_HORSE",
+   "VO_LI_LASH"
+  ],
+  "state_flags": [
+   "PLAYER_STATE1_20",
+   "PLAYER_STATE2_6"
+  ]
+ },
+ {
+  "function": "Player_Action_8084D3E4",
+  "file": "src/overlays/actors/ovl_player_actor/z_player.c",
+  "line": 13405,
+  "label": "Getting off Epona",
+  "category": "horse",
+  "label_confidence": "high",
+  "decomp_named": false,
+  "entered_from": [
+   "Player_UpdateInterface",
+   "func_8084C9BC"
+  ],
+  "setup_animations": [
+   "gPlayerAnim_link_uma_left_down",
+   "gPlayerAnim_link_uma_right_down"
+  ],
+  "setup_animation_groups": [],
+  "animations": [],
+  "animation_groups": [],
+  "sounds": [],
+  "state_flags": [
+   "PLAYER_STATE1_23",
+   "PLAYER_STATE2_6"
+  ]
+ },
+ {
+  "function": "Player_Action_8084D610",
+  "file": "src/overlays/actors/ovl_player_actor/z_player.c",
+  "line": 13455,
+  "label": "Treading water at the surface",
+  "category": "water",
+  "label_confidence": "high",
+  "decomp_named": false,
+  "entered_from": [
+   "Player_Action_Talk",
+   "func_80838F18",
+   "func_8083D36C",
+   "func_8083D53C"
+  ],
+  "setup_animations": [
+   "gPlayerAnim_link_normal_talk_free",
+   "gPlayerAnim_link_normal_talk_free_wait",
+   "gPlayerAnim_link_swimer_land2swim_wait",
+   "gPlayerAnim_link_swimer_swim_wait",
+   "gPlayerAnim_link_swimer_wait2swim_wait"
+  ],
+  "setup_animation_groups": [],
+  "animations": [
+   "gPlayerAnim_link_swimer_swim_wait"
+  ],
+  "animation_groups": [
+   "short_landing"
+  ],
+  "sounds": [],
+  "state_flags": []
+ },
+ {
+  "function": "Player_Action_8084D7C4",
+  "file": "src/overlays/actors/ovl_player_actor/z_player.c",
+  "line": 13498,
+  "label": "Starting to swim",
+  "category": "water",
+  "label_confidence": "medium",
+  "decomp_named": false,
+  "entered_from": [
+   "Player_SetStartingMovement",
+   "func_8083D53C"
+  ],
+  "setup_animations": [
+   "gPlayerAnim_link_swimer_swim"
+  ],
+  "setup_animation_groups": [],
+  "animations": [],
+  "animation_groups": [],
+  "sounds": [],
+  "state_flags": [
+   "PLAYER_STATE2_5"
+  ]
+ },
+ {
+  "function": "Player_Action_8084D84C",
+  "file": "src/overlays/actors/ovl_player_actor/z_player.c",
+  "line": 13511,
+  "label": "Swimming at the surface",
+  "category": "water",
+  "label_confidence": "medium",
+  "decomp_named": false,
+  "entered_from": [
+   "func_8083D53C",
+   "func_8084D574"
+  ],
+  "setup_animations": [
+   "gPlayerAnim_link_swimer_swim"
+  ],
+  "setup_animation_groups": [],
+  "animations": [],
+  "animation_groups": [],
+  "sounds": [],
+  "state_flags": [
+   "PLAYER_STATE2_5"
+  ]
+ },
+ {
+  "function": "Player_Action_8084DAB4",
+  "file": "src/overlays/actors/ovl_player_actor/z_player.c",
+  "line": 13574,
+  "label": "Swimming (turning / alternate stroke)",
+  "category": "water",
+  "label_confidence": "low",
+  "decomp_named": false,
+  "entered_from": [
+   "func_8083D53C",
+   "func_8084D5CC"
+  ],
+  "setup_animations": [
+   "gPlayerAnim_link_swimer_swim"
+  ],
+  "setup_animation_groups": [],
+  "animations": [],
+  "animation_groups": [],
+  "sounds": [],
+  "state_flags": []
+ },
+ {
+  "function": "Player_Action_8084DC48",
+  "file": "src/overlays/actors/ovl_player_actor/z_player.c",
+  "line": 13606,
+  "label": "Diving / swimming underwater",
+  "category": "water",
+  "label_confidence": "high",
+  "decomp_named": false,
+  "entered_from": [
+   "func_8083D12C",
+   "func_8083D36C",
+   "func_8083D53C"
+  ],
+  "setup_animations": [
+   "gPlayerAnim_link_swimer_land2swim_wait",
+   "gPlayerAnim_link_swimer_swim_deep_end",
+   "gPlayerAnim_link_swimer_swim_deep_start",
+   "gPlayerAnim_link_swimer_swim_get",
+   "gPlayerAnim_link_swimer_wait2swim_wait"
+  ],
+  "setup_animation_groups": [],
+  "animations": [
+   "gPlayerAnim_link_swimer_swim",
+   "gPlayerAnim_link_swimer_swim_wait"
+  ],
+  "animation_groups": [],
+  "sounds": [],
+  "state_flags": [
+   "PLAYER_STATE1_CARRYING_ACTOR",
+   "PLAYER_STATE2_5"
+  ]
+ },
+ {
+  "function": "Player_Action_8084E1EC",
+  "file": "src/overlays/actors/ovl_player_actor/z_player.c",
+  "line": 13733,
+  "label": "Surfacing for breath",
+  "category": "water",
+  "label_confidence": "high",
+  "decomp_named": false,
+  "entered_from": [
+   "func_8083D12C",
+   "func_8083D53C"
+  ],
+  "setup_animations": [
+   "gPlayerAnim_link_swimer_swim_deep_end",
+   "gPlayerAnim_link_swimer_swim_deep_start",
+   "gPlayerAnim_link_swimer_swim_get"
+  ],
+  "setup_animation_groups": [],
+  "animations": [],
+  "animation_groups": [],
+  "sounds": [
+   "VO_LI_BREATH_DRINK"
+  ],
+  "state_flags": [
+   "PLAYER_STATE1_10",
+   "PLAYER_STATE2_5"
+  ]
+ },
+ {
+  "function": "Player_Action_8084E30C",
+  "file": "src/overlays/actors/ovl_player_actor/z_player.c",
+  "line": 13756,
+  "label": "Hit while in water",
+  "category": "water",
+  "label_confidence": "medium",
+  "decomp_named": false,
+  "entered_from": [
+   "func_80837C0C",
+   "func_8083D53C"
+  ],
+  "setup_animations": [
+   "gPlayerAnim_link_normal_back_downA",
+   "gPlayerAnim_link_normal_electric_shock",
+   "gPlayerAnim_link_normal_front_downA",
+   "gPlayerAnim_link_normal_ice_down",
+   "gPlayerAnim_link_swimer_swim_hit"
+  ],
+  "setup_animation_groups": [
+   "damage_run"
+  ],
+  "animations": [],
+  "animation_groups": [],
+  "sounds": [],
+  "state_flags": []
+ },
+ {
+  "function": "Player_Action_8084E368",
+  "file": "src/overlays/actors/ovl_player_actor/z_player.c",
+  "line": 13766,
+  "label": "Drowning / dying in water",
+  "category": "water",
+  "label_confidence": "medium",
+  "decomp_named": false,
+  "entered_from": [
+   "func_80836448",
+   "func_8083D53C"
+  ],
+  "setup_animations": [
+   "gPlayerAnim_link_derth_rebirth"
+  ],
+  "setup_animation_groups": [],
+  "animations": [],
+  "animation_groups": [],
+  "sounds": [],
+  "state_flags": []
+ },
+ {
+  "function": "Player_Action_8084E3C4",
+  "file": "src/overlays/actors/ovl_player_actor/z_player.c",
+  "line": 13785,
+  "label": "Playing the ocarina",
+  "category": "items",
+  "label_confidence": "high",
+  "decomp_named": false,
+  "entered_from": [
+   "Player_ActionHandler_13",
+   "Player_SetupAction",
+   "Player_UpdateInterface"
+  ],
+  "setup_animations": [
+   "gPlayerAnim_link_bottle_bug_out",
+   "gPlayerAnim_link_bottle_drink_demo_start",
+   "gPlayerAnim_link_bottle_fish_out",
+   "gPlayerAnim_link_normal_okarina_start"
+  ],
+  "setup_animation_groups": [
+   "check"
+  ],
+  "animations": [
+   "gPlayerAnim_link_normal_okarina_end",
+   "gPlayerAnim_link_normal_okarina_swing"
+  ],
+  "animation_groups": [],
+  "sounds": [],
+  "state_flags": [
+   "PLAYER_STATE1_28",
+   "PLAYER_STATE1_29",
+   "PLAYER_STATE2_23",
+   "PLAYER_STATE2_24",
+   "PLAYER_STATE2_25",
+   "PLAYER_STATE2_USING_OCARINA"
+  ]
+ },
+ {
+  "function": "Player_Action_8084E604",
+  "file": "src/overlays/actors/ovl_player_actor/z_player.c",
+  "line": 13845,
+  "label": "Finishing an item action (e.g. after a hookshot/bomb move)",
+  "category": "items",
+  "label_confidence": "low",
+  "decomp_named": false,
+  "entered_from": [
+   "Player_TryActionHandlerList",
+   "Player_UpdateUpperBody",
+   "func_8083C61C"
+  ],
+  "setup_animations": [
+   "gPlayerAnim_link_hook_fly_start",
+   "gPlayerAnim_link_normal_light_bom"
+  ],
+  "setup_animation_groups": [],
+  "animations": [
+   "gPlayerAnim_link_normal_light_bom_end"
+  ],
+  "animation_groups": [],
+  "sounds": [
+   "VO_LI_SWORD_N"
+  ],
+  "state_flags": []
+ },
+ {
+  "function": "Player_Action_8084E6D4",
+  "file": "src/overlays/actors/ovl_player_actor/z_player.c",
+  "line": 13866,
+  "label": "Opening a chest / receiving an item",
+  "category": "items",
+  "label_confidence": "high",
+  "decomp_named": false,
+  "entered_from": [
+   "func_8083A434"
+  ],
+  "setup_animations": [],
+  "setup_animation_groups": [],
+  "animations": [
+   "gPlayerAnim_link_demo_get_itemA",
+   "gPlayerAnim_link_demo_get_itemB",
+   "gPlayerAnim_link_normal_box_kick"
+  ],
+  "animation_groups": [],
+  "sounds": [],
+  "state_flags": [
+   "PLAYER_STATE1_10",
+   "PLAYER_STATE1_CARRYING_ACTOR",
+   "PLAYER_STATE3_5"
+  ]
+ },
+ {
+  "function": "Player_Action_TimeTravelEnd",
+  "file": "src/overlays/actors/ovl_player_actor/z_player.c",
+  "line": 13944,
+  "label": "Arriving after time travel",
+  "category": "cutscene",
+  "label_confidence": "high",
+  "decomp_named": true,
+  "entered_from": [
+   "Player_StartMode_TimeTravel"
+  ],
+  "setup_animations": [],
+  "setup_animation_groups": [],
+  "animations": [],
+  "animation_groups": [],
+  "sounds": [
+   "VO_LI_AUTO_JUMP",
+   "VO_LI_SWORD_N"
+  ],
+  "state_flags": []
+ },
+ {
+  "function": "Player_Action_8084EAC0",
+  "file": "src/overlays/actors/ovl_player_actor/z_player.c",
+  "line": 13986,
+  "label": "Drinking from a bottle",
+  "category": "items",
+  "label_confidence": "high",
+  "decomp_named": false,
+  "entered_from": [
+   "Player_ActionHandler_13"
+  ],
+  "setup_animations": [
+   "gPlayerAnim_link_bottle_bug_out",
+   "gPlayerAnim_link_bottle_drink_demo_start",
+   "gPlayerAnim_link_bottle_fish_out",
+   "gPlayerAnim_link_normal_okarina_start"
+  ],
+  "setup_animation_groups": [
+   "check"
+  ],
+  "animations": [
+   "gPlayerAnim_link_bottle_drink_demo_end",
+   "gPlayerAnim_link_bottle_drink_demo_wait"
+  ],
+  "animation_groups": [],
+  "sounds": [
+   "VO_LI_BREATH_DRINK",
+   "VO_LI_DRINK"
+  ],
+  "state_flags": []
+ },
+ {
+  "function": "Player_Action_SwingBottle",
+  "file": "src/overlays/actors/ovl_player_actor/z_player.c",
+  "line": 14065,
+  "label": "Swinging a bottle to catch something",
+  "category": "items",
+  "label_confidence": "high",
+  "decomp_named": true,
+  "entered_from": [
+   "func_8083C6B8"
+  ],
+  "setup_animations": [
+   "gPlayerAnim_link_fishing_throw"
+  ],
+  "setup_animation_groups": [],
+  "animations": [],
+  "animation_groups": [],
+  "sounds": [
+   "IT_SCOOP_UP_WATER"
+  ],
+  "state_flags": [
+   "PLAYER_STATE1_28",
+   "PLAYER_STATE1_29",
+   "PLAYER_STATE1_SWINGING_BOTTLE"
+  ]
+ },
+ {
+  "function": "Player_Action_8084EED8",
+  "file": "src/overlays/actors/ovl_player_actor/z_player.c",
+  "line": 14134,
+  "label": "Releasing a bottled bug/fish/fairy",
+  "category": "items",
+  "label_confidence": "medium",
+  "decomp_named": false,
+  "entered_from": [
+   "Player_ActionHandler_13"
+  ],
+  "setup_animations": [
+   "gPlayerAnim_link_bottle_bug_out",
+   "gPlayerAnim_link_bottle_drink_demo_start",
+   "gPlayerAnim_link_bottle_fish_out",
+   "gPlayerAnim_link_normal_okarina_start"
+  ],
+  "setup_animation_groups": [
+   "check"
+  ],
+  "animations": [],
+  "animation_groups": [],
+  "sounds": [],
+  "state_flags": []
+ },
+ {
+  "function": "Player_Action_8084EFC0",
+  "file": "src/overlays/actors/ovl_player_actor/z_player.c",
+  "line": 14162,
+  "label": "Dropping a fish / releasing bottle contents",
+  "category": "items",
+  "label_confidence": "medium",
+  "decomp_named": false,
+  "entered_from": [
+   "Player_ActionHandler_13",
+   "Player_IsDroppingFish"
+  ],
+  "setup_animations": [
+   "gPlayerAnim_link_bottle_bug_out",
+   "gPlayerAnim_link_bottle_drink_demo_start",
+   "gPlayerAnim_link_bottle_fish_out",
+   "gPlayerAnim_link_normal_okarina_start"
+  ],
+  "setup_animation_groups": [
+   "check"
+  ],
+  "animations": [],
+  "animation_groups": [],
+  "sounds": [],
+  "state_flags": []
+ },
+ {
+  "function": "Player_Action_ExchangeItem",
+  "file": "src/overlays/actors/ovl_player_actor/z_player.c",
+  "line": 14186,
+  "label": "Showing or giving an item to someone",
+  "category": "items",
+  "label_confidence": "high",
+  "decomp_named": true,
+  "entered_from": [
+   "Player_ActionHandler_13"
+  ],
+  "setup_animations": [
+   "gPlayerAnim_link_bottle_bug_out",
+   "gPlayerAnim_link_bottle_drink_demo_start",
+   "gPlayerAnim_link_bottle_fish_out",
+   "gPlayerAnim_link_normal_okarina_start"
+  ],
+  "setup_animation_groups": [
+   "check"
+  ],
+  "animations": [
+   "gPlayerAnim_link_bottle_read_end"
+  ],
+  "animation_groups": [],
+  "sounds": [],
+  "state_flags": [
+   "PLAYER_STATE2_5"
+  ]
+ },
+ {
+  "function": "Player_Action_8084F308",
+  "file": "src/overlays/actors/ovl_player_actor/z_player.c",
+  "line": 14241,
+  "label": "Grabbed by a ReDead",
+  "category": "damage",
+  "label_confidence": "high",
+  "decomp_named": false,
+  "entered_from": [
+   "func_80852F38"
+  ],
+  "setup_animations": [
+   "gPlayerAnim_link_normal_re_dead_attack"
+  ],
+  "setup_animation_groups": [],
+  "animations": [
+   "gPlayerAnim_link_normal_re_dead_attack_wait"
+  ],
+  "animation_groups": [],
+  "sounds": [],
+  "state_flags": [
+   "PLAYER_STATE2_5",
+   "PLAYER_STATE2_6",
+   "PLAYER_STATE2_7"
+  ]
+ },
+ {
+  "function": "Player_Action_SlideOnSlope",
+  "file": "src/overlays/actors/ovl_player_actor/z_player.c",
+  "line": 14254,
+  "label": "Sliding down a steep slope",
+  "category": "movement",
+  "label_confidence": "high",
+  "decomp_named": true,
+  "entered_from": [
+   "Player_HandleSlopes"
+  ],
+  "setup_animations": [
+   "gPlayerAnim_link_normal_down_slope_slip",
+   "gPlayerAnim_link_normal_up_slope_slip"
+  ],
+  "setup_animation_groups": [],
+  "animations": [],
+  "animation_groups": [
+   "down_slope_slip_end",
+   "up_slope_slip_end"
+  ],
+  "sounds": [
+   "PL_SLIP_LEVEL"
+  ],
+  "state_flags": [
+   "PLAYER_STATE2_5",
+   "PLAYER_STATE2_6"
+  ]
+ },
+ {
+  "function": "Player_Action_WaitForCutscene",
+  "file": "src/overlays/actors/ovl_player_actor/z_player.c",
+  "line": 14324,
+  "label": "Waiting for a cutscene",
+  "category": "cutscene",
+  "label_confidence": "high",
+  "decomp_named": true,
+  "entered_from": [
+   "Player_Action_StartWarpSongArrive",
+   "func_8083A0F4"
+  ],
+  "setup_animations": [
+   "gPlayerAnim_link_normal_heavy_carry",
+   "gPlayerAnim_link_normal_nocarry_free",
+   "gPlayerAnim_link_silver_carry"
+  ],
+  "setup_animation_groups": [
+   "carryB"
+  ],
+  "animations": [],
+  "animation_groups": [],
+  "sounds": [],
+  "state_flags": []
+ },
+ {
+  "function": "Player_Action_StartWarpSongArrive",
+  "file": "src/overlays/actors/ovl_player_actor/z_player.c",
+  "line": 14332,
+  "label": "Arriving by warp song",
+  "category": "transitions",
+  "label_confidence": "high",
+  "decomp_named": true,
+  "entered_from": [
+   "Player_StartMode_WarpSong"
+  ],
+  "setup_animations": [],
+  "setup_animation_groups": [],
+  "animations": [],
+  "animation_groups": [],
+  "sounds": [],
+  "state_flags": []
+ },
+ {
+  "function": "Player_Action_BlueWarpArrive",
+  "file": "src/overlays/actors/ovl_player_actor/z_player.c",
+  "line": 14340,
+  "label": "Arriving by blue warp",
+  "category": "transitions",
+  "label_confidence": "high",
+  "decomp_named": true,
+  "entered_from": [
+   "Player_StartMode_BlueWarp"
+  ],
+  "setup_animations": [
+   "gPlayerAnim_link_okarina_warp_goal"
+  ],
+  "setup_animation_groups": [],
+  "animations": [],
+  "animation_groups": [],
+  "sounds": [],
+  "state_flags": []
+ },
+ {
+  "function": "Player_Action_8084F88C",
+  "file": "src/overlays/actors/ovl_player_actor/z_player.c",
+  "line": 14379,
+  "label": "Falling into a pit / void-out exit",
+  "category": "transitions",
+  "label_confidence": "medium",
+  "decomp_named": false,
+  "entered_from": [
+   "func_80838F5C"
+  ],
+  "setup_animations": [],
+  "setup_animation_groups": [],
+  "animations": [],
+  "animation_groups": [],
+  "sounds": [],
+  "state_flags": []
+ },
+ {
+  "function": "Player_Action_TryOpeningDoor",
+  "file": "src/overlays/actors/ovl_player_actor/z_player.c",
+  "line": 14411,
+  "label": "Opening a door",
+  "category": "transitions",
+  "label_confidence": "high",
+  "decomp_named": true,
+  "entered_from": [
+   "Player_ActionHandler_1",
+   "Player_StartMode_Door"
+  ],
+  "setup_animations": [],
+  "setup_animation_groups": [
+   "doorA",
+   "doorA_free",
+   "doorB",
+   "doorB_free"
+  ],
+  "animations": [],
+  "animation_groups": [],
+  "sounds": [],
+  "state_flags": []
+ },
+ {
+  "function": "Player_Action_ExitGrotto",
+  "file": "src/overlays/actors/ovl_player_actor/z_player.c",
+  "line": 14415,
+  "label": "Jumping out of a grotto",
+  "category": "transitions",
+  "label_confidence": "high",
+  "decomp_named": true,
+  "entered_from": [
+   "Player_StartMode_Grotto"
+  ],
+  "setup_animations": [
+   "gPlayerAnim_link_normal_jump"
+  ],
+  "setup_animation_groups": [],
+  "animations": [],
+  "animation_groups": [],
+  "sounds": [],
+  "state_flags": []
+ },
+ {
+  "function": "Player_Action_8084FA54",
+  "file": "src/overlays/actors/ovl_player_actor/z_player.c",
+  "line": 14427,
+  "label": "Interaction state entered from talking (e.g. Navi / special talk)",
+  "category": "interaction",
+  "label_confidence": "low",
+  "decomp_named": false,
+  "entered_from": [
+   "func_8084B3CC"
+  ],
+  "setup_animations": [],
+  "setup_animation_groups": [],
+  "animations": [],
+  "animation_groups": [],
+  "sounds": [],
+  "state_flags": []
+ },
+ {
+  "function": "Player_Action_8084FB10",
+  "file": "src/overlays/actors/ovl_player_actor/z_player.c",
+  "line": 14445,
+  "label": "Frozen in ice",
+  "category": "damage",
+  "label_confidence": "high",
+  "decomp_named": false,
+  "entered_from": [
+   "func_80837C0C"
+  ],
+  "setup_animations": [
+   "gPlayerAnim_link_normal_back_downA",
+   "gPlayerAnim_link_normal_electric_shock",
+   "gPlayerAnim_link_normal_front_downA",
+   "gPlayerAnim_link_normal_ice_down",
+   "gPlayerAnim_link_swimer_swim_hit"
+  ],
+  "setup_animation_groups": [
+   "damage_run"
+  ],
+  "animations": [],
+  "animation_groups": [],
+  "sounds": [
+   "PL_ICE_BROKEN"
+  ],
+  "state_flags": [
+   "PLAYER_STATE2_14"
+  ]
+ },
+ {
+  "function": "Player_Action_8084FBF4",
+  "file": "src/overlays/actors/ovl_player_actor/z_player.c",
+  "line": 14470,
+  "label": "Grabbed and carried away (Wallmaster / Like Like style)",
+  "category": "damage",
+  "label_confidence": "medium",
+  "decomp_named": false,
+  "entered_from": [
+   "func_80837C0C"
+  ],
+  "setup_animations": [
+   "gPlayerAnim_link_normal_back_downA",
+   "gPlayerAnim_link_normal_electric_shock",
+   "gPlayerAnim_link_normal_front_downA",
+   "gPlayerAnim_link_normal_ice_down",
+   "gPlayerAnim_link_swimer_swim_hit"
+  ],
+  "setup_animation_groups": [
+   "damage_run"
+  ],
+  "animations": [],
+  "animation_groups": [],
+  "sounds": [
+   "VO_LI_TAKEN_AWAY"
+  ],
+  "state_flags": []
+ },
+ {
+  "function": "Player_Action_808502D0",
+  "file": "src/overlays/actors/ovl_player_actor/z_player.c",
+  "line": 14656,
+  "label": "Landing from a jumpslash",
+  "category": "combat",
+  "label_confidence": "high",
+  "decomp_named": false,
+  "entered_from": [
+   "func_80837948"
+  ],
+  "setup_animations": [],
+  "setup_animation_groups": [],
+  "animations": [
+   "gPlayerAnim_link_fighter_Lpower_jump_kiru_end",
+   "gPlayerAnim_link_fighter_power_jump_kiru_end"
+  ],
+  "animation_groups": [],
+  "sounds": [],
+  "state_flags": [
+   "PLAYER_STATE2_30",
+   "PLAYER_STATE2_5",
+   "PLAYER_STATE3_3"
+  ]
+ },
+ {
+  "function": "Player_Action_808505DC",
+  "file": "src/overlays/actors/ovl_player_actor/z_player.c",
+  "line": 14727,
+  "label": "Recoil after an attack is blocked",
+  "category": "combat",
+  "label_confidence": "medium",
+  "decomp_named": false,
+  "entered_from": [
+   "func_80842D20"
+  ],
+  "setup_animations": [],
+  "setup_animation_groups": [],
+  "animations": [],
+  "animation_groups": [],
+  "sounds": [],
+  "state_flags": []
+ },
+ {
+  "function": "Player_Action_8085063C",
+  "file": "src/overlays/actors/ovl_player_actor/z_player.c",
+  "line": 14736,
+  "label": "Casting Farore's Wind",
+  "category": "magic",
+  "label_confidence": "high",
+  "decomp_named": false,
+  "entered_from": [
+   "Player_ActionHandler_13"
+  ],
+  "setup_animations": [
+   "gPlayerAnim_link_bottle_bug_out",
+   "gPlayerAnim_link_bottle_drink_demo_start",
+   "gPlayerAnim_link_bottle_fish_out",
+   "gPlayerAnim_link_normal_okarina_start"
+  ],
+  "setup_animation_groups": [
+   "check"
+  ],
+  "animations": [],
+  "animation_groups": [],
+  "sounds": [
+   "PL_MAGIC_WIND_VANISH"
+  ],
+  "state_flags": [
+   "PLAYER_STATE2_5"
+  ]
+ },
+ {
+  "function": "Player_Action_FaroresWindArrive",
+  "file": "src/overlays/actors/ovl_player_actor/z_player.c",
+  "line": 14771,
+  "label": "Arriving by Farore's Wind",
+  "category": "magic",
+  "label_confidence": "high",
+  "decomp_named": true,
+  "entered_from": [
+   "Player_StartMode_FaroresWind"
+  ],
+  "setup_animations": [],
+  "setup_animation_groups": [],
+  "animations": [],
+  "animation_groups": [],
+  "sounds": [
+   "PL_MAGIC_WIND_WARP"
+  ],
+  "state_flags": []
+ },
+ {
+  "function": "Player_Action_808507F4",
+  "file": "src/overlays/actors/ovl_player_actor/z_player.c",
+  "line": 14807,
+  "label": "Casting Din's Fire / Nayru's Love",
+  "category": "magic",
+  "label_confidence": "high",
+  "decomp_named": false,
+  "entered_from": [
+   "Player_SetupAction",
+   "Player_UpdateCommon",
+   "func_8083AF44"
+  ],
+  "setup_animations": [
+   "gPlayerAnim_link_derth_rebirth",
+   "gPlayerAnim_link_magic_tame",
+   "gPlayerAnim_link_normal_electric_shock_end",
+   "gPlayerAnim_link_swimer_swim_down",
+   "gPlayerAnim_link_uma_wait_1"
+  ],
+  "setup_animation_groups": [],
+  "animations": [],
+  "animation_groups": [],
+  "sounds": [
+   "IT_SWORD_SWING_HARD",
+   "PL_SKIP",
+   "VO_LI_MAGIC_ATTACK",
+   "VO_LI_MAGIC_FROL",
+   "VO_LI_MAGIC_NALE",
+   "VO_LI_SWORD_N"
+  ],
+  "state_flags": [
+   "PLAYER_STATE1_28",
+   "PLAYER_STATE1_29"
+  ]
+ },
+ {
+  "function": "Player_Action_HookshotFly",
+  "file": "src/overlays/actors/ovl_player_actor/z_player.c",
+  "line": 14897,
+  "label": "Flying with the hookshot",
+  "category": "items",
+  "label_confidence": "high",
+  "decomp_named": true,
+  "entered_from": [
+   "Player_UpdateUpperBody"
+  ],
+  "setup_animations": [
+   "gPlayerAnim_link_hook_fly_start"
+  ],
+  "setup_animation_groups": [],
+  "animations": [
+   "gPlayerAnim_link_hook_fly_start",
+   "gPlayerAnim_link_hook_fly_wait"
+  ],
+  "animation_groups": [],
+  "sounds": [],
+  "state_flags": [
+   "PLAYER_STATE1_2",
+   "PLAYER_STATE2_10",
+   "PLAYER_STATE2_5"
+  ]
+ },
+ {
+  "function": "Player_Action_80850C68",
+  "file": "src/overlays/actors/ovl_player_actor/z_player.c",
+  "line": 14930,
+  "label": "Fishing (reeling)",
+  "category": "minigame",
+  "label_confidence": "high",
+  "decomp_named": false,
+  "entered_from": [
+   "func_8083C6B8"
+  ],
+  "setup_animations": [
+   "gPlayerAnim_link_fishing_throw"
+  ],
+  "setup_animation_groups": [],
+  "animations": [
+   "gPlayerAnim_link_fishing_fish_catch",
+   "gPlayerAnim_link_fishing_reel_down",
+   "gPlayerAnim_link_fishing_reel_left",
+   "gPlayerAnim_link_fishing_reel_right",
+   "gPlayerAnim_link_fishing_reel_up",
+   "gPlayerAnim_link_fishing_wait"
+  ],
+  "animation_groups": [],
+  "sounds": [],
+  "state_flags": []
+ },
+ {
+  "function": "Player_Action_80850E84",
+  "file": "src/overlays/actors/ovl_player_actor/z_player.c",
+  "line": 14970,
+  "label": "Catching a fish",
+  "category": "minigame",
+  "label_confidence": "high",
+  "decomp_named": false,
+  "entered_from": [
+   "Player_Action_80850C68"
+  ],
+  "setup_animations": [
+   "gPlayerAnim_link_fishing_fish_catch",
+   "gPlayerAnim_link_fishing_reel_down",
+   "gPlayerAnim_link_fishing_reel_left",
+   "gPlayerAnim_link_fishing_reel_right",
+   "gPlayerAnim_link_fishing_reel_up",
+   "gPlayerAnim_link_fishing_wait"
+  ],
+  "setup_animation_groups": [],
+  "animations": [
+   "gPlayerAnim_link_fishing_fish_catch_end"
+  ],
+  "animation_groups": [],
+  "sounds": [],
+  "state_flags": []
+ },
+ {
+  "function": "Player_Action_CsAction",
+  "file": "src/overlays/actors/ovl_player_actor/z_player.c",
+  "line": 16060,
+  "label": "Controlled by a cutscene",
+  "category": "cutscene",
+  "label_confidence": "high",
+  "decomp_named": true,
+  "entered_from": [
+   "Player_Action_WaitForCutscene",
+   "Player_StartCsAction",
+   "Player_TryCsAction",
+   "Player_UpdateCommon"
+  ],
+  "setup_animations": [
+   "gPlayerAnim_link_derth_rebirth",
+   "gPlayerAnim_link_normal_electric_shock_end",
+   "gPlayerAnim_link_swimer_swim_down",
+   "gPlayerAnim_link_uma_wait_1"
+  ],
+  "setup_animation_groups": [],
+  "animations": [],
+  "animation_groups": [],
+  "sounds": [],
+  "state_flags": []
+ }
+]

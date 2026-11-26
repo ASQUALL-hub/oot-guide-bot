@@ -31,6 +31,8 @@ use the `python` command above instead.
 
 - [ootmap/HOW_TO_USE.md](ootmap/HOW_TO_USE.md): the logic evaluator (`logic_eval.py`), in plain steps.
 - [ootmap/BOT_GUIDE.md](ootmap/BOT_GUIDE.md): every data file and field, written for bot authors.
+- [ootmap/ACTIONS.md](ootmap/ACTIONS.md): every action Link can be in, and the physics of every move
+  (sidehops, backflips, backwalking, rolls, jumps, slopes), read from the game code.
 - `python ootmap/query.py`: quick lookups (`find`, `scene`, `route`, `entrance`, `region`, `func`, `warps`).
 
 ## How it works

@@ -54,16 +54,19 @@ def main():
 
     t0 = time.time()
     os.makedirs(a.out, exist_ok=True)
-    print("1/3 Reading the ROM (scenes, rooms, actors, exits, collision)...")
+    print("1/4 Reading the ROM (scenes, rooms, actors, exits, collision)...")
     run("extract_map.py", META, os.path.abspath(a.rom), a.out, log=os.path.join(ROOT, "extract.log"))
-    print("2/3 Adding the function index...")
+    print("2/4 Adding the function index...")
     shutil.copytree(os.path.join(META, "code"), os.path.join(a.out, "code"), dirs_exist_ok=True)
-    print("3/3 Joining logic, items and warps...")
+    print("3/4 Joining logic, items and warps...")
     run("build_bot_db.py", META, META, a.out)
+    print("4/4 Player actions and movement physics...")
+    run("build_actions.py", META, os.path.abspath(a.rom), a.out)
     src = os.path.join(ROOT, "ootmap")
     if os.path.abspath(a.out) != os.path.abspath(src):
         # custom output folder: bring the hand-written tools and docs along so it works on its own
-        for rel in ("query.py", "logic_eval.py", "HOW_TO_USE.md", "BOT_GUIDE.md", os.path.join("logic", "vanilla_settings.json")):
+        for rel in ("query.py", "logic_eval.py", "HOW_TO_USE.md", "BOT_GUIDE.md", "ACTIONS.md",
+                    os.path.join("logic", "vanilla_settings.json")):
             os.makedirs(os.path.dirname(os.path.join(a.out, rel)), exist_ok=True)
             shutil.copy2(os.path.join(src, rel), os.path.join(a.out, rel))
     print(f"Done in {time.time() - t0:.0f}s. Start with {os.path.join(os.path.abspath(a.out), 'HOW_TO_USE.md')}")

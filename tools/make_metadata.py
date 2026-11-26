@@ -20,6 +20,7 @@ sys.path.insert(0, TOOLS)
 from headers import Decomp  # noqa: E402
 import decode  # noqa: E402
 import ootr_data  # noqa: E402
+import player_actions_meta  # noqa: E402
 from fetch_refs import REFS  # noqa: E402
 
 REF = os.path.join(ROOT, "ref")
@@ -53,6 +54,17 @@ def main():
     print("wrote", dump(ootr_data.load_source(os.path.join(REF, "ootr")), "ootr.json"))
     subprocess.run([sys.executable, "-I", os.path.join(TOOLS, "scan_source.py"), TOOLS, os.path.join(REF, "oot"),
                     os.path.join(META, "code")], check=True)
+
+    # Player actions: evidence for every action function, animation header offsets, and a check that every
+    # number cited in player_moves.py still appears in the decomp.
+    with open(os.path.join(META, "code", "functions.json"), encoding="utf-8") as f:
+        functions = json.load(f)
+    n = player_actions_meta.verify_sources(os.path.join(REF, "oot"))
+    print(f"player_moves.py: {n} cited code snippets verified")
+    actions = player_actions_meta.player_actions(os.path.join(REF, "oot"), functions)
+    print("wrote", dump(actions, "player_actions.json", indent=1), f"({len(actions)} actions)")
+    print("wrote", dump(player_actions_meta.player_anim_offsets(os.path.join(REF, "oot")), "player_anims.json"))
+    subprocess.run([sys.executable, "-I", os.path.join(TOOLS, "write_actions_doc.py")], check=True)
     manifest = dict(
         note="Reference metadata only (names, enums, layouts, randomizer logic, function index). No ROM data.",
         rom=dict(name="Ocarina of Time NTSC-J 1.0", md5="9f04c8e68534b870f707c247fa4b50fc"),
