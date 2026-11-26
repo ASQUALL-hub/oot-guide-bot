@@ -78,7 +78,8 @@ def verify_sources(decomp_root):
             for x in o:
                 walk(x)
     walk([player_moves.ENGINE, player_moves.BOOTS, player_moves.SPEED_FORMULA, player_moves.JUMPS,
-          player_moves.GRAVITY_CASES, player_moves.GROUND_MOVES, player_moves.RULES])
+          player_moves.GRAVITY_CASES, player_moves.GROUND_MOVES, player_moves.RULES, player_moves.BODY,
+          player_moves.ATTACKS, player_moves.COLLISION_ENGINE, player_moves.TICK])
     cache, bad = {}, []
     for f, snip in srcs:
         if f not in cache:

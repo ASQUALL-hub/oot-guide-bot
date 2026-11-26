@@ -276,3 +276,111 @@ ACTION_LABELS = {
     "Player_Action_80850E84": ("Catching a fish", "minigame", "high"),
     "Player_Action_CsAction": ("Controlled by a cutscene", "cutscene", "high"),
 }
+
+
+# ---------------------------------------------------------------------------------------------------------------
+# Link's body, hitboxes, world collision and frame order. Model-space values convert to world units by Link's
+# actor scale (0.01, set for every actor in Actor_Init and never changed for the player).
+ACT = "src/code/z_actor.c"
+BG = "src/code/z_bgcheck.c"
+PLAY = "src/code/z_play.c"
+PROF = "include/actor_profile.h"
+PLIB = "src/code/z_player_lib.c"
+
+BODY = [
+    dict(part="Hurtbox (what enemies hit)", shape="cylinder", radius=12.0,
+         height=("recomputed every frame: from the midpoint of Link's feet to his head + 10 (initial value 60); "
+                 "x0.8 while shielding"),
+         src=[(P, "{ 12, 60, 0, { 0, 0, 0 } },"), (P, "temp_f0 += this->bodyPartsPos[PLAYER_BODYPART_HEAD].y + 10.0f;"),
+              (P, "this->cylinder.dim.height *= 0.8f;")]),
+    dict(part="Wall check (what stops Link at walls)", shape="line test + sphere pushed out of walls",
+         radius="18 adult, 14 child, 10 while crawling", height="checked at feet + 26 (feet + 15 while crawling)",
+         src=[(P, "vWallCheckHeight = 26.0f;"), (P, "18.0f,            // wallCheckRadius"),
+              (P, "14.0f,                   // wallCheckRadius"), (P, "vWallCheckRadius = 10.0f;")]),
+    dict(part="Ceiling clearance", shape="upward check from last frame's height + 10",
+         height="56 adult, 40 child, 30 while crawling (lower ceilings stop Link or need crawling)",
+         src=[(P, "56.0f,            // ceilingCheckHeight"), (P, "40.0f,                   // ceilingCheckHeight"),
+              (P, "ceilingCheckHeight = 30.0f;")]),
+    dict(part="Floor detection", shape="ray cast straight down",
+         height="starts 50 above last frame's height at the new X/Z; the first floor below is snapped to",
+         src=[(ACT, "pos->y += 50.0f;")]),
+    dict(part="Ledge detection", shape="ray cast down in front of Link",
+         height="starts 111 (adult) / 71 (child) above his feet; ledges 18+ above him count",
+         src=[(P, "ledgeCheckPos.y = this->actor.world.pos.y + this->ageProperties->unk_0C;"),
+              (P, "if ((this->yDistToLedge < 18.0f) ||")]),
+    dict(part="Model scale", shape="-", height="Link's model units x 0.01 = world units",
+         src=[(ACT, "Actor_SetScale(actor, 0.01f);")]),
+]
+
+ATTACKS = [
+    dict(part="Sword hitbox", shape="two quads from the hand to the blade tip, only while a swing is active",
+         reach_from_hand=dict(master_sword=40, kokiri_sword=30, biggorons_sword=55, megaton_hammer=25,
+                              deku_stick="varies with how much of the stick is left"),
+         note=("model lengths 4000 / 3000 / 5500 / 2500 x 0.01. The quads are rebuilt each frame from the hand "
+               "position, so the area they sweep follows the swing animation"),
+         src=[(PLIB, "4000.0f, // Master Sword"), (PLIB, "3000.0f, // Kokiri Sword"),
+              (PLIB, "5500.0f, // Biggoron's Sword"), (PLIB, "2500.0f, // Hammer")]),
+    dict(part="Shield", shape="quad in front of the hand (held) or on the back (stowed)",
+         size="held: about 60 x 60 world units (model -4500..1500 x -3000..3000); on the back: 60 x 60",
+         note="it blocks (AC_HARD) and can also hit (AT). Its material depends on the equipped shield",
+         src=[(PLIB, "{ -4500.0f, -3000.0f, -600.0f },"), (P, "AC_ON | AC_HARD | AC_TYPE_ENEMY,")]),
+]
+
+COLLISION_ENGINE = dict(
+    order=["wall check (line from last position to new position at feet + 26, then sphere push-out)",
+           "ceiling check", "floor ray cast (from last height + 50)", "water check"],
+    how_walls_work=("Walls are tested at ONE height: feet + 26 (15 crawling). A line from last frame's position to "
+                    "this frame's catches fast movement, then a sphere of the wall-check radius pushes Link out along "
+                    "the wall's normal. Geometry entirely below that height is not a wall to Link: the floor ray (cast "
+                    "from 50 above) lets him walk up onto it."),
+    clip_conditions=[
+        dict(condition="Fast falling",
+             effect=("if this frame's downward movement is more than 21 units (26 + dy < 5), the wall line test runs "
+                     "at foot height instead of feet + 26; the decomp marks this as a bug"),
+             src=[(BG, "//! @bug checkHeight is not applied to posPrev/posNext")]),
+        dict(condition="Collision grid cell edges",
+             effect=("the sphere push-out only searches the nearest static collision grid cell, so walls in a "
+                     "neighbouring cell can be missed (the decomp flags this as a possible bug)"),
+             src=[(BG, "// possible bug? if the sphere's radius is smaller than the distance to a subdivision boundary, some static")]),
+        dict(condition="Low geometry",
+             effect="anything that doesn't reach feet + 26 never blocks Link; he steps onto it if its top is within 50 of his last height",
+             src=[(P, "vWallCheckHeight = 26.0f;"), (ACT, "pos->y += 50.0f;")]),
+        dict(condition="Squeezed between floor and ceiling",
+             effect="if a ceiling is hit and the floor is more than 15 above Link, he is flagged as crushed",
+             src=[(ACT, "if (floorHeightDiff > 15.0f) {")]),
+        dict(condition="Moving platforms and actor walls",
+             effect="checked separately from level geometry (dynamic polygons), then re-checked with a one-sided line test",
+             src=[(BG, "if (BgCheck_SphVsDynaWall(colCtx, xpFlags, &posResult->x, &posResult->z, &sphCenter, radius, outPoly, outBgId,")]),
+    ],
+    community_note=("Speedrun clips (seam walks, hovering through walls, superslide clips and so on) work through these "
+                    "conditions. The specific setups are community knowledge and aren't verified here."),
+)
+
+TICK = dict(
+    rate="20 game frames per second (NTSC). Each frame:",
+    frame_order=[
+        "1. Room changes are processed",
+        ("2. Collision is resolved: attacks vs hurtboxes (AT/AC), actors pushing each other (OC), damage. This uses "
+         "the colliders every actor registered DURING THE PREVIOUS FRAME"),
+        ("3. Every actor updates, by category: switches, moving platforms (BG), Link, explosives, NPCs, enemies, "
+         "props, item actors, misc, bosses, doors, chests"),
+        "4. Cutscenes, effects, camera, text boxes and the HUD update",
+    ],
+    link_update_order=[
+        "1. Targeting (Z) and HUD state",
+        "2. Movement: last frame's speed + gravity -> new position -> wall, ceiling, floor and water checks",
+        "3. Loading zones and void-outs",
+        "4. Ledge, fall and auto-jump checks",
+        "5. Stick and buttons are read; the current action decides the new speed, direction or jump",
+        "6. Hurtbox and sword/shield hitboxes are rebuilt and registered for the next frame's collision check",
+    ],
+    consequences=[
+        "An input on frame N first moves Link on frame N+1 (movement runs before the action in Link's update)",
+        "A sword hitbox registered on frame N hits on frame N+1; the enemy reacts in its own update on frame N+1",
+        "Moving platforms update before Link, so he rides their new position on the same frame",
+        "Enemies, switches and platforms freeze while Link is talking (and in a few other states); NPCs keep updating",
+    ],
+    src=[(PLAY, "CollisionCheck_AT(this, &this->colChkCtx);"), (PLAY, "Actor_UpdateAll(this, &this->actorCtx);"),
+         (PROF, "/* 0x01 */ ACTORCAT_BG,"), (ACT, "u32 sCategoryFreezeMasks[ACTORCAT_MAX] = {"),
+         (P, "Player_ProcessControlStick(play, this);")],
+)

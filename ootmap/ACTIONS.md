@@ -67,6 +67,71 @@ backwalking on steeper slopes. Very steep floors make Link slide, so check the s
 - **Targeting jumps chain with ~1 frame of landing lag:** landing with Z held enters a targeting idle state that checks for the next Z+A jump every frame, even while the landing animation plays, so the next hop can start the frame after landing (`z_player.c`).
 - **Momentum during targeting jumps:** while a sidehop/backflip is in the air (PLAYER_STATE2_19) the stick does not change speed or direction (`z_player.c`).
 
+## Link's body
+
+| Part | Shape | Size |
+|---|---|---|
+| Hurtbox (what enemies hit) | cylinder | radius: 12.0; height: recomputed every frame: from the midpoint of Link's feet to his head + 10 (initial value 60); x0.8 while shielding |
+| Wall check (what stops Link at walls) | line test + sphere pushed out of walls | radius: 18 adult, 14 child, 10 while crawling; height: checked at feet + 26 (feet + 15 while crawling) |
+| Ceiling clearance | upward check from last frame's height + 10 | height: 56 adult, 40 child, 30 while crawling (lower ceilings stop Link or need crawling) |
+| Floor detection | ray cast straight down | height: starts 50 above last frame's height at the new X/Z; the first floor below is snapped to |
+| Ledge detection | ray cast down in front of Link | height: starts 111 (adult) / 71 (child) above his feet; ledges 18+ above him count |
+| Model scale | - | height: Link's model units x 0.01 = world units |
+
+## Attack hitboxes
+
+- **Sword hitbox** (two quads from the hand to the blade tip, only while a swing is active): reach from the hand: master sword 40, kokiri sword 30, biggorons sword 55, megaton hammer 25, deku stick varies with how much of the stick is left. model lengths 4000 / 3000 / 5500 / 2500 x 0.01. The quads are rebuilt each frame from the hand position, so the area they sweep follows the swing animation.
+- **Shield** (quad in front of the hand (held) or on the back (stowed)): held: about 60 x 60 world units (model -4500..1500 x -3000..3000); on the back: 60 x 60. it blocks (AC_HARD) and can also hit (AT). Its material depends on the equipped shield.
+
+## How Link collides with the world (and where clips come from)
+
+Order each frame: wall check (line from last position to new position at feet + 26, then sphere push-out) -> ceiling check -> floor ray cast (from last height + 50) -> water check.
+
+Walls are tested at ONE height: feet + 26 (15 crawling). A line from last frame's position to this frame's catches fast movement, then a sphere of the wall-check radius pushes Link out along the wall's normal. Geometry entirely below that height is not a wall to Link: the floor ray (cast from 50 above) lets him walk up onto it.
+
+Conditions in the code that let movement get past geometry:
+
+- **Fast falling:** if this frame's downward movement is more than 21 units (26 + dy < 5), the wall line test runs at foot height instead of feet + 26; the decomp marks this as a bug (`z_bgcheck.c`).
+- **Collision grid cell edges:** the sphere push-out only searches the nearest static collision grid cell, so walls in a neighbouring cell can be missed (the decomp flags this as a possible bug) (`z_bgcheck.c`).
+- **Low geometry:** anything that doesn't reach feet + 26 never blocks Link; he steps onto it if its top is within 50 of his last height (`z_player.c`).
+- **Squeezed between floor and ceiling:** if a ceiling is hit and the floor is more than 15 above Link, he is flagged as crushed (`z_actor.c`).
+- **Moving platforms and actor walls:** checked separately from level geometry (dynamic polygons), then re-checked with a one-sided line test (`z_bgcheck.c`).
+
+Speedrun clips (seam walks, hovering through walls, superslide clips and so on) work through these conditions. The specific setups are community knowledge and aren't verified here.
+
+## Frame order (one game tick)
+
+20 game frames per second (NTSC). Each frame:
+
+1. Room changes are processed
+
+2. Collision is resolved: attacks vs hurtboxes (AT/AC), actors pushing each other (OC), damage. This uses the colliders every actor registered DURING THE PREVIOUS FRAME
+
+3. Every actor updates, by category: switches, moving platforms (BG), Link, explosives, NPCs, enemies, props, item actors, misc, bosses, doors, chests
+
+4. Cutscenes, effects, camera, text boxes and the HUD update
+
+Inside Link's own update:
+
+1. Targeting (Z) and HUD state
+
+2. Movement: last frame's speed + gravity -> new position -> wall, ceiling, floor and water checks
+
+3. Loading zones and void-outs
+
+4. Ledge, fall and auto-jump checks
+
+5. Stick and buttons are read; the current action decides the new speed, direction or jump
+
+6. Hurtbox and sword/shield hitboxes are rebuilt and registered for the next frame's collision check
+
+What that means for a bot:
+
+- An input on frame N first moves Link on frame N+1 (movement runs before the action in Link's update).
+- A sword hitbox registered on frame N hits on frame N+1; the enemy reacts in its own update on frame N+1.
+- Moving platforms update before Link, so he rides their new position on the same frame.
+- Enemies, switches and platforms freeze while Link is talking (and in a few other states); NPCs keep updating.
+
 ## Speedrun tech
 
 | Technique | Inputs | What it does | Best for | Verified |

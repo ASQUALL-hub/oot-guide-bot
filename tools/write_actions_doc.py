@@ -83,6 +83,55 @@ def main():
     for r in M.RULES:
         w(f"- **{r['rule']}:** {r['effect']} ({src_ref(r['src'])}).")
     w("")
+    w("## Link's body")
+    w("")
+    w("| Part | Shape | Size |")
+    w("|---|---|---|")
+    for b in M.BODY:
+        size = "; ".join(f"{k}: {b[k]}" for k in ("radius", "height") if k in b)
+        w(f"| {b['part']} | {b['shape']} | {size} |")
+    w("")
+    w("## Attack hitboxes")
+    w("")
+    for a in M.ATTACKS:
+        if "reach_from_hand" in a:
+            reach = ", ".join(f"{k.replace('_', ' ')} {v}" for k, v in a["reach_from_hand"].items())
+            w(f"- **{a['part']}** ({a['shape']}): reach from the hand: {reach}. {a['note']}.")
+        else:
+            w(f"- **{a['part']}** ({a['shape']}): {a['size']}. {a['note']}.")
+    w("")
+    w("## How Link collides with the world (and where clips come from)")
+    w("")
+    C = M.COLLISION_ENGINE
+    w("Order each frame: " + " -> ".join(C["order"]) + ".")
+    w("")
+    w(C["how_walls_work"])
+    w("")
+    w("Conditions in the code that let movement get past geometry:")
+    w("")
+    for c in C["clip_conditions"]:
+        w(f"- **{c['condition']}:** {c['effect']} ({src_ref(c['src'])}).")
+    w("")
+    w(C["community_note"])
+    w("")
+    w("## Frame order (one game tick)")
+    w("")
+    T = M.TICK
+    w(T["rate"])
+    w("")
+    for x in T["frame_order"]:
+        w(x)
+        w("")
+    w("Inside Link's own update:")
+    w("")
+    for x in T["link_update_order"]:
+        w(x)
+        w("")
+    w("What that means for a bot:")
+    w("")
+    for x in T["consequences"]:
+        w(f"- {x}.")
+    w("")
     w("## Speedrun tech")
     w("")
     w("| Technique | Inputs | What it does | Best for | Verified |")

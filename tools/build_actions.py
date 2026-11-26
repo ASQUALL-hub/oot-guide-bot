@@ -99,6 +99,8 @@ def main():
                "'community' entries are unverified hints. Animation frame counts come from your ROM."),
         engine=strip_src(M.ENGINE), boots=strip_src(M.BOOTS), speed_formula=strip_src(M.SPEED_FORMULA),
         gravity=strip_src(M.GRAVITY_CASES), ground_moves=ground, jumps=jumps, rules=strip_src(M.RULES),
+        body=strip_src(M.BODY), attack_hitboxes=strip_src(M.ATTACKS),
+        world_collision=strip_src(M.COLLISION_ENGINE), frame_order=strip_src(M.TICK),
         speedrun_tech=M.TECH, community_glitches=M.COMMUNITY_GLITCHES,
         player_actions=actions, animation_frames=frames)
     with open(os.path.join(OUT, "actions.json"), "w", encoding="utf-8") as f:

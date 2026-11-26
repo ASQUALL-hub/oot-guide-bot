@@ -15,7 +15,7 @@ with vanilla settings. All files are plain UTF-8 JSON.
 | What does a rule word mean? | `logic/helpers.json`, `logic/vanilla_settings.json` | see "Reading logic rules" |
 | Warp songs, blue warps, owls, grottos, cutscene exits | `warps.json` | |
 | Everything inside one scene | `scenes/<id>_<ENUM>.json` | layers → spawns, exits, doors; rooms → layers → actors (decoded) |
-| What can Link do, and how does each move behave? (speed, height, airtime, distance) | `actions.json` (readable version: `ACTIONS.md`) | `ground_moves`, `jumps[].flat_ground/chained`, `rules`, `speedrun_tech`, `player_actions` (all 89 action states) |
+| What can Link do, and how does each move behave? (speed, height, airtime, distance) | `actions.json` (readable version: `ACTIONS.md`) | `ground_moves`, `jumps[].flat_ground/chained`, `rules`, `speedrun_tech`, `player_actions` (all 89 action states), `body`, `attack_hitboxes`, `world_collision` (clip conditions), `frame_order` |
 | Walkable geometry, walls, water, void planes | `collision/<id>_<ENUM>.json` | `vertices`, `polygons[].v/surface`, `surfaces[]`, `waterboxes` |
 | What entrance N is | `entrances.json` | `scene_enum`, `spawn`, `layer`, `base_entrance` |
 | Every function in the game's code | `code/functions.json` | `name`, `file`, `line`, `signature`, `calls`, `owner` (actor) |
