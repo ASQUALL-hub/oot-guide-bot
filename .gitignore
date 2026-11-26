@@ -1,0 +1,24 @@
+# Never publish ROMs
+*.z64
+*.n64
+*.v64
+*.rom
+
+# Reference checkouts (decomp + randomizer) are cloned by build.ps1; they also hold a copy of your ROM
+ref/
+
+# Python / logs
+__pycache__/
+*.pyc
+.venv/
+*.log
+
+# Data generated from the ROM by build.ps1 (Nintendo-derived: rebuild it locally from your own ROM).
+# To publish the generated data too, delete this block (see README "Publishing").
+ootmap/*.json
+ootmap/scenes/
+ootmap/collision/
+ootmap/code/
+ootmap/tables/
+ootmap/logic/world_graph.json
+ootmap/logic/helpers.json

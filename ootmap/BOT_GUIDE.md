@@ -1,0 +1,137 @@
+# Ocarina of Time (NTSC-J 1.0) map database for bots
+
+Everything here was extracted from the ROM `Zelda no Densetsu - Toki no Ocarina (Japan).z64`
+(MD5 `9f04c8e68534b870f707c247fa4b50fc`, the decomp's `ntsc-1.0` JP build). Names come from the
+zeldaret/oot decompilation. How items are obtained comes from the OoT Randomizer's logic files, run
+with vanilla settings. All files are plain UTF-8 JSON.
+
+## Start here
+
+| Question a bot has | File | Key fields |
+|---|---|---|
+| Where is item X and how do I get it? | `items.json` | `name`, `vanilla_item`, `scene_enum`, `rom_actors[].room/pos/layers`, `how_obtained`, `logic_rule` |
+| What leads where? (logic-free, straight from the ROM) | `scene_graph.json` | `edges[]` (loading zones, grotto holes): `at` = where to walk, `arrive_at` = where you land |
+| What leads where, and what do I need? | `logic/world_graph.json` | `regions[].exits[]`: `rule`, `entrance`, `loading_zones`, `arrive_at`; `regions[].locations` |
+| What does a rule word mean? | `logic/helpers.json`, `logic/vanilla_settings.json` | see "Reading logic rules" |
+| Warp songs, blue warps, owls, grottos, cutscene exits | `warps.json` | |
+| Everything inside one scene | `scenes/<id>_<ENUM>.json` | layers → spawns, exits, doors; rooms → layers → actors (decoded) |
+| Walkable geometry, walls, water, void planes | `collision/<id>_<ENUM>.json` | `vertices`, `polygons[].v/surface`, `surfaces[]`, `waterboxes` |
+| What entrance N is | `entrances.json` | `scene_enum`, `spawn`, `layer`, `base_entrance` |
+| Every function in the game's code | `code/functions.json` | `name`, `file`, `line`, `signature`, `calls`, `owner` (actor) |
+| Every place code sends Link somewhere | `code/code_entrance_writes.json` | `function`, `conditions_nearby`, `targets` |
+| What actor/item/object id N is | `tables/*.json` | actors (with description + param layout), get_items, items, objects, collectible_drops |
+
+`python logic_eval.py --items "..."` tells a bot which locations are **in standard logic** with its
+current items (see "Logic evaluator" below).
+
+`python query.py ...` answers the common questions directly (`find`, `scene`, `route`, `entrance`,
+`region`, `func`, `warps`; add `--json` for machine output). It needs only Python 3.
+
+## Coordinates and layers
+
+- Positions are game units `[x, y, z]`, with **y up**.
+- Rotations are binary angles (0x10000 = 360°); `rot_y_deg` gives the yaw in degrees.
+- Every scene has **layers** (the game calls them scene setups): `child_day`, `child_night`, `adult_day`,
+  `adult_night`, then `cutscene_N`. Each layer has its own actors, exits and spawns.
+  `header_source` tells you whether the layer has its own data (`own`) or reuses another one
+  (`fallback_base`, `fallback_adult_day`). That fallback is how the game itself resolves a missing layer.
+- A scene has rooms. Doors and transition planes (`transition_actors`, shown as `room_links` in
+  `scene_graph.json`) connect `front_room` and `back_room`.
+
+## Entrances, exits and loading zones
+
+- An **entrance** index (0x000–0x613) means "scene S, spawn point P". Entrances come in groups of
+  4: base + 0..3 for child day, child night, adult day and adult night. Entrances past those are cutscene versions.
+  `entrances.json` gives each entrance's `base_entrance` and `layer`.
+- A **spawn** points at a player-start position (`player_entries`) and a room.
+- An **exit** is a slot in a scene's exit list, and its value is an entrance. Collision polygons whose surface
+  has `exit_index = k` form loading zone k. `loading_zone.center/bbox` is where to walk. Exits with
+  `loading_zone: null` are used by actors or cutscenes, not by walking.
+- Grotto holes (`Door_Ana`) are exits too. Check `requires` before using one: hidden grottos need a bomb or
+  hammer, or Song of Storms played within 200 units. Generic grotto chests get their contents from the hole's params.
+- Warps the ROM data doesn't contain (blue warps, warp songs, owl flights, scripted exits) are in
+  `warps.json` and `code/code_entrance_writes.json`. Each one comes with the `if`/`case` lines that guard it,
+  for example "adult → `ENTR_SACRED_FOREST_MEADOW_3`, else `_2`".
+- Void-outs: a floor whose surface `floor_property` is 5 respawns Link at the last entrance.
+
+## Items: how they're tracked
+
+Each `items.json` record has `type`:
+- `Chest`: `En_Box`. Opening it sets the chest's treasure flag for that scene.
+- `Collectable`: freestanding Pieces of Heart, keys and similar. Picking one up sets a collectible flag.
+- `GS Token`: Gold Skulltulas. `gs_flags.byte/mask` is the save-file bit. Some skulltulas spawn from trees,
+  soft-soil patches or crates; `rom_actors` points at that spawner and `decoded.spawned_by` says how to reveal it.
+- `Pot`, `Crate`, `SmallCrate`, `Beehive`, `Freestanding`, `Wonderitem`, `SilverRupee`, `RupeeTower`: the exact
+  actor, given as `xflag.room/layer/actor_number`. `actor_number` counts from 1.
+- `Scrub`/`GrottoScrub`: Business Scrubs (`En_Shopnuts`/`En_Dns`). `Shop`: shopkeeper inventory (`En_Ossan`).
+- `NPC`, `Song`, `Cutscene`, `Boss`, `BossHeart`, `MaskShop`, `HintStone`, `Event`: rewards from characters or events.
+  Use `region` and `logic_rule`.
+- `rom_note` explains any item that some other actor spawns at runtime.
+
+There are 1,448 vanilla-game locations. All 1,238 physical ones are linked to a ROM actor (or to the actor that
+spawns them). The other 210 are NPC rewards, songs, hints and events.
+
+## Reading logic rules
+
+Rules are boolean expressions in the randomizer's syntax:
+- `Item_Name` means you have it (e.g. `Kokiri_Sword`, `Progressive_Hookshot`). `(Item, n)` means you have at least n.
+- `is_child` / `is_adult`, `at_day` / `at_night`.
+- A word defined in `logic/helpers.json` is a macro, for example `can_use(Bow)` or `can_play(Song_of_Storms)`.
+- A word in `logic/vanilla_settings.json` is a setting fixed to its vanilla value. Any word starting with
+  `logic_` is an optional trick. Standard logic treats tricks as false, but a speedrun bot may know them.
+- A quoted name like `'Defeat King Dodongo'` is an event. Events are set by `regions[].events`.
+- `here(...)` and `at('Region', ...)` evaluate a rule as if you were in that region.
+
+Reachability: start at the region `Root`, then repeatedly follow every exit whose rule holds, collecting
+the locations and events whose rules hold, until nothing changes.
+
+## Logic evaluator (`logic_eval.py`)
+
+This is a basic evaluator. It never says a place is unreachable, because this data is also meant for
+speedrunning. Each location gets one of two statuses:
+- `in_logic`: obtainable with the given items under glitchless, no-trick rules (`ages` says child, adult or both).
+- `not_in_standard_logic`: what the rules would want (`logic_wants_*`, including a suggested `route` of
+  regions). The location may still be reachable with tricks, glitches or skips. Trick names show up as
+  alternatives, e.g. `trick: logic_water_bk_jump_dive`.
+
+```
+python logic_eval.py --items "Kokiri Sword, Deku Shield, Slingshot, Bomb Bag"
+python logic_eval.py --items "..." --location "Deku Tree Slingshot Chest"
+python logic_eval.py --items "..." --scene "Forest Temple" --explain --json
+```
+Options:
+- `--all-keys`: assume every small key, boss key and silver rupee.
+- `--tricks all` or `--tricks logic_x,logic_y`: turn tricks on.
+- `--glitches`: also turn on the `glitch_*`/`adv_*` toggles.
+- `--hearts N`: starting heart count.
+
+Item names can be written normally (`Saria's Song`, `Small Key (Forest Temple) x3`, `Longshot`,
+`Golden Gauntlets`, `Ocarina of Time`). Progressive items are counted for you.
+
+The evaluator collects events, refills (sticks, nuts, bugs, fish, fairies) and shop purchases on its own once
+they're in logic. It does not collect chest or NPC items for you: the bot reports what it actually has. Adult
+access opens once the Master Sword pedestal is in logic. Simplifications: time of day is always treated as
+available, rupees and wallet size are ignored, and `at()`/`here()` are approximated. From Python you can also
+use `Logic(items).solve().location_status(name)`.
+
+## Limits
+
+- Names, enums and param layouts come from the decomp source. The data itself (actors, exits, spawns,
+  collision, entrance/scene/actor tables) was read from this ROM. The 37 entrance-table entries for debug test
+  scenes don't exist in retail.
+- Function ROM/RAM addresses aren't included: matching a function to an address requires building the decomp
+  (an IDO toolchain on Linux). Actor overlay VRAM addresses are in `tables/actors.json`.
+- Not exported: model and texture meshes, cutscene scripts (only whether a layer has one, and the exits
+  cutscenes trigger), audio, and dialogue text.
+- The decomp leaves most floor and wall type numbers unnamed. Only the ones confirmed in code are labeled
+  (`floor_note` / `wall_note`). Hookshot targets, exits, water boxes and void floors are exact.
+- `logic_rule` follows the randomizer's model of the game: glitchless play, tricks only where named. It describes
+  what is guaranteed, not what is possible, so a speedrun route can legitimately ignore it.
+- This database covers the original game only, not Master Quest.
+
+## Rebuilding
+
+Run `..\build.ps1 -Rom <path to your ROM>`. It fetches the two reference checkouts into `../ref` at pinned commits,
+then runs the scripts in `../tools`:
+`extract_map.py` (ROM → scenes/collision/entrances/tables), `scan_source.py` (decomp C source → code/),
+`build_bot_db.py` (joins it all with the randomizer logic → items, graphs, warps).
