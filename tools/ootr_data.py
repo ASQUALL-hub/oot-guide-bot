@@ -38,6 +38,18 @@ def py_literal_assign(path, var):
     raise KeyError(var)
 
 
+def gossip_stones(root):
+    """Hints.py gossipLocations: {text id: GossipStone(hint area, location name)} -> {text id: location name}.
+    In the ROM a gossip stone (En_Gs) shows text 0x400 + (params & 0xFF), so the text id identifies the actor."""
+    with open(os.path.join(root, "Hints.py"), encoding="utf-8") as f:
+        tree = ast.parse(f.read())
+    for node in tree.body:
+        target = node.target if isinstance(node, ast.AnnAssign) else (node.targets[0] if isinstance(node, ast.Assign) else None)
+        if getattr(target, "id", None) == "gossipLocations":
+            return {k.value: v.args[1].value for k, v in zip(node.value.keys, node.value.values)}
+    raise KeyError("gossipLocations")
+
+
 def load_source(root):
     regions = []
     for p in sorted(glob.glob(os.path.join(root, "data", "World", "*.json"))):
@@ -52,6 +64,7 @@ def load_source(root):
         regions=regions,
         helpers=read_logic_file(os.path.join(root, "data", "LogicHelpers.json")),
         shuffle_table=py_literal_assign(os.path.join(root, "EntranceShuffle.py"), "entrance_shuffle_table"),
+        gossip_stones=gossip_stones(root),
     )
 
 
@@ -74,7 +87,8 @@ def load_meta(path):
     for name, (typ, scene, default, addrs, vanilla, tags) in m["locations"].items():
         locs[name] = (typ, scene, _default_back(default), addrs, vanilla, tuple(tags) if tags else tags)
     return dict(scene_names={int(k): v for k, v in m["scene_names"].items()}, locations=locs, regions=m["regions"],
-                helpers=m["helpers"], shuffle_table=m["shuffle_table"])
+                helpers=m["helpers"], shuffle_table=m["shuffle_table"],
+                gossip_stones={int(k): v for k, v in m.get("gossip_stones", {}).items()})
 
 
 def load(path):

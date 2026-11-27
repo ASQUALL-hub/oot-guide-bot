@@ -164,6 +164,103 @@ for sid, sc in scenes.items():
                                                              actor=a["actor"], pos=a["pos"], params=a["params"], decoded=a.get("decoded")))
 
 
+# Grottos all live in one shared scene (SCENE_GROTTOS). A grotto hole (Door_Ana) passes its params' low byte (the
+# randomizer's grotto "content") to the grotto and sends Link to a spawn there; the spawn picks the room.
+GROTTO_SCENE = 0x3E
+grotto_by_region, grotto_by_content = {}, {}
+for row in shuffle_table:
+    if row[0] != "Grotto":
+        continue
+    _name, _data = row[1][0], row[1][1]
+    _hole = grotto_holes.get((_data["scene"], _data["content"]))
+    if _hole:
+        grotto_by_region[_name.split(" -> ")[1]] = _hole
+        grotto_by_content[_data["content"]] = _hole
+
+
+def grotto_room(hole):
+    spawn = (hole.get("decoded") or {}).get("dest_spawn")
+    spawns = scenes[GROTTO_SCENE]["layers"][0]["spawns"]
+    return next((sp["room"] for sp in spawns if sp["spawn"] == spawn), None)
+
+
+def merge_layers(refs):
+    """The same actor (same params and position) is repeated in each layer's actor list; keep one ref per spot."""
+    out = {}
+    for r in refs:
+        k = (r["scene"], r["room"], r["actor"], r["params"], tuple(r["pos"]))
+        if k in out:
+            out[k]["layers"] = out[k]["layers"] + [x for x in r["layers"] if x not in out[k]["layers"]]
+            out[k]["actor_index_by_layer"].update({x: r["actor_index"] for x in r["layers"]})
+        else:
+            out[k] = dict(r, actor_index_by_layer={x: r["actor_index"] for x in r["layers"]})
+    return list(out.values())
+
+
+def actors_in(sid, names, room=None, keep=None):
+    out = []
+    for n in names:
+        out += [r for r in dedupe(by_scene_actor.get((sid, n), [])) if room is None or r["room"] == room]
+    if keep:
+        out = [r for r in out if keep(int(r["params"], 16))]
+    return merge_layers(out)
+
+
+# Which placed actor hands out each NPC / boss reward (checked: each actor is placed in that scene in this ROM).
+# Rewards whose giver isn't a placed actor we could identify (cutscenes, songs, LW Target in Woods, the Gerudo
+# card) are left without rom_actors.
+REWARD_ACTORS = {
+    "LW Ocarina Memory Game": ["En_Skj"], "LW Skull Kid": ["En_Skj"], "LW Trade Cojiro": ["En_Hs"],
+    "LW Trade Odd Potion": ["En_Ko"], "Deku Theater Skull Mask": ["En_Dnt_Demo"], "Deku Theater Mask of Truth": ["En_Dnt_Demo"],
+    "HF Ocarina of Time Item": ["Item_Ocarina"], "Market Shooting Gallery Reward": ["En_Syateki_Itm"],
+    "Kak Shooting Gallery Reward": ["En_Syateki_Itm"], "Market Lost Dog": ["En_Hy"],
+    "Market Treasure Chest Game Salesman": ["En_Takara_Man"], "Market 10 Big Poes": ["En_Gb"],
+    "HC Malon Egg": ["En_Ma1"], "HC Zeldas Letter": ["En_Zl4"], "LLR Talons Chickens": ["En_Ta"],
+    "Kak Anju as Child": ["En_Niw_Lady"], "Kak Anju as Adult": ["En_Niw_Lady"], "Kak Anju Trade Pocket Cucco": ["En_Niw_Lady"],
+    "Kak Granny Trade Odd Mushroom": ["En_Ds"], "Kak Granny Buy Blue Potion": ["En_Ds"], "Kak Man on Roof": ["En_Ani"],
+    "DMT Biggoron": ["En_Go2"], "DMT Trade Broken Sword": ["En_Go2"], "DMT Trade Eyedrops": ["En_Go2"],
+    "GC Darunias Joy": ["En_Du"], "GC Rolling Goron as Child": ["En_Go2"], "GC Rolling Goron as Adult": ["En_Go2"],
+    "GC Medigoron": ["En_Gm"], "ZR Magic Bean Salesman": ["En_Ms"], "ZD Diving Minigame": ["En_Diving_Game"],
+    "ZD King Zora Thawed": ["En_Kz"], "ZD Trade Prescription": ["En_Kz"], "LH Underwater Item": ["Item_Etcetera"],
+    "LH Child Fishing": ["Fishing"], "LH Adult Fishing": ["Fishing"], "LH Loach Fishing": ["Fishing"], "LH Lab Dive": ["En_Mk"],
+    "LH Trade Eyeball Frog": ["En_Mk"], "LH Sun": ["Shot_Sun"], "GV Trade Poachers Saw": ["En_Toryo"],
+    "GF HBA 1000 Points": ["En_Ge1"], "GF HBA 1500 Points": ["En_Ge1"], "Wasteland Bombchu Salesman": ["En_Js"],
+    "Queen Gohma": ["Boss_Goma"], "King Dodongo": ["Boss_Dodongo"], "Barinade": ["Boss_Va"], "Phantom Ganon": ["Boss_Ganondrof"],
+    "Volvagia": ["Boss_Fd"], "Morpha": ["Boss_Mo"], "Bongo Bongo": ["Boss_Sst"], "Twinrova": ["Boss_Tw"],
+}
+for _n in locs:
+    if _n.startswith("Market Bombchu Bowling"):
+        REWARD_ACTORS[_n] = ["En_Bom_Bowl_Man"]
+    elif _n.startswith("Kak ") and _n.endswith("Gold Skulltula Reward"):
+        REWARD_ACTORS[_n] = ["En_Sth"]
+    elif _n.startswith("ZR Frogs"):
+        REWARD_ACTORS[_n] = ["En_Fr"]
+    elif _n.endswith(" Cow") and locs[_n][0] == "NPC":
+        REWARD_ACTORS[_n] = ["En_Cow"]
+    elif locs[_n][0] == "MaskShop":
+        REWARD_ACTORS[_n] = ["En_Ossan"]
+# When one scene holds several of the reward actor, its params say which one (read from each actor's Init):
+# En_Go2 type = params bits 0-4 (GORON_CITY_ROLLING_BIG 0, GORON_CITY_LINK 1, GORON_DMT_BIGGORON 2);
+# En_Sth (cursed House of Skulltula family) appears at params*10 tokens, params 0 at 100;
+# En_Skj type = params bits 10-15 (5: Saria's Song stump, 6: ocarina memory game stump);
+# En_Ge1 GE1_TYPE_HORSEBACK_ARCHERY = 0x45 (params bits 0-7); Shot_Sun 0x40/0x41 are song fairy spawners.
+REWARD_PARAMS = {
+    "DMT Biggoron": lambda p: p & 0x1F == 2, "DMT Trade Broken Sword": lambda p: p & 0x1F == 2,
+    "DMT Trade Eyedrops": lambda p: p & 0x1F == 2, "GC Rolling Goron as Child": lambda p: p & 0x1F == 0,
+    "GC Rolling Goron as Adult": lambda p: p & 0x1F == 1, "LW Skull Kid": lambda p: (p >> 10) & 0x3F == 5,
+    "LW Ocarina Memory Game": lambda p: (p >> 10) & 0x3F == 6, "GF HBA 1000 Points": lambda p: p & 0xFF == 0x45,
+    "GF HBA 1500 Points": lambda p: p & 0xFF == 0x45, "LH Sun": lambda p: p & 0xFF not in (0x40, 0x41),
+}
+for _k in (10, 20, 30, 40, 50, 100):
+    REWARD_PARAMS[f"Kak {_k} Gold Skulltula Reward"] = (lambda want: lambda p: p == want)(_k // 10 % 10)
+gossip_text = {v: k for k, v in OOTR_DATA.get("gossip_stones", {}).items()}
+DNS_FOR_ITEM = {"Buy Deku Nut (5)": "DNS_TYPE_DEKU_NUTS_5", "Buy Deku Seeds (30)": "DNS_TYPE_ARROWS_30",
+                "Buy Arrows (30)": "DNS_TYPE_ARROWS_30", "Buy Bombs (5) for 35 Rupees": "DNS_TYPE_BOMBS_5",
+                "Deku Nut Capacity": "DNS_TYPE_DEKU_NUT_UPGRADE", "Deku Stick Capacity": "DNS_TYPE_DEKU_STICK_UPGRADE",
+                "Buy Green Potion": "DNS_TYPE_GREEN_POTION", "Buy Red Potion for 30 Rupees": "DNS_TYPE_RED_POTION",
+                "Piece of Heart": "DNS_TYPE_HEART_PIECE"}
+
+
 def spawner_refs(sid, typ):
     out = []
     for name, note in SPAWNERS.get(typ, {}).items():
@@ -231,6 +328,30 @@ for name, (typ, scene, default, addrs, vanilla, tags) in locs.items():
         rec["xflag"] = dict(room=default[0] if not isinstance(default, list) else default[0][0],
                             layer=(default[1] if not isinstance(default, list) else default[0][1]),
                             actor_number=(default[2] if not isinstance(default, list) else default[0][2]))
+    elif typ == "GrottoScrub":
+        # the randomizer's "scene" for a grotto scrub is the grotto content byte of the hole you enter through
+        hole = grotto_by_content.get(scene)
+        room = grotto_room(hole) if hole else None
+        rom = [r for r in actors_in(GROTTO_SCENE, ["En_Shopnuts", "En_Dns"], room)
+               if r["decoded"].get("sells") == DNS_FOR_ITEM.get(vanilla)] if room is not None else []
+        if hole:
+            rec["entered_through"] = hole
+            rec["grotto_room"] = room
+        how = ("buy from the Business Scrub (hit it with a nut/shield-reflect, then talk). It is in the shared grotto "
+               "scene; enter through the hole in entered_through. DNS_TYPE_ARROWS_30 sells Deku Seeds to child Link")
+    elif typ == "HintStone":
+        tid = gossip_text.get(name)
+        rom = merge_layers([r for (sid, a), refs in by_scene_actor.items() if a == "En_Gs" for r in dedupe(refs)
+                            if 0x400 + (int(r["params"], 16) & 0xFF) == tid]) if tid else []
+        hole = grotto_by_region.get(region)
+        if not rom and hole:
+            # generic grotto stones: the randomizer gives each its own text id, the original game shares one stone
+            rom = actors_in(GROTTO_SCENE, ["En_Gs"], grotto_room(hole))
+            rec["rom_note"] = "the original game uses one shared gossip stone actor for these grottos"
+        if hole:
+            rec["entered_through"] = hole
+        rec["gossip_text_id"] = f"{tid:#06x}" if tid else None
+        how = "talk to the gossip stone (wear the Mask of Truth to read it); text 0x400 + (params & 0xFF)"
     elif typ in ("Scrub", "GrottoScrub") and scene in scenes:
         rom = dedupe(by_scene_kind[(scene, "business_scrub")])
         how = "buy from the Business Scrub (hit it with a nut/shield-reflect, then talk)"
@@ -240,6 +361,21 @@ for name, (typ, scene, default, addrs, vanilla, tags) in locs.items():
     elif typ in ("NPC", "Song", "Cutscene", "Boss", "MaskShop"):
         how = {"NPC": "reward from an NPC/minigame (see logic_rule for requirements)", "Song": "taught in a cutscene",
                "Cutscene": "given in a cutscene", "Boss": "defeat the boss / dungeon reward", "MaskShop": "Happy Mask Shop"}[typ]
+        if name in REWARD_ACTORS:
+            hole = grotto_by_region.get(region)
+            keep = REWARD_PARAMS.get(name)
+            if scene == GROTTO_SCENE and hole:
+                rom = actors_in(GROTTO_SCENE, REWARD_ACTORS[name], grotto_room(hole), keep)
+                rec["entered_through"] = hole
+            elif isinstance(scene, int) and scene in scenes:
+                rom = actors_in(scene, REWARD_ACTORS[name], keep=keep)
+            else:  # bosses: wherever the boss actor is placed
+                rom = merge_layers([r for (sid, a), refs in by_scene_actor.items() if a in REWARD_ACTORS[name]
+                                    for r in dedupe(refs)])
+            if len(rom) > 1:
+                rec["rom_note"] = f"every {'/'.join(REWARD_ACTORS[name])} placed there is listed; the logic doesn't say which one"
+            if not rom:
+                rom = None
     rec["how_obtained"] = how
     if rom is not None:
         rec["rom_actors"] = rom

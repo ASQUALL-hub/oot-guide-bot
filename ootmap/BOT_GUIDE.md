@@ -124,9 +124,15 @@ Each `items.json` record has `type`:
 - `NPC`, `Song`, `Cutscene`, `Boss`, `BossHeart`, `MaskShop`, `HintStone`, `Event`: rewards from characters or events.
   Use `region` and `logic_rule`.
 - `rom_note` explains any item that some other actor spawns at runtime.
+- Gossip stones (`HintStone`), grotto scrubs, NPC rewards and bosses are linked to the actor that gives them.
+  Gossip stones match on their text id (`gossip_text_id` = 0x400 + params low byte). Grotto locations also give
+  `entered_through` (the grotto hole to walk into) and `grotto_room`, because every grotto is a room of the shared
+  `SCENE_GROTTOS`. Where one actor is repeated in several layers, `layers` lists them and `actor_index_by_layer`
+  gives its index in each. A few have more than one candidate (e.g. left/right cows) and say so in `rom_note`.
 
-There are 1,448 vanilla-game locations. All 1,238 physical ones are linked to a ROM actor (or to the actor that
-spawns them). The other 210 are NPC rewards, songs, hints and events.
+There are 1,448 vanilla-game locations; 1,386 are linked to a ROM actor (or to the actor that spawns them). The
+other 62 have no placed actor: songs, cutscenes, events, hint texts, enemy drops, Rauru's reward, `LW Target in
+Woods` and the Gerudo card.
 
 ## Reading logic rules
 
@@ -169,8 +175,12 @@ The evaluator collects events, refills (sticks, nuts, bugs, fish, fairies) and s
 they're in logic. It does not collect chest or NPC items for you: the bot reports what it actually has. Adult
 access opens once the Master Sword pedestal is in logic. Simplifications: time of day is always treated as
 available, rupees and wallet size are ignored, and `at()`/`here()` are approximated. From Python you can also
-use `Logic(items).solve().location_status(name)`. Like the randomizer with keys in their original places, it counts one
-free Fire Temple small key.
+use `Logic(items).solve().location_status(name)`; `Logic(...).unknown_items` lists names it ignored. Like the
+randomizer with vanilla settings, it counts one free Fire Temple small key and all five ocarina buttons, follows
+the Happy Mask Shop chain by itself, and evaluates `here(...)` the randomizer's way (any age that reaches the
+region, so "plant a bean as child, ride it as adult" works). Unknown item names print a warning (`--strict` rejects
+them). With every item, `--all-keys` puts every location in logic except `Deku Shield Pot`, whose rule is the
+setting `fix_broken_drops` (off in vanilla: that pot's drop is broken in the original game).
 
 ## Limits
 

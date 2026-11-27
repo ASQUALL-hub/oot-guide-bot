@@ -46,13 +46,13 @@ class Memo:
     _ver = 0
     _pass = 0
 
-    def rule(self, text, age):
+    def rule(self, text, age, region=None):
         ver = (len(self.collected), self._ver, self._pass, self._reached_ver())
         if getattr(self, "_memo_ver", None) != ver:
             self._memo, self._memo_ver = {}, ver
-        key = (text, age)
+        key = (text, age, region if "here(" in text else None)
         if key not in self._memo:
-            self._memo[key] = super().rule(text, age)
+            self._memo[key] = super().rule(text, age, region)
         return self._memo[key]
 
     def _reached_ver(self):
@@ -122,25 +122,25 @@ class Collector(Memo, LE.Logic):
                     continue
                 for ev_name, rl in r["events"].items():
                     e = LE.escape(ev_name)
-                    if e not in self.collected and self.rule(rl, age)[0]:
+                    if e not in self.collected and self.rule(rl, age, region)[0]:
                         self.collected.add(e)
                         changed = True
                 for ln, rl in r["locations"].items():
                     loc = self.locations.get(ln)
                     if loc and loc["type"] in self.AUTO and loc.get("vanilla_item"):
                         e = LE.escape(loc["vanilla_item"])
-                        if e not in self.collected and self.rule(rl, age)[0]:
+                        if e not in self.collected and self.rule(rl, age, region)[0]:
                             self.collected.add(e)
                             changed = True
                 if self._age_live(age):
                     for ln in by_region.get(region, ()):
-                        if ln not in self.got and self.rule(self.locations[ln].get("logic_rule") or "True", age)[0]:
+                        if ln not in self.got and self.rule(self.locations[ln].get("logic_rule") or "True", age, region)[0]:
                             self.got.add(ln)
                             self.add(item_of[ln])
                             changed = True
                 for ex in r["exits"]:
                     st = (ex["to"], age)
-                    if st not in self.reached and self.rule(ex["rule"], age)[0]:
+                    if st not in self.reached and self.rule(ex["rule"], age, region)[0]:
                         self.reached.add(st)
                         order.append(st)
                         changed = True

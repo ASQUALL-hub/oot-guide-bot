@@ -47,6 +47,17 @@ python logic_eval.py --items "Kokiri Sword, Deku Shield, Slingshot" --scene "Dek
 - Upgrades can go by name: `Hookshot` / `Longshot`, `Goron Bracelet` / `Silver Gauntlets` / `Golden Gauntlets`,
   `Silver Scale` / `Golden Scale`, `Fairy Ocarina` / `Ocarina of Time`, `Magic`.
 - Stones and medallions: `Kokiri Emerald, Goron Ruby, Zora Sapphire, Forest Medallion` ...
+- The in-game names from `GAME_GUIDE.md` work too: `Fairy Bow`, `Goron's Bracelet`, `Kokiri's Emerald`, `Eye Drops`,
+  `Lon Lon Milk`, `Bottle with Letter` (Ruto's Letter) ...
+- Magic beans: the logic wants all ten from the bean seller. Write `Magic Beans`, `Magic Bean Pack` or `Magic Bean x10`.
+- **A name it doesn't know is ignored with a warning**, plus the closest valid names:
+
+  ```
+  warning: unknown item 'Bottle with Mlik' was ignored. Did you mean: Bottle with Milk, ...?
+  ```
+
+  Add `--strict` to stop instead (exit code 2). With `--json`, the summary lists them under `unknown_items`.
+  `Small Key` / `Boss Key` without a dungeon are rejected the same way: write `Small Key (Forest Temple) x3`.
 
 To become adult in logic, you need `Ocarina of Time, Song of Time` plus all three stones.
 
@@ -61,6 +72,7 @@ To become adult in logic, you need `Ocarina of Time, Song of Time` plus all thre
 | `--glitches` | Also allow the glitch toggles |
 | `--hearts 5` | Your heart count (default 3) |
 | `--explain` | Add the "what logic wants" detail to list and area views (slower) |
+| `--strict` | Stop with exit code 2 if an item name isn't recognized (default: warn and ignore it) |
 | `--json` | Machine-readable output for bots |
 
 ## Using it from a bot
@@ -108,9 +120,10 @@ python query.py quest
 ## Good to know
 
 - Tell it everything you've collected. It doesn't add chest or NPC items by itself.
-- It does handle the small stuff automatically: refills (sticks, nuts, bugs, fish, fairies), shop purchases
-  and story events.
+- It does handle the small stuff automatically: refills (sticks, nuts, bugs, fish, fairies), shop purchases,
+  story events, and the Happy Mask Shop's masks (the shop lends each one again whenever asked, so the mask chain
+  is followed for you).
 - It's basic: night and day are always treated as available, and rupees and wallet size are ignored.
-- Like the randomizer with keys in their original places, it counts one free Fire Temple small key.
+- Like the randomizer with vanilla settings, it counts one free Fire Temple small key and all five ocarina buttons.
 - To find where an item physically is (room and position), use `python query.py find "item name"`.
   `BOT_GUIDE.md` explains all the data files.

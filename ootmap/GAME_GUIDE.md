@@ -143,17 +143,17 @@ Standard logic got stuck 2 time(s) with the original layout. Each time, the step
 - **Sphere 0:** Kokiri Sword (KF Kokiri Sword Chest). Also 1 Gold Skulltula Token. Plus 54 other locations.
 - **Sphere 1:** Slingshot (Deku Tree Slingshot Chest). Also 2 Gold Skulltula Token. Plus 7 other locations. Events: Showed Mido Sword & Shield.
 - **Sphere 2:** Hylian Shield (Graveyard Shield Grave Chest); Weird Egg (HC Malon Egg); Ocarina (LW Gift from Saria); Slingshot (LW Target in Woods); Slingshot (Market Shooting Gallery Reward); Kokiri Emerald (Queen Gohma). Also 18 Gold Skulltula Token, 1 Small Key. Plus 163 other locations. Events: Defeat Queen Gohma, Temple of Time Access.
-- **Sphere 3:** Zeldas Letter (HC Zeldas Letter); Progressive Wallet (Kak 10 Gold Skulltula Reward); Stone of Agony (Kak 20 Gold Skulltula Reward); Zeldas Lullaby (Song from Impa); Eponas Song (Song from Malon); Sarias Song (Song from Saria). Plus 2 other locations. Events: Bonooru.
-- **Sphere 4:** Progressive Strength Upgrade (GC Darunias Joy); Keaton Mask (Market Mask Shop Item 6); Suns Song (Song from Royal Familys Tomb). Plus 24 other locations. Events: GC Woods Warp Open, Goron City Child Fire, Kakariko Village Gate Open.
-- **Sphere 5:** Bomb Bag (Dodongos Cavern Bomb Bag Chest); Skull Mask (Market Mask Shop Item 5). Also 3 Gold Skulltula Token. Plus 35 other locations.
-- **Sphere 6:** Magic Meter (DMT Great Fairy Reward); Deku Shield (Dodongos Cavern End of Bridge Chest); Bomb Bag (GC Rolling Goron as Child); Dins Fire (HC Great Fairy Reward); Goron Ruby (King Dodongo); Bomb Bag (Market Bombchu Bowling First Prize); Spooky Mask (Market Mask Shop Item 8); Progressive Scale (ZD Diving Minigame); Buy Magic Bean (ZR Magic Bean Salesman). Also 5 Gold Skulltula Token. Plus 115 other locations. Events: Defeat King Dodongo.
-- **Sphere 7:** Rutos Letter (LH Underwater Item); Bunny Hood (Market Mask Shop Item 7). Plus 14 other locations.
+- **Sphere 3:** Zeldas Letter (HC Zeldas Letter); Progressive Wallet (Kak 10 Gold Skulltula Reward); Stone of Agony (Kak 20 Gold Skulltula Reward); Zeldas Lullaby (Song from Impa); Eponas Song (Song from Malon); Sarias Song (Song from Saria). Plus 3 other locations. Events: Bonooru.
+- **Sphere 4:** Progressive Strength Upgrade (GC Darunias Joy); Skull Mask (Market Mask Shop Item 5); Keaton Mask (Market Mask Shop Item 6); Bunny Hood (Market Mask Shop Item 7); Spooky Mask (Market Mask Shop Item 8); Suns Song (Song from Royal Familys Tomb). Plus 25 other locations. Events: GC Woods Warp Open, Goron City Child Fire, Kakariko Village Gate Open.
+- **Sphere 5:** Bomb Bag (Dodongos Cavern Bomb Bag Chest). Also 3 Gold Skulltula Token. Plus 35 other locations.
+- **Sphere 6:** Magic Meter (DMT Great Fairy Reward); Deku Shield (Dodongos Cavern End of Bridge Chest); Bomb Bag (GC Rolling Goron as Child); Dins Fire (HC Great Fairy Reward); Goron Ruby (King Dodongo); Bomb Bag (Market Bombchu Bowling First Prize); Progressive Scale (ZD Diving Minigame); Buy Magic Bean (ZR Magic Bean Salesman). Also 5 Gold Skulltula Token. Plus 114 other locations. Events: Defeat King Dodongo.
+- **Sphere 7:** Rutos Letter (LH Underwater Item). Plus 14 other locations.
 - **Sphere 8:** Deliver Letter (Deliver Rutos Letter); Boomerang (Jabu Jabus Belly Boomerang Chest); Farores Wind (ZF Great Fairy Reward). Also 2 Gold Skulltula Token. Plus 10 other locations.
 - **Sphere 9:** Zora Sapphire (Barinade); Progressive Wallet (Kak 30 Gold Skulltula Reward). Also 13 Gold Skulltula Token. Plus 24 other locations. Events: Defeat Barinade, Jabu Jabus Belly Floor Lowered.
-- **Sphere 10:** Ocarina (HF Ocarina of Time Item); Mask of Truth (Market Mask Shop Item 3); Song of Time (Song from Ocarina of Time). Plus 4 other locations. Events: Mask of Truth Access.
-- **Sphere 11:** Giants Knife (GC Medigoron); Goron Tunic (GC Rolling Goron as Adult); Progressive Hookshot (Graveyard Dampe Race Hookshot Chest); Pocket Egg (Kak Anju as Adult); Time Travel (Master Sword Pedestal); Scarecrow Song (Pierre); Minuet of Forest (Sheik in Forest); Song of Storms (Song from Windmill); Light Medallion (ToT Reward from Rauru); Zora Tunic (ZD King Zora Thawed). Also 3 Gold Skulltula Token, 10 Silver Rupee, 3 Small Key. Plus 129 other locations. Events: Dampes Windmill Access, Epona, Hideout 1 Torch Jail Gerudo, Hideout 2 Torches Jail Gerudo, Hideout 4 Torches Jail Gerudo, King Zora Thawed, Links Cow, Stop GC Rolling Goron as Adult.
-- **Sphere 12:** Lens of Truth (Bottom of the Well Lens of Truth Chest); Prescription (DMT Trade Broken Sword); Claim Check (DMT Trade Eyedrops); Broken Sword (GV Trade Poachers Saw); Iron Boots (Ice Cavern Iron Boots Chest); Cojiro (Kak Anju Trade Pocket Cucco); Odd Potion (Kak Granny Trade Odd Mushroom); Progressive Scale (LH Adult Fishing); Eyedrops (LH Trade Eyeball Frog); Odd Mushroom (LW Trade Cojiro); Poachers Saw (LW Trade Odd Potion); Bolero of Fire (Sheik in Crater); Serenade of Water (Sheik in Ice Cavern); Eyeball Frog (ZD Trade Prescription). Also 16 Gold Skulltula Token, 5 Silver Rupee, 6 Small Key. Plus 83 other locations. Events: Broken Sword Access, Cojiro Access, Drain Well, Eyeball Frog Access, Eyedrops Access, Hideout 3 Torches Jail Gerudo, Odd Mushroom Access, Odd Potion Access, Poachers Saw Access, Prescription Access, Wake Up Adult Talon.
-- **Sphere 13:** Biggoron Sword (DMT Biggoron); Bow (Forest Temple Bow Chest); Gerudo Membership Card (Hideout Gerudo Membership Card). Also 4 Gold Skulltula Token, 9 Small Key. Plus 73 other locations. Events: Hideout 1 Torch Jail Carpenter, Hideout 2 Torches Jail Carpenter, Hideout 3 Torches Jail Carpenter, Hideout 4 Torches Jail Carpenter, Raise Water Level.
+- **Sphere 10:** Ocarina (HF Ocarina of Time Item); Mask of Truth (Market Mask Shop Item 3); Song of Time (Song from Ocarina of Time). Plus 5 other locations. Events: Mask of Truth Access.
+- **Sphere 11:** Giants Knife (GC Medigoron); Goron Tunic (GC Rolling Goron as Adult); Progressive Hookshot (Graveyard Dampe Race Hookshot Chest); Pocket Egg (Kak Anju as Adult); Progressive Scale (LH Adult Fishing); Time Travel (Master Sword Pedestal); Scarecrow Song (Pierre); Minuet of Forest (Sheik in Forest); Song of Storms (Song from Windmill); Light Medallion (ToT Reward from Rauru); Zora Tunic (ZD King Zora Thawed). Also 4 Gold Skulltula Token, 10 Silver Rupee, 3 Small Key. Plus 138 other locations. Events: Dampes Windmill Access, Epona, Hideout 1 Torch Jail Gerudo, Hideout 2 Torches Jail Gerudo, Hideout 4 Torches Jail Gerudo, King Zora Thawed, Links Cow, Stop GC Rolling Goron as Adult.
+- **Sphere 12:** Lens of Truth (Bottom of the Well Lens of Truth Chest); Prescription (DMT Trade Broken Sword); Claim Check (DMT Trade Eyedrops); Broken Sword (GV Trade Poachers Saw); Iron Boots (Ice Cavern Iron Boots Chest); Cojiro (Kak Anju Trade Pocket Cucco); Odd Potion (Kak Granny Trade Odd Mushroom); Eyedrops (LH Trade Eyeball Frog); Odd Mushroom (LW Trade Cojiro); Poachers Saw (LW Trade Odd Potion); Bolero of Fire (Sheik in Crater); Serenade of Water (Sheik in Ice Cavern); Eyeball Frog (ZD Trade Prescription). Also 16 Gold Skulltula Token, 5 Silver Rupee, 6 Small Key. Plus 87 other locations. Events: Broken Sword Access, Cojiro Access, Drain Well, Eyeball Frog Access, Eyedrops Access, Hideout 3 Torches Jail Gerudo, Odd Mushroom Access, Odd Potion Access, Poachers Saw Access, Prescription Access, Wake Up Adult Talon.
+- **Sphere 13:** Biggoron Sword (DMT Biggoron); Bow (Forest Temple Bow Chest); Gerudo Membership Card (Hideout Gerudo Membership Card). Also 4 Gold Skulltula Token, 9 Small Key. Plus 69 other locations. Events: Hideout 1 Torch Jail Carpenter, Hideout 2 Torches Jail Carpenter, Hideout 3 Torches Jail Carpenter, Hideout 4 Torches Jail Carpenter, Raise Water Level.
 - **Sphere 14:** Deku Shield (Bottom of the Well Fire Keese Chest); Hylian Shield (Bottom of the Well Like Like Chest); Bow (GF HBA 1500 Points); Bow (Kak Shooting Gallery Reward). Also 1 Boss Key, 6 Gold Skulltula Token, 10 Silver Rupee, 8 Small Key. Plus 49 other locations. Events: Forest Temple Jo and Beth, GF Gate Open.
 - **Sphere 15:** Forest Medallion (Phantom Ganon). Also 3 Gold Skulltula Token, 5 Silver Rupee, 6 Small Key. Plus 17 other locations. Events: Defeat Phantom Ganon, Forest Temple Amy and Meg.
 - **Sphere 16:** Megaton Hammer (Fire Temple Megaton Hammer Chest); Prelude of Light (Sheik at Temple). Also 2 Small Key. Plus 12 other locations.
@@ -162,11 +162,11 @@ Standard logic got stuck 2 time(s) with the original layout. Each time, the step
 - **Sphere 19: trick needed:** `logic_water_central_bow`. Standard logic can't go further with the original item layout. The randomizer files this move under a trick, but the original game's route needs it here.
 - **Sphere 20:** no major items. Also 1 Small Key. Plus 2 other locations.
 - **Sphere 21:** Progressive Hookshot (Water Temple Longshot Chest). Also 1 Gold Skulltula Token, 1 Small Key. Plus 8 other locations.
-- **Sphere 22:** Nayrus Love (Colossus Great Fairy Reward); Fire Arrows (LH Sun); Requiem of Spirit (Sheik at Colossus). Also 1 Boss Key, 7 Gold Skulltula Token. Plus 26 other locations.
-- **Sphere 23:** Water Medallion (Morpha); Deku Shield (Spirit Temple Child Anubis Pot 4); Deku Shield (Spirit Temple Child Bridge Chest). Also 2 Gold Skulltula Token, 5 Silver Rupee, 1 Small Key. Plus 9 other locations. Events: Defeat Morpha, Water Temple Clear.
+- **Sphere 22:** Nayrus Love (Colossus Great Fairy Reward); Fire Arrows (LH Sun); Requiem of Spirit (Sheik at Colossus). Also 1 Boss Key, 7 Gold Skulltula Token. Plus 24 other locations.
+- **Sphere 23:** Water Medallion (Morpha); Deku Shield (Spirit Temple Child Anubis Pot 4); Deku Shield (Spirit Temple Child Bridge Chest). Also 2 Gold Skulltula Token, 5 Silver Rupee, 1 Small Key. Plus 10 other locations. Events: Defeat Morpha, Water Temple Clear.
 - **Sphere 24:** Nocturne of Shadow (Sheik in Kakariko); Deku Shield (Spirit Temple Child Climb East Chest). Also 2 Gold Skulltula Token, 5 Silver Rupee, 1 Small Key. Plus 13 other locations.
 - **Sphere 25:** Hover Boots (Shadow Temple Hover Boots Chest). Plus 10 other locations.
-- **Sphere 26:** no major items. Also 5 Silver Rupee. Plus 9 other locations.
+- **Sphere 26:** no major items. Also 5 Silver Rupee. Plus 2 other locations.
 - **Sphere 27:** no major items. Also 1 Small Key. Plus 0 other locations.
 - **Sphere 28:** no major items. Also 1 Gold Skulltula Token, 5 Silver Rupee. Plus 4 other locations.
 - **Sphere 29:** no major items. Also 1 Gold Skulltula Token, 1 Small Key. Plus 6 other locations.
@@ -178,7 +178,7 @@ Standard logic got stuck 2 time(s) with the original layout. Each time, the step
 - **Sphere 35: one more Small Key (Spirit Temple) counted.** The randomizer's key rules count keys for the worst case (keys spent on other doors first, which a random layout allows). With the original layout these doors open in a fixed order, so one more key is counted for this dungeon from here on.
 - **Sphere 36:** Progressive Strength Upgrade (Spirit Temple Silver Gauntlets Chest). Plus 0 other locations.
 - **Sphere 37:** no major items. Also 3 Gold Skulltula Token, 5 Silver Rupee, 2 Small Key. Plus 23 other locations.
-- **Sphere 38:** Ice Arrows (Gerudo Training Ground Maze Path Final Chest); Mirror Shield (Spirit Temple Mirror Shield Chest). Also 1 Small Key. Plus 3 other locations.
+- **Sphere 38:** Ice Arrows (Gerudo Training Ground Maze Path Final Chest); Mirror Shield (Spirit Temple Mirror Shield Chest). Also 1 Small Key. Plus 4 other locations.
 - **Sphere 39:** no major items. Also 1 Boss Key, 1 Small Key. Plus 9 other locations.
 - **Sphere 40:** Spirit Medallion (Twinrova). Plus 1 other locations. Events: Defeat Twinrova.
 - **Sphere 41:** Light Arrows (ToT Light Arrows Cutscene). Plus 0 other locations.
@@ -196,79 +196,79 @@ deep), and what it **directly** unlocks: the checks where it is an immediate req
 
 | Item or event | Locations behind it | Directly unlocks |
 |---|---|---|
-| Deku Shield | 1312 | event Showed Mido Sword & Shield |
-| Kokiri Sword | 1312 | event Showed Mido Sword & Shield |
-| event: Showed Mido Sword & Shield | 1312 | Slingshot (Deku Tree Slingshot Chest) (+9 minor) |
-| Slingshot | 1302 | event Defeat Queen Gohma; Slingshot (LW Target in Woods) (+4 minor) |
-| event: Defeat Queen Gohma | 1297 | event Temple of Time Access; Hylian Shield (Graveyard Shield Grave Chest); Weird Egg (HC Malon Egg); Progressive Wallet (Kak 10 Gold Skulltula Reward); Stone of Agony (Kak 20 Gold Skulltula Reward); Ocarina (LW Gift from Saria); Slingshot (Market Shooting Gallery Reward); Kokiri Emerald (Queen Gohma); Bottle (Kak Anju as Child) (+177 minor) |
-| Weird Egg | 1112 | Zeldas Letter (HC Zeldas Letter); Zeldas Lullaby (Song from Impa); Eponas Song (Song from Malon); Sarias Song (Song from Saria); Bottle with Milk (LLR Talons Chickens) (+1 minor) |
-| Ocarina | 1098 | event Bonooru; event GC Woods Warp Open; event Goron City Child Fire; Progressive Strength Upgrade (GC Darunias Joy); Spooky Mask (Market Mask Shop Item 8); Eponas Song (Song from Malon); Suns Song (Song from Royal Familys Tomb) (+12 minor) |
-| Zeldas Letter | 1097 | event Kakariko Village Gate Open |
-| event: Kakariko Village Gate Open | 1097 | event GC Woods Warp Open; event Goron City Child Fire; Progressive Strength Upgrade (GC Darunias Joy); Keaton Mask (Market Mask Shop Item 6) (+17 minor) |
-| Zeldas Lullaby | 1088 | event GC Woods Warp Open; event Goron City Child Fire; Progressive Strength Upgrade (GC Darunias Joy); Suns Song (Song from Royal Familys Tomb) (+11 minor) |
-| Sarias Song | 1078 | Progressive Strength Upgrade (GC Darunias Joy); Spooky Mask (Market Mask Shop Item 8) (+1 minor) |
-| Progressive Strength Upgrade | 1074 | Bomb Bag (Dodongos Cavern Bomb Bag Chest) (+37 minor) |
-| Bomb Bag | 1036 | event Defeat King Dodongo; Magic Meter (DMT Great Fairy Reward); Deku Shield (Dodongos Cavern End of Bridge Chest); Bomb Bag (GC Rolling Goron as Child); Dins Fire (HC Great Fairy Reward); Bomb Bag (Market Bombchu Bowling First Prize); Progressive Scale (ZD Diving Minigame); Deku Nut Capacity (LW Deku Scrub Grotto Front) (+118 minor) |
-| Progressive Scale | 905 | Rutos Letter (LH Underwater Item) (+10 minor) |
-| Rutos Letter | 894 | Deliver Letter (Deliver Rutos Letter) |
-| Deliver Letter | 893 | Boomerang (Jabu Jabus Belly Boomerang Chest); Progressive Wallet (Kak 30 Gold Skulltula Reward); Farores Wind (ZF Great Fairy Reward) (+12 minor) |
-| Boomerang | 878 | event Jabu Jabus Belly Floor Lowered (+30 minor) |
-| event: Jabu Jabus Belly Floor Lowered | 848 | event Defeat Barinade (+7 minor) |
-| event: Defeat Barinade | 841 | Zora Sapphire (Barinade) (+1 minor) |
-| event: Defeat King Dodongo | 841 | Goron Ruby (King Dodongo) (+1 minor) |
-| Goron Ruby | 839 | event Mask of Truth Access; Ocarina (HF Ocarina of Time Item); Song of Time (Song from Ocarina of Time) |
-| Kokiri Emerald | 839 | event Mask of Truth Access; Ocarina (HF Ocarina of Time Item); Song of Time (Song from Ocarina of Time) |
-| Zora Sapphire | 839 | event Mask of Truth Access; Ocarina (HF Ocarina of Time Item); Song of Time (Song from Ocarina of Time) |
-| Song of Time | 832 | Time Travel (Master Sword Pedestal); Light Medallion (ToT Reward from Rauru) (+1 minor) |
-| Ocarina (the last of 2) | 831 | Time Travel (Master Sword Pedestal); Light Medallion (ToT Reward from Rauru) |
-| Time Travel | 829 | event Dampes Windmill Access; event Epona; event Hideout 1 Torch Jail Gerudo; event Hideout 2 Torches Jail Gerudo; event Hideout 4 Torches Jail Gerudo; event King Zora Thawed; event Links Cow; event Stop GC Rolling Goron as Adult; Giants Knife (GC Medigoron); Progressive Hookshot (Graveyard Dampe Race Hookshot Chest); +4 more (+142 minor) |
-| Progressive Hookshot | 547 | event Hideout 3 Torches Jail Gerudo; event Raise Water Level; Progressive Scale (LH Adult Fishing); Bolero of Fire (Sheik in Crater) (+72 minor) |
-| Silver Rupee (Ice Cavern Push Block) | 369 | Iron Boots (Ice Cavern Iron Boots Chest); Serenade of Water (Sheik in Ice Cavern) (+2 minor) |
-| Iron Boots | 365 | event Raise Water Level (+49 minor) |
-| Small Key (Forest Temple) | 365 | Bow (Forest Temple Bow Chest) (+7 minor) |
-| Song of Storms | 363 | event Drain Well (+22 minor) |
-| Zora Tunic | 360 |  (+45 minor) |
-| Bow | 357 | event Forest Temple Amy and Meg; event Forest Temple Jo and Beth; Bow (GF HBA 1500 Points); Bow (Kak Shooting Gallery Reward); Progressive Hookshot (Water Temple Longshot Chest); Bottle (Market 10 Big Poes) (+45 minor) |
-| event: Drain Well | 341 | Lens of Truth (Bottom of the Well Lens of Truth Chest) (+30 minor) |
-| Magic Meter | 316 | Deku Shield (Bottom of the Well Fire Keese Chest); Hylian Shield (Bottom of the Well Like Like Chest); Nayrus Love (Colossus Great Fairy Reward); Hover Boots (Shadow Temple Hover Boots Chest); Requiem of Spirit (Sheik at Colossus) (+59 minor) |
-| event: Raise Water Level | 315 | Progressive Hookshot (Water Temple Longshot Chest) (+11 minor) |
-| Small Key (Water Temple) | 314 | Progressive Hookshot (Water Temple Longshot Chest) (+10 minor) |
-| Lens of Truth | 310 | Deku Shield (Bottom of the Well Fire Keese Chest); Hylian Shield (Bottom of the Well Like Like Chest); Nayrus Love (Colossus Great Fairy Reward); Hover Boots (Shadow Temple Hover Boots Chest); Requiem of Spirit (Sheik at Colossus) (+53 minor) |
-| Progressive Hookshot (the last of 2) | 303 | Nayrus Love (Colossus Great Fairy Reward); Fire Arrows (LH Sun); Requiem of Spirit (Sheik at Colossus) (+34 minor) |
-| event: Hideout 1 Torch Jail Gerudo | 255 | event Hideout 1 Torch Jail Carpenter; event Hideout 2 Torches Jail Carpenter; event Hideout 3 Torches Jail Carpenter; event Hideout 4 Torches Jail Carpenter (+1 minor) |
-| event: Hideout 2 Torches Jail Gerudo | 255 | event Hideout 1 Torch Jail Carpenter; event Hideout 2 Torches Jail Carpenter; event Hideout 3 Torches Jail Carpenter; event Hideout 4 Torches Jail Carpenter (+1 minor) |
-| event: Hideout 3 Torches Jail Gerudo | 255 | event Hideout 1 Torch Jail Carpenter; event Hideout 2 Torches Jail Carpenter; event Hideout 3 Torches Jail Carpenter; event Hideout 4 Torches Jail Carpenter (+1 minor) |
-| event: Hideout 4 Torches Jail Gerudo | 255 | event Hideout 1 Torch Jail Carpenter; event Hideout 2 Torches Jail Carpenter; event Hideout 3 Torches Jail Carpenter; event Hideout 4 Torches Jail Carpenter (+1 minor) |
-| Small Key (Thieves Hideout) | 254 | event Hideout 1 Torch Jail Carpenter; event Hideout 2 Torches Jail Carpenter; event Hideout 3 Torches Jail Carpenter; event Hideout 4 Torches Jail Carpenter |
-| event: Hideout 1 Torch Jail Carpenter | 254 | Gerudo Membership Card (Hideout Gerudo Membership Card) |
-| event: Hideout 2 Torches Jail Carpenter | 254 | Gerudo Membership Card (Hideout Gerudo Membership Card) |
-| event: Hideout 3 Torches Jail Carpenter | 254 | Gerudo Membership Card (Hideout Gerudo Membership Card) |
-| event: Hideout 4 Torches Jail Carpenter | 254 | Gerudo Membership Card (Hideout Gerudo Membership Card) |
-| Gerudo Membership Card | 253 | event GF Gate Open; Bow (GF HBA 1500 Points) (+40 minor) |
-| Goron Tunic | 228 |  (+5 minor) |
-| Small Key (Fire Temple) | 223 | Megaton Hammer (Fire Temple Megaton Hammer Chest) (+33 minor) |
-| event: GF Gate Open | 199 | Nayrus Love (Colossus Great Fairy Reward); Requiem of Spirit (Sheik at Colossus) (+22 minor) |
-| Megaton Hammer | 189 | Magic Meter (DMC Great Fairy Reward); Ice Arrows (Gerudo Training Ground Maze Path Final Chest) (+14 minor) |
-| event: Forest Temple Amy and Meg | 176 | event Defeat Phantom Ganon (+2 minor) |
-| event: Forest Temple Jo and Beth | 176 | event Defeat Phantom Ganon (+2 minor) |
-| Requiem of Spirit | 175 | Deku Shield (Spirit Temple Child Anubis Pot 4); Deku Shield (Spirit Temple Child Bridge Chest) (+16 minor) |
-| Boss Key (Forest Temple) | 174 | event Defeat Phantom Ganon |
-| event: Defeat Phantom Ganon | 174 | Forest Medallion (Phantom Ganon) (+1 minor) |
-| Boss Key (Fire Temple) | 173 | event Defeat Volvagia |
-| Boss Key (Water Temple) | 173 | event Defeat Morpha |
-| event: Defeat Morpha | 173 | event Water Temple Clear; Water Medallion (Morpha) (+1 minor) |
-| event: Defeat Volvagia | 173 | Fire Medallion (Volvagia) (+1 minor) |
-| Forest Medallion | 172 | Prelude of Light (Sheik at Temple); Nocturne of Shadow (Sheik in Kakariko) |
-| Fire Medallion | 171 | Nocturne of Shadow (Sheik in Kakariko) |
-| Water Medallion | 171 | Nocturne of Shadow (Sheik in Kakariko) |
-| Dins Fire | 170 | Hover Boots (Shadow Temple Hover Boots Chest) (+10 minor) |
-| Nocturne of Shadow | 170 | Hover Boots (Shadow Temple Hover Boots Chest) (+10 minor) |
-| Hover Boots | 159 |  (+14 minor) |
-| Small Key (Spirit Temple) | 157 | Ice Arrows (Gerudo Training Ground Maze Path Final Chest); Deku Shield (Spirit Temple Child Climb East Chest); Mirror Shield (Spirit Temple Mirror Shield Chest); Progressive Strength Upgrade (Spirit Temple Silver Gauntlets Chest) (+66 minor) |
-| Silver Rupee (Shadow Temple Scythe Shortcut) | 145 |  (+1 minor) |
-| Small Key (Shadow Temple) | 144 |  (+10 minor) |
-| Silver Rupee (Shadow Temple Huge Pit) | 134 |  (+14 minor) |
-| Silver Rupee (Shadow Temple Invisible Spikes) | 120 |  (+36 minor) |
+| Deku Shield | 1317 | event Showed Mido Sword & Shield |
+| Kokiri Sword | 1317 | event Showed Mido Sword & Shield |
+| event: Showed Mido Sword & Shield | 1317 | Slingshot (Deku Tree Slingshot Chest) (+9 minor) |
+| Slingshot | 1307 | event Defeat Queen Gohma; Slingshot (LW Target in Woods) (+4 minor) |
+| event: Defeat Queen Gohma | 1302 | event Temple of Time Access; Hylian Shield (Graveyard Shield Grave Chest); Weird Egg (HC Malon Egg); Progressive Wallet (Kak 10 Gold Skulltula Reward); Stone of Agony (Kak 20 Gold Skulltula Reward); Ocarina (LW Gift from Saria); Slingshot (Market Shooting Gallery Reward); Kokiri Emerald (Queen Gohma); Bottle (Kak Anju as Child) (+177 minor) |
+| Weird Egg | 1116 | Zeldas Letter (HC Zeldas Letter); Zeldas Lullaby (Song from Impa); Eponas Song (Song from Malon); Sarias Song (Song from Saria); Bottle with Milk (LLR Talons Chickens) (+1 minor) |
+| Ocarina | 1103 | event Bonooru; event GC Woods Warp Open; event Goron City Child Fire; Progressive Strength Upgrade (GC Darunias Joy); Spooky Mask (Market Mask Shop Item 8); Eponas Song (Song from Malon); Suns Song (Song from Royal Familys Tomb) (+13 minor) |
+| Zeldas Letter | 1101 | event Kakariko Village Gate Open |
+| event: Kakariko Village Gate Open | 1101 | event GC Woods Warp Open; event Goron City Child Fire; Progressive Strength Upgrade (GC Darunias Joy); Keaton Mask (Market Mask Shop Item 6) (+17 minor) |
+| Zeldas Lullaby | 1092 | event GC Woods Warp Open; event Goron City Child Fire; Progressive Strength Upgrade (GC Darunias Joy); Suns Song (Song from Royal Familys Tomb) (+11 minor) |
+| Sarias Song | 1082 | Progressive Strength Upgrade (GC Darunias Joy); Spooky Mask (Market Mask Shop Item 8) (+1 minor) |
+| Progressive Strength Upgrade | 1078 | Bomb Bag (Dodongos Cavern Bomb Bag Chest) (+37 minor) |
+| Bomb Bag | 1040 | event Defeat King Dodongo; Magic Meter (DMT Great Fairy Reward); Deku Shield (Dodongos Cavern End of Bridge Chest); Bomb Bag (GC Rolling Goron as Child); Dins Fire (HC Great Fairy Reward); Bomb Bag (Market Bombchu Bowling First Prize); Progressive Scale (ZD Diving Minigame); Deku Nut Capacity (LW Deku Scrub Grotto Front) (+118 minor) |
+| Progressive Scale | 909 | Rutos Letter (LH Underwater Item) (+10 minor) |
+| Rutos Letter | 898 | Deliver Letter (Deliver Rutos Letter) |
+| Deliver Letter | 897 | Boomerang (Jabu Jabus Belly Boomerang Chest); Progressive Wallet (Kak 30 Gold Skulltula Reward); Farores Wind (ZF Great Fairy Reward) (+12 minor) |
+| Boomerang | 882 | event Jabu Jabus Belly Floor Lowered (+30 minor) |
+| event: Jabu Jabus Belly Floor Lowered | 852 | event Defeat Barinade (+7 minor) |
+| event: Defeat Barinade | 845 | Zora Sapphire (Barinade) (+1 minor) |
+| event: Defeat King Dodongo | 845 | Goron Ruby (King Dodongo) (+1 minor) |
+| Goron Ruby | 843 | event Mask of Truth Access; Ocarina (HF Ocarina of Time Item); Song of Time (Song from Ocarina of Time) |
+| Kokiri Emerald | 843 | event Mask of Truth Access; Ocarina (HF Ocarina of Time Item); Song of Time (Song from Ocarina of Time) |
+| Zora Sapphire | 843 | event Mask of Truth Access; Ocarina (HF Ocarina of Time Item); Song of Time (Song from Ocarina of Time) |
+| Song of Time | 836 | Time Travel (Master Sword Pedestal); Light Medallion (ToT Reward from Rauru) (+1 minor) |
+| Ocarina (the last of 2) | 835 | Time Travel (Master Sword Pedestal); Light Medallion (ToT Reward from Rauru) |
+| Time Travel | 833 | event Dampes Windmill Access; event Epona; event Hideout 1 Torch Jail Gerudo; event Hideout 2 Torches Jail Gerudo; event Hideout 4 Torches Jail Gerudo; event King Zora Thawed; event Links Cow; event Stop GC Rolling Goron as Adult; Giants Knife (GC Medigoron); Progressive Hookshot (Graveyard Dampe Race Hookshot Chest); +5 more (+153 minor) |
+| Progressive Hookshot | 538 | event Hideout 3 Torches Jail Gerudo; event Raise Water Level; Bolero of Fire (Sheik in Crater) (+71 minor) |
+| Silver Rupee (Ice Cavern Push Block) | 362 | Iron Boots (Ice Cavern Iron Boots Chest); Serenade of Water (Sheik in Ice Cavern) (+2 minor) |
+| Iron Boots | 358 | event Raise Water Level (+49 minor) |
+| Small Key (Forest Temple) | 358 | Bow (Forest Temple Bow Chest) (+7 minor) |
+| Song of Storms | 358 | event Drain Well (+22 minor) |
+| Zora Tunic | 353 |  (+45 minor) |
+| Bow | 350 | event Forest Temple Amy and Meg; event Forest Temple Jo and Beth; Bow (GF HBA 1500 Points); Bow (Kak Shooting Gallery Reward); Progressive Hookshot (Water Temple Longshot Chest); Bottle (Market 10 Big Poes) (+45 minor) |
+| event: Drain Well | 336 | Lens of Truth (Bottom of the Well Lens of Truth Chest) (+30 minor) |
+| Magic Meter | 311 | Deku Shield (Bottom of the Well Fire Keese Chest); Hylian Shield (Bottom of the Well Like Like Chest); Nayrus Love (Colossus Great Fairy Reward); Hover Boots (Shadow Temple Hover Boots Chest); Requiem of Spirit (Sheik at Colossus) (+59 minor) |
+| event: Raise Water Level | 308 | Progressive Hookshot (Water Temple Longshot Chest) (+11 minor) |
+| Small Key (Water Temple) | 307 | Progressive Hookshot (Water Temple Longshot Chest) (+10 minor) |
+| Lens of Truth | 305 | Deku Shield (Bottom of the Well Fire Keese Chest); Hylian Shield (Bottom of the Well Like Like Chest); Nayrus Love (Colossus Great Fairy Reward); Hover Boots (Shadow Temple Hover Boots Chest); Requiem of Spirit (Sheik at Colossus) (+53 minor) |
+| Progressive Hookshot (the last of 2) | 296 | Nayrus Love (Colossus Great Fairy Reward); Fire Arrows (LH Sun); Requiem of Spirit (Sheik at Colossus) (+32 minor) |
+| event: Hideout 1 Torch Jail Gerudo | 257 | event Hideout 1 Torch Jail Carpenter; event Hideout 2 Torches Jail Carpenter; event Hideout 3 Torches Jail Carpenter; event Hideout 4 Torches Jail Carpenter (+1 minor) |
+| event: Hideout 2 Torches Jail Gerudo | 257 | event Hideout 1 Torch Jail Carpenter; event Hideout 2 Torches Jail Carpenter; event Hideout 3 Torches Jail Carpenter; event Hideout 4 Torches Jail Carpenter (+1 minor) |
+| event: Hideout 3 Torches Jail Gerudo | 257 | event Hideout 1 Torch Jail Carpenter; event Hideout 2 Torches Jail Carpenter; event Hideout 3 Torches Jail Carpenter; event Hideout 4 Torches Jail Carpenter (+1 minor) |
+| event: Hideout 4 Torches Jail Gerudo | 257 | event Hideout 1 Torch Jail Carpenter; event Hideout 2 Torches Jail Carpenter; event Hideout 3 Torches Jail Carpenter; event Hideout 4 Torches Jail Carpenter (+1 minor) |
+| Small Key (Thieves Hideout) | 256 | event Hideout 1 Torch Jail Carpenter; event Hideout 2 Torches Jail Carpenter; event Hideout 3 Torches Jail Carpenter; event Hideout 4 Torches Jail Carpenter |
+| event: Hideout 1 Torch Jail Carpenter | 256 | Gerudo Membership Card (Hideout Gerudo Membership Card) |
+| event: Hideout 2 Torches Jail Carpenter | 256 | Gerudo Membership Card (Hideout Gerudo Membership Card) |
+| event: Hideout 3 Torches Jail Carpenter | 256 | Gerudo Membership Card (Hideout Gerudo Membership Card) |
+| event: Hideout 4 Torches Jail Carpenter | 256 | Gerudo Membership Card (Hideout Gerudo Membership Card) |
+| Gerudo Membership Card | 255 | event GF Gate Open; Bow (GF HBA 1500 Points) (+40 minor) |
+| Goron Tunic | 222 |  (+5 minor) |
+| Small Key (Fire Temple) | 217 | Megaton Hammer (Fire Temple Megaton Hammer Chest) (+33 minor) |
+| event: GF Gate Open | 201 | Nayrus Love (Colossus Great Fairy Reward); Requiem of Spirit (Sheik at Colossus) (+22 minor) |
+| Megaton Hammer | 183 | Magic Meter (DMC Great Fairy Reward); Ice Arrows (Gerudo Training Ground Maze Path Final Chest) (+14 minor) |
+| Requiem of Spirit | 177 | Deku Shield (Spirit Temple Child Anubis Pot 4); Deku Shield (Spirit Temple Child Bridge Chest) (+17 minor) |
+| event: Forest Temple Amy and Meg | 170 | event Defeat Phantom Ganon (+2 minor) |
+| event: Forest Temple Jo and Beth | 170 | event Defeat Phantom Ganon (+2 minor) |
+| Boss Key (Forest Temple) | 168 | event Defeat Phantom Ganon |
+| event: Defeat Phantom Ganon | 168 | Forest Medallion (Phantom Ganon) (+1 minor) |
+| Boss Key (Fire Temple) | 167 | event Defeat Volvagia |
+| Boss Key (Water Temple) | 167 | event Defeat Morpha |
+| event: Defeat Morpha | 167 | event Water Temple Clear; Water Medallion (Morpha) (+1 minor) |
+| event: Defeat Volvagia | 167 | Fire Medallion (Volvagia) (+1 minor) |
+| Forest Medallion | 166 | Prelude of Light (Sheik at Temple); Nocturne of Shadow (Sheik in Kakariko) |
+| Fire Medallion | 165 | Nocturne of Shadow (Sheik in Kakariko) |
+| Water Medallion | 165 | Nocturne of Shadow (Sheik in Kakariko) |
+| Dins Fire | 164 | Hover Boots (Shadow Temple Hover Boots Chest) (+10 minor) |
+| Nocturne of Shadow | 164 | Hover Boots (Shadow Temple Hover Boots Chest) (+10 minor) |
+| Small Key (Spirit Temple) | 158 | Ice Arrows (Gerudo Training Ground Maze Path Final Chest); Deku Shield (Spirit Temple Child Climb East Chest); Mirror Shield (Spirit Temple Mirror Shield Chest); Progressive Strength Upgrade (Spirit Temple Silver Gauntlets Chest) (+67 minor) |
+| Hover Boots | 153 |  (+7 minor) |
+| Silver Rupee (Shadow Temple Scythe Shortcut) | 146 |  (+1 minor) |
+| Small Key (Shadow Temple) | 145 |  (+10 minor) |
+| Silver Rupee (Shadow Temple Huge Pit) | 135 |  (+14 minor) |
+| Silver Rupee (Shadow Temple Invisible Spikes) | 121 |  (+37 minor) |
 | Mirror Shield | 86 | event Defeat Twinrova (+2 minor) |
 | Boss Key (Shadow Temple) | 84 | event Defeat Bongo Bongo |
 | Boss Key (Spirit Temple) | 84 | event Defeat Twinrova |
@@ -278,8 +278,8 @@ deep), and what it **directly** unlocks: the checks where it is an immediate req
 | Spirit Medallion | 82 | Light Arrows (ToT Light Arrows Cutscene) |
 | Light Arrows | 81 | event Shadow Trial Clear; event Water Trial Clear; Progressive Strength Upgrade (Ganons Castle Shadow Trial Golden Gauntlets Chest) (+33 minor) |
 | Progressive Strength Upgrade (the last of 3) | 41 | event Fire Trial Clear; Double Defense (OGC Great Fairy Reward) (+11 minor) |
-| Gold Skulltula Token | 38 | Progressive Wallet (Kak 10 Gold Skulltula Reward); Stone of Agony (Kak 20 Gold Skulltula Reward); Progressive Wallet (Kak 30 Gold Skulltula Reward) (+2 minor) |
-| Stone of Agony | 30 |  (+30 minor) |
+| Gold Skulltula Token | 39 | Progressive Wallet (Kak 10 Gold Skulltula Reward); Stone of Agony (Kak 20 Gold Skulltula Reward); Progressive Wallet (Kak 30 Gold Skulltula Reward) (+2 minor) |
+| Stone of Agony | 31 |  (+31 minor) |
 | Small Key (Ganons Castle) | 29 |  (+7 minor) |
 | Silver Rupee (Ganons Castle Spirit Trial) | 24 | event Spirit Trial Clear (+4 minor) |
 | Silver Rupee (Ganons Castle Fire Trial) | 22 | event Fire Trial Clear (+2 minor) |
@@ -293,14 +293,14 @@ deep), and what it **directly** unlocks: the checks where it is an immediate req
 | event: Water Trial Clear | 20 | event Ganons Tower Access (+1 minor) |
 | Boss Key (Ganons Castle) | 19 | Triforce (Ganon) (+18 minor) |
 | Eponas Song | 16 | event Epona; event Links Cow (+10 minor) |
+| Bolero of Fire | 11 |  (+11 minor) |
 | Pocket Egg | 11 | event Wake Up Adult Talon |
 | Small Key (Treasure Chest Game) | 11 |  (+11 minor) |
 | event: Cojiro Access | 11 | event Odd Mushroom Access; Cojiro (Kak Anju Trade Pocket Cucco) |
 | event: Wake Up Adult Talon | 11 | event Cojiro Access |
+| Small Key (Bottom of the Well) | 10 | Deku Shield (Bottom of the Well Fire Keese Chest); Hylian Shield (Bottom of the Well Like Like Chest) (+8 minor) |
 | event: Odd Mushroom Access | 10 | event Odd Potion Access; Odd Mushroom (LW Trade Cojiro) |
-| Bolero of Fire | 9 |  (+9 minor) |
 | Keaton Mask | 9 | Skull Mask (Market Mask Shop Item 5) |
-| Small Key (Bottom of the Well) | 9 | Deku Shield (Bottom of the Well Fire Keese Chest); Hylian Shield (Bottom of the Well Like Like Chest) (+7 minor) |
 | event: Bonooru | 9 | Scarecrow Song (Pierre) |
 | event: Goron City Child Fire | 9 |  (+9 minor) |
 | event: Odd Potion Access | 9 | event Poachers Saw Access; Odd Potion (Kak Granny Trade Odd Mushroom); Blue Potion (Kak Granny Buy Blue Potion) |
@@ -318,6 +318,7 @@ deep), and what it **directly** unlocks: the checks where it is an immediate req
 | event: King Zora Thawed | 5 | event Eyeball Frog Access; Zora Tunic (ZD King Zora Thawed) |
 | event: Mask of Truth Access | 5 | Mask of Truth (Market Mask Shop Item 3); Gerudo Mask (Market Mask Shop Item 1); Zora Mask (Market Mask Shop Item 2); Goron Mask (Market Mask Shop Item 4) |
 | event: Prescription Access | 5 | event Eyeball Frog Access; Prescription (DMT Trade Broken Sword) |
+| Buy Magic Bean | 4 |  (+4 minor) |
 | event: Eyeball Frog Access | 4 | event Eyedrops Access; Eyeball Frog (ZD Trade Prescription) |
 | Progressive Wallet | 3 | Giants Knife (GC Medigoron); Blue Potion (Kak Granny Buy Blue Potion) (+1 minor) |
 | Suns Song | 3 |  (+3 minor) |
@@ -330,7 +331,6 @@ deep), and what it **directly** unlocks: the checks where it is an immediate req
 | event: Links Cow | 1 |  (+1 minor) |
 | event: Stop GC Rolling Goron as Adult | 1 | Goron Tunic (GC Rolling Goron as Adult) |
 | Farores Wind | 0 | - |
-| Hylian Shield | 0 | - |
 | Minuet of Forest | 0 | - |
 | Prelude of Light | 0 | - |
 | Serenade of Water | 0 | - |
@@ -376,9 +376,9 @@ deep), and what it **directly** unlocks: the checks where it is an immediate req
 | Cucco | C button (assign it on the Select Item page) | child | Child trade item: use it on sleeping Talon at Hyrule Castle to wake him; then you can climb into the castle grounds. |  |  |
 | Zelda's Letter | C button (assign it on the Select Item page) | child | Show it to the guard at the Death Mountain gate in Kakariko to open it; later, show it at the Happy Mask Shop to start the mask trade. |  | HC Zeldas Letter (3) |
 | Keaton Mask | C button (assign it on the Select Item page) | child | Mask trade (sell to the Kakariko gate guard). Wearing masks changes what some people say. |  | Market Mask Shop Item 6 (4) |
-| Skull Mask | C button (assign it on the Select Item page) | child | Mask trade (sell to the Skull Kid in Lost Woods). Wearing it for the Deku Theater wins a Deku Stick upgrade. |  | Market Mask Shop Item 5 (5) |
-| Spooky Mask | C button (assign it on the Select Item page) | child | Mask trade (sell to the graveyard kid). |  | Market Mask Shop Item 8 (6) |
-| Bunny Hood | C button (assign it on the Select Item page) | child | Mask trade (sell to the running man in Hyrule Field). No speed boost in this game: z_player.c only draws the ears. |  | Market Mask Shop Item 7 (7) |
+| Skull Mask | C button (assign it on the Select Item page) | child | Mask trade (sell to the Skull Kid in Lost Woods). Wearing it for the Deku Theater wins a Deku Stick upgrade. |  | Market Mask Shop Item 5 (4) |
+| Spooky Mask | C button (assign it on the Select Item page) | child | Mask trade (sell to the graveyard kid). |  | Market Mask Shop Item 8 (4) |
+| Bunny Hood | C button (assign it on the Select Item page) | child | Mask trade (sell to the running man in Hyrule Field). No speed boost in this game: z_player.c only draws the ears. |  | Market Mask Shop Item 7 (4) |
 | Goron Mask | C button (assign it on the Select Item page) | child | Borrowed after the first four masks are sold. No gameplay effect. |  | Market Mask Shop Item 4 (10) |
 | Zora Mask | C button (assign it on the Select Item page) | child | Borrowed after the first four masks are sold. No gameplay effect. |  | Market Mask Shop Item 2 (10) |
 | Gerudo Mask | C button (assign it on the Select Item page) | child | Borrowed after the first four masks are sold. No gameplay effect. |  | Market Mask Shop Item 1 (10) |
