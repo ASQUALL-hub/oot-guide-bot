@@ -3,44 +3,24 @@
 Every bit layout here was taken from the zeldaret/oot decomp source of the
 actor in question (src/overlays/actors/ovl_<Actor>/).
 """
-import os
-import re
-
-from headers import parse_enum
-
-_enum_cache = {}
+# Actor-local enums this module reads. make_metadata.py exports exactly these into the metadata pack,
+# so a ROM-only build can decode params without the decomp source. Add new ones here.
+ACTOR_ENUMS = [
+    ("Item_Etcetera", "ItemEtceteraType"), ("En_Kusa", "EnKusaType"), ("En_Wonder_Item", "EnWonderItemMode"),
+    ("En_Wonder_Item", "EnWonderItemDrop"), ("En_G_Switch", "EnGSwitchType"), ("En_Door", "EnDoorType"),
+    ("Door_Shutter", "DoorShutterType"), ("En_Holl", "EnHollType"), ("Door_Warp1", "DoorWarp1Type"),
+    ("En_Dns", "EnDnsType"), ("En_GirlA", "EnGirlAShopItem"), ("Obj_Switch", "ObjSwitchType"),
+    ("Obj_Switch", "ObjSwitchSubType"), ("Bg_Breakwall", "BombableWallType"),
+]
+ACTOR_PREFIXED = [("En_Owl", "OWL_", "OWL_REPEAT")]
 
 
 def _enum(decomp, actor, enum_name):
-    key = (actor, enum_name)
-    if key not in _enum_cache:
-        d = decomp.actor_dir(actor)
-        res = {}
-        if os.path.isdir(d):
-            for fn in os.listdir(d):
-                if fn.endswith((".h", ".c")):
-                    with open(os.path.join(d, fn), encoding="utf-8", errors="replace") as f:
-                        res = parse_enum(f.read(), enum_name)
-                    if res:
-                        break
-        _enum_cache[key] = res
-    return _enum_cache[key]
+    return decomp.actor_enum(actor, enum_name)
 
 
 def _prefixed_list(decomp, actor, prefix, stop):
-    key = (actor, prefix)
-    if key not in _enum_cache:
-        res = {}
-        d = decomp.actor_dir(actor)
-        for fn in os.listdir(d):
-            if fn.endswith(".c"):
-                with open(os.path.join(d, fn), encoding="utf-8", errors="replace") as f:
-                    for m in re.finditer(r"/\*\s*(0x[0-9A-Fa-f]+)\s*\*/\s*(" + prefix + r"\w+)", f.read()):
-                        if m.group(2) == stop:
-                            break
-                        res[int(m.group(1), 16)] = m.group(2)
-        _enum_cache[key] = res
-    return _enum_cache[key]
+    return decomp.actor_prefixed(actor, prefix, stop)
 
 
 def bits(v, shift, n):
@@ -237,8 +217,29 @@ def decode_actor(name, p, rot, ctx):
                     subtype=_enum(D, name, "ObjSwitchSubType").get(bits(p, 4, 3), bits(p, 4, 3)),
                     frozen=bool(bits(p, 7, 1)), switch_flag=bits(p, 8, 6))
     if name == "Bg_Breakwall":
+        # its collider accepts DMG_EXPLOSIVE | DMG_HAMMER_SWING (0x48) and any hit breaks it (BgBreakwall_Wait)
         return dict(kind="bombable_wall", wall_type=_enum(D, name, "BombableWallType").get(bits(p, 13, 2), bits(p, 13, 2)),
-                    switch_flag=bits(p, 0, 6), requires="explosive")
+                    switch_flag=bits(p, 0, 6), requires="explosive or Megaton Hammer swing")
+    if name == "En_Okarina_Tag":
+        # z_en_okarina_tag.c: type = params bits 10-15, song = bits 6-9, switch flag = bits 0-5 (0x3F = none)
+        t, song, flag = bits(p, 10, 6), bits(p, 6, 4), bits(p, 0, 6)
+        songs = ["Saria's Song", "Epona's Song", "Zelda's Lullaby", "Sun's Song", "Song of Time", "Song of Storms",
+                 "Scarecrow's Song"]
+        fixed = {1: ("Zelda's Lullaby", "sets its switch flag"),
+                 2: ("Song of Storms", "child only: speeds up the Kakariko windmill and drains the well"),
+                 4: ("Song of Time", "opens the Door of Time (with the three Spiritual Stones)"),
+                 6: ("Zelda's Lullaby", "opens the Royal Family's Tomb"),
+                 7: ("any song" if song == 0xF else (songs[song] if song < len(songs) else song), "sets its switch flag"),
+                 5: (None, "shows a hint message (text 0x5021)")}
+        play, effect = fixed.get(t, (None, "unused type (the actor deletes itself)"))
+        rng = 90 + max(rot[2], 0) * 40
+        return dict(kind="ocarina_spot", spot_type=t, play=play, effect=effect,
+                    switch_flag=None if flag == 0x3F else flag,
+                    range=f"within {rng} units horizontally and 80 vertically")
+    if name == "Obj_Timeblock":
+        return dict(kind="song_of_time_block", switch_flag=bits(p, 0, 6), size="large" if bits(p, 8, 1) == 0 else "small",
+                    note="play the Song of Time near it to make it appear or disappear. Whether it starts visible depends "
+                         "on its switch flag, params bit 15 and (for some) Link's age: ObjTimeblock_CalculateIsVisible")
     if name == "Obj_Bombiwa":
         return dict(kind="bombable_boulder", switch_flag=bits(p, 0, 6), requires="explosive or hammer")
     if name == "En_Torch":
@@ -252,7 +253,14 @@ def decode_actor(name, p, rot, ctx):
 
 SURFACE_NOTES = {
     "floor_property": {5: "void out (respawn at last entrance)", 12: "falling into this triggers the polygon's exit"},
-    "wall_type": {2: "climbable (ladder)", 3: "climbable (vines/climb wall)", 5: "crawlspace entrance", 6: "crawlspace"},
+    # From the decomp: z_bgcheck.c D_80119D90 maps wall type -> WALL_FLAG_*, and z_player.c acts on the flags.
+    # FLAG_0 (types 1-3) disables ledge grabs on that wall; FLAG_1 (type 2) and FLAG_3 (type 4) start a
+    # face-the-wall climb; FLAG_2 alone (type 3) grabs from the top to climb down backwards.
+    "wall_type": {1: "no ledge grab / climb-up on this wall",
+                  2: "ladder: climbable (no ledge grab)",
+                  3: "ladder top: grab from above to climb down (no ledge grab)",
+                  4: "climbable surface (vines / climb wall)",
+                  5: "crawlspace (child only)", 6: "crawlspace (child only)"},
 }
 
 

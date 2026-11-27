@@ -1,0 +1,5541 @@
+[
+ {
+  "file": "src/code/z_actor.c",
+  "line": 2151,
+  "function": "func_8002FA60",
+  "module": "code",
+  "owner": null,
+  "field": "respawn[RESPAWN_MODE_TOP].entranceIndex",
+  "expression": "gSaveContext.save.info.fw.entranceIndex",
+  "targets": [],
+  "conditions_nearby": [
+   "if (gSaveContext.save.info.fw.set) {"
+  ],
+  "statement": "gSaveContext.respawn[RESPAWN_MODE_TOP].entranceIndex = gSaveContext.save.info.fw.entranceIndex;"
+ },
+ {
+  "file": "src/code/z_common_data.c",
+  "line": 28,
+  "function": "SaveContext_Init",
+  "module": "code",
+  "owner": null,
+  "field": "nextCutsceneIndex",
+  "expression": "NEXT_CS_INDEX_NONE",
+  "targets": [],
+  "conditions_nearby": [],
+  "statement": "gSaveContext.nextCutsceneIndex = NEXT_CS_INDEX_NONE;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 640,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_CUTSCENE_MAP_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_CUTSCENE_MAP_0",
+    "entrance": 160,
+    "entrance_hex": "0x0a0",
+    "scene_enum": "SCENE_CUTSCENE_MAP",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "if ((gSaveContext.gameMode != GAMEMODE_NORMAL) && (csCtx->curFrame != cmd->startFrame)) {",
+   "switch (cmd->destination) {",
+   "case CS_DEST_CUTSCENE_MAP_GANON_HORSE:"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_CUTSCENE_MAP_0;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 647,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_CUTSCENE_MAP_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_CUTSCENE_MAP_0",
+    "entrance": 160,
+    "entrance_hex": "0x0a0",
+    "scene_enum": "SCENE_CUTSCENE_MAP",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "switch (cmd->destination) {",
+   "case CS_DEST_CUTSCENE_MAP_GANON_HORSE:",
+   "case CS_DEST_CUTSCENE_MAP_THREE_GODDESSES:"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_CUTSCENE_MAP_0;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 654,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_GERUDO_VALLEY_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_GERUDO_VALLEY_0",
+    "entrance": 279,
+    "entrance_hex": "0x117",
+    "scene_enum": "SCENE_GERUDO_VALLEY",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "case CS_DEST_CUTSCENE_MAP_THREE_GODDESSES:",
+   "case CS_DEST_GERUDO_VALLEY_DIN_PART_1:"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_GERUDO_VALLEY_0;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 661,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_DEATH_MOUNTAIN_TRAIL_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_DEATH_MOUNTAIN_TRAIL_0",
+    "entrance": 317,
+    "entrance_hex": "0x13d",
+    "scene_enum": "SCENE_DEATH_MOUNTAIN_TRAIL",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "case CS_DEST_GERUDO_VALLEY_DIN_PART_1:",
+   "case CS_DEST_DEATH_MOUNTAIN_TRAIL_NAYRU:"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_DEATH_MOUNTAIN_TRAIL_0;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 668,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_KOKIRI_FOREST_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_KOKIRI_FOREST_0",
+    "entrance": 238,
+    "entrance_hex": "0x0ee",
+    "scene_enum": "SCENE_KOKIRI_FOREST",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "case CS_DEST_DEATH_MOUNTAIN_TRAIL_NAYRU:",
+   "case CS_DEST_KOKIRI_FOREST_FARORE:"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_KOKIRI_FOREST_0;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 675,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_CUTSCENE_MAP_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_CUTSCENE_MAP_0",
+    "entrance": 160,
+    "entrance_hex": "0x0a0",
+    "scene_enum": "SCENE_CUTSCENE_MAP",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "case CS_DEST_KOKIRI_FOREST_FARORE:",
+   "case CS_DEST_CUTSCENE_MAP_TRIFORCE_CREATION:"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_CUTSCENE_MAP_0;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 682,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_KOKIRI_FOREST_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_KOKIRI_FOREST_0",
+    "entrance": 238,
+    "entrance_hex": "0x0ee",
+    "scene_enum": "SCENE_KOKIRI_FOREST",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "case CS_DEST_CUTSCENE_MAP_TRIFORCE_CREATION:",
+   "case CS_DEST_KOKIRI_FOREST_RECEIVE_KOKIRI_EMERALD:"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_KOKIRI_FOREST_0;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 694,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_CUTSCENE_MAP_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_CUTSCENE_MAP_0",
+    "entrance": 160,
+    "entrance_hex": "0x0a0",
+    "scene_enum": "SCENE_CUTSCENE_MAP",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "case CS_DEST_TEMPLE_OF_TIME_FROM_MASTER_SWORD:",
+   "if (!GET_EVENTCHKINF(EVENTCHKINF_OBTAINED_MASTER_SWORD)) {"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_CUTSCENE_MAP_0;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 707,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_TEMPLE_OF_TIME_2",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_TEMPLE_OF_TIME_2",
+    "entrance": 714,
+    "entrance_hex": "0x2ca",
+    "scene_enum": "SCENE_TEMPLE_OF_TIME",
+    "spawn": 2
+   }
+  ],
+  "conditions_nearby": [
+   "} else {",
+   "if (!IS_CUTSCENE_LAYER) {",
+   "if (!LINK_IS_ADULT) {",
+   "} else {"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_TEMPLE_OF_TIME_2;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 715,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_GERUDO_VALLEY_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_GERUDO_VALLEY_0",
+    "entrance": 279,
+    "entrance_hex": "0x117",
+    "scene_enum": "SCENE_GERUDO_VALLEY",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "case CS_DEST_GERUDO_VALLEY_DIN_PART_2:"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_GERUDO_VALLEY_0;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 722,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_LINKS_HOUSE_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_LINKS_HOUSE_0",
+    "entrance": 187,
+    "entrance_hex": "0x0bb",
+    "scene_enum": "SCENE_LINKS_HOUSE",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "case CS_DEST_GERUDO_VALLEY_DIN_PART_2:",
+   "case CS_DEST_LINKS_HOUSE_INTRO:"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_LINKS_HOUSE_0;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 729,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_KOKIRI_FOREST_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_KOKIRI_FOREST_0",
+    "entrance": 238,
+    "entrance_hex": "0x0ee",
+    "scene_enum": "SCENE_KOKIRI_FOREST",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "case CS_DEST_LINKS_HOUSE_INTRO:",
+   "case CS_DEST_KOKIRI_FOREST_INTRO:"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_KOKIRI_FOREST_0;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 736,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_DEATH_MOUNTAIN_TRAIL_5",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_DEATH_MOUNTAIN_TRAIL_5",
+    "entrance": 1146,
+    "entrance_hex": "0x47a",
+    "scene_enum": "SCENE_DEATH_MOUNTAIN_TRAIL",
+    "spawn": 5
+   }
+  ],
+  "conditions_nearby": [
+   "case CS_DEST_KOKIRI_FOREST_INTRO:",
+   "case CS_DEST_DEATH_MOUNTAIN_TRAIL_FROM_GORON_RUBY:"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_DEATH_MOUNTAIN_TRAIL_5;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 742,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_ZORAS_FOUNTAIN_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_ZORAS_FOUNTAIN_0",
+    "entrance": 270,
+    "entrance_hex": "0x10e",
+    "scene_enum": "SCENE_ZORAS_FOUNTAIN",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "case CS_DEST_DEATH_MOUNTAIN_TRAIL_FROM_GORON_RUBY:",
+   "case CS_DEST_ZORAS_FOUNTAIN_FROM_ZORAS_SAPPHIRE:"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_ZORAS_FOUNTAIN_0;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 749,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_KOKIRI_FOREST_11",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_KOKIRI_FOREST_11",
+    "entrance": 1111,
+    "entrance_hex": "0x457",
+    "scene_enum": "SCENE_KOKIRI_FOREST",
+    "spawn": 11
+   }
+  ],
+  "conditions_nearby": [
+   "case CS_DEST_ZORAS_FOUNTAIN_FROM_ZORAS_SAPPHIRE:",
+   "case CS_DEST_KOKIRI_FOREST_FROM_KOKIRI_EMERALD:"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_KOKIRI_FOREST_11;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 755,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_TEMPLE_OF_TIME_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_TEMPLE_OF_TIME_0",
+    "entrance": 83,
+    "entrance_hex": "0x053",
+    "scene_enum": "SCENE_TEMPLE_OF_TIME",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "case CS_DEST_KOKIRI_FOREST_FROM_KOKIRI_EMERALD:",
+   "case CS_DEST_TEMPLE_OF_TIME_KOKIRI_EMERALD_RESTORED:"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_TEMPLE_OF_TIME_0;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 762,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_TEMPLE_OF_TIME_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_TEMPLE_OF_TIME_0",
+    "entrance": 83,
+    "entrance_hex": "0x053",
+    "scene_enum": "SCENE_TEMPLE_OF_TIME",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "case CS_DEST_TEMPLE_OF_TIME_KOKIRI_EMERALD_RESTORED:",
+   "case CS_DEST_TEMPLE_OF_TIME_GORON_RUBY_RESTORED:"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_TEMPLE_OF_TIME_0;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 769,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_TEMPLE_OF_TIME_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_TEMPLE_OF_TIME_0",
+    "entrance": 83,
+    "entrance_hex": "0x053",
+    "scene_enum": "SCENE_TEMPLE_OF_TIME",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "case CS_DEST_TEMPLE_OF_TIME_GORON_RUBY_RESTORED:",
+   "case CS_DEST_TEMPLE_OF_TIME_ZORAS_SAPPHIRE_RESTORED:"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_TEMPLE_OF_TIME_0;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 779,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_TEMPLE_OF_TIME_4",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_TEMPLE_OF_TIME_4",
+    "entrance": 804,
+    "entrance_hex": "0x324",
+    "scene_enum": "SCENE_TEMPLE_OF_TIME",
+    "spawn": 4
+   }
+  ],
+  "conditions_nearby": [
+   "case CS_DEST_TEMPLE_OF_TIME_ZORAS_SAPPHIRE_RESTORED:",
+   "case CS_DEST_TEMPLE_OF_TIME_AFTER_LIGHT_MEDALLION:"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_TEMPLE_OF_TIME_4;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 786,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_DEATH_MOUNTAIN_TRAIL_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_DEATH_MOUNTAIN_TRAIL_0",
+    "entrance": 317,
+    "entrance_hex": "0x13d",
+    "scene_enum": "SCENE_DEATH_MOUNTAIN_TRAIL",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "case CS_DEST_TEMPLE_OF_TIME_AFTER_LIGHT_MEDALLION:",
+   "case CS_DEST_DEATH_MOUNTAIN_TRAIL:"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_DEATH_MOUNTAIN_TRAIL_0;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 793,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_LAKE_HYLIA_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_LAKE_HYLIA_0",
+    "entrance": 258,
+    "entrance_hex": "0x102",
+    "scene_enum": "SCENE_LAKE_HYLIA",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "case CS_DEST_DEATH_MOUNTAIN_TRAIL:",
+   "case CS_DEST_LAKE_HYLIA_WATER_RESTORED:"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_LAKE_HYLIA_0;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 801,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_DESERT_COLOSSUS_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_DESERT_COLOSSUS_0",
+    "entrance": 291,
+    "entrance_hex": "0x123",
+    "scene_enum": "SCENE_DESERT_COLOSSUS",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "case CS_DEST_LAKE_HYLIA_WATER_RESTORED:",
+   "case CS_DEST_DESERT_COLOSSUS_REQUIEM:"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_DESERT_COLOSSUS_0;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 808,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_CUTSCENE_MAP_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_CUTSCENE_MAP_0",
+    "entrance": 160,
+    "entrance_hex": "0x0a0",
+    "scene_enum": "SCENE_CUTSCENE_MAP",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "case CS_DEST_DESERT_COLOSSUS_REQUIEM:",
+   "case CS_DEST_CUTSCENE_MAP_GANONDORF_DEFEATED_CREDITS:"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_CUTSCENE_MAP_0;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 815,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_JABU_JABU_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_JABU_JABU_0",
+    "entrance": 40,
+    "entrance_hex": "0x028",
+    "scene_enum": "SCENE_JABU_JABU",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "case CS_DEST_CUTSCENE_MAP_GANONDORF_DEFEATED_CREDITS:",
+   "case CS_DEST_JABU_JABU:"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_JABU_JABU_0;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 822,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_CHAMBER_OF_THE_SAGES_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_CHAMBER_OF_THE_SAGES_0",
+    "entrance": 107,
+    "entrance_hex": "0x06b",
+    "scene_enum": "SCENE_CHAMBER_OF_THE_SAGES",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "case CS_DEST_JABU_JABU:",
+   "case CS_DEST_CHAMBER_OF_SAGES_LIGHT_MEDALLION:"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_CHAMBER_OF_THE_SAGES_0;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 829,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_TEMPLE_OF_TIME_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_TEMPLE_OF_TIME_0",
+    "entrance": 83,
+    "entrance_hex": "0x053",
+    "scene_enum": "SCENE_TEMPLE_OF_TIME",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "case CS_DEST_CHAMBER_OF_SAGES_LIGHT_MEDALLION:",
+   "case CS_DEST_TEMPLE_OF_TIME_KOKIRI_EMERALD_RESTORED_2:"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_TEMPLE_OF_TIME_0;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 836,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_TEMPLE_OF_TIME_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_TEMPLE_OF_TIME_0",
+    "entrance": 83,
+    "entrance_hex": "0x053",
+    "scene_enum": "SCENE_TEMPLE_OF_TIME",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "case CS_DEST_TEMPLE_OF_TIME_KOKIRI_EMERALD_RESTORED_2:",
+   "case CS_DEST_TEMPLE_OF_TIME_GORON_RUBY_RESTORED_2:"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_TEMPLE_OF_TIME_0;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 843,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_TEMPLE_OF_TIME_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_TEMPLE_OF_TIME_0",
+    "entrance": 83,
+    "entrance_hex": "0x053",
+    "scene_enum": "SCENE_TEMPLE_OF_TIME",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "case CS_DEST_TEMPLE_OF_TIME_GORON_RUBY_RESTORED_2:",
+   "case CS_DEST_TEMPLE_OF_TIME_ZORAS_SAPPHIRE_RESTORED_2:"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_TEMPLE_OF_TIME_0;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 850,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_CHAMBER_OF_THE_SAGES_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_CHAMBER_OF_THE_SAGES_0",
+    "entrance": 107,
+    "entrance_hex": "0x06b",
+    "scene_enum": "SCENE_CHAMBER_OF_THE_SAGES",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "case CS_DEST_TEMPLE_OF_TIME_ZORAS_SAPPHIRE_RESTORED_2:",
+   "case CS_DEST_CHAMBER_OF_SAGES_FOREST_MEDALLION:"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_CHAMBER_OF_THE_SAGES_0;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 857,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_CHAMBER_OF_THE_SAGES_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_CHAMBER_OF_THE_SAGES_0",
+    "entrance": 107,
+    "entrance_hex": "0x06b",
+    "scene_enum": "SCENE_CHAMBER_OF_THE_SAGES",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "case CS_DEST_CHAMBER_OF_SAGES_FOREST_MEDALLION:",
+   "case CS_DEST_CHAMBER_OF_SAGES_FIRE_MEDALLION:"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_CHAMBER_OF_THE_SAGES_0;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 865,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_CHAMBER_OF_THE_SAGES_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_CHAMBER_OF_THE_SAGES_0",
+    "entrance": 107,
+    "entrance_hex": "0x06b",
+    "scene_enum": "SCENE_CHAMBER_OF_THE_SAGES",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "case CS_DEST_CHAMBER_OF_SAGES_FIRE_MEDALLION:",
+   "case CS_DEST_CHAMBER_OF_SAGES_WATER_MEDALLION:"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_CHAMBER_OF_THE_SAGES_0;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 873,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_HYRULE_FIELD_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_HYRULE_FIELD_0",
+    "entrance": 205,
+    "entrance_hex": "0x0cd",
+    "scene_enum": "SCENE_HYRULE_FIELD",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "case CS_DEST_CHAMBER_OF_SAGES_WATER_MEDALLION:",
+   "case CS_DEST_HYRULE_FIELD_FLASHBACK:"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_HYRULE_FIELD_0;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 880,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_HYRULE_FIELD_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_HYRULE_FIELD_0",
+    "entrance": 205,
+    "entrance_hex": "0x0cd",
+    "scene_enum": "SCENE_HYRULE_FIELD",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "case CS_DEST_HYRULE_FIELD_FLASHBACK:",
+   "case CS_DEST_HYRULE_FIELD_FROM_ZELDA_ESCAPE:"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_HYRULE_FIELD_0;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 886,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_CUTSCENE_MAP_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_CUTSCENE_MAP_0",
+    "entrance": 160,
+    "entrance_hex": "0x0a0",
+    "scene_enum": "SCENE_CUTSCENE_MAP",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "case CS_DEST_HYRULE_FIELD_FROM_ZELDA_ESCAPE:",
+   "case CS_DEST_CUTSCENE_MAP_GANONDORF_FROM_MASTER_SWORD:"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_CUTSCENE_MAP_0;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 893,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_HYRULE_FIELD_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_HYRULE_FIELD_0",
+    "entrance": 205,
+    "entrance_hex": "0x0cd",
+    "scene_enum": "SCENE_HYRULE_FIELD",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "case CS_DEST_CUTSCENE_MAP_GANONDORF_FROM_MASTER_SWORD:",
+   "case CS_DEST_HYRULE_FIELD_INTRO_DREAM:"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_HYRULE_FIELD_0;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 900,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_CUTSCENE_MAP_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_CUTSCENE_MAP_0",
+    "entrance": 160,
+    "entrance_hex": "0x0a0",
+    "scene_enum": "SCENE_CUTSCENE_MAP",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "case CS_DEST_HYRULE_FIELD_INTRO_DREAM:",
+   "case CS_DEST_CUTSCENE_MAP_SHEIKAH_LEGEND:"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_CUTSCENE_MAP_0;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 907,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_TEMPLE_OF_TIME_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_TEMPLE_OF_TIME_0",
+    "entrance": 83,
+    "entrance_hex": "0x053",
+    "scene_enum": "SCENE_TEMPLE_OF_TIME",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "case CS_DEST_CUTSCENE_MAP_SHEIKAH_LEGEND:",
+   "case CS_DEST_TEMPLE_OF_TIME_ZELDA_REVEAL:"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_TEMPLE_OF_TIME_0;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 915,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_TEMPLE_OF_TIME_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_TEMPLE_OF_TIME_0",
+    "entrance": 83,
+    "entrance_hex": "0x053",
+    "scene_enum": "SCENE_TEMPLE_OF_TIME",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "case CS_DEST_TEMPLE_OF_TIME_ZELDA_REVEAL:",
+   "case CS_DEST_TEMPLE_OF_TIME_GET_LIGHT_ARROWS:"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_TEMPLE_OF_TIME_0;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 922,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_LAKE_HYLIA_5",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_LAKE_HYLIA_5",
+    "entrance": 1254,
+    "entrance_hex": "0x4e6",
+    "scene_enum": "SCENE_LAKE_HYLIA",
+    "spawn": 5
+   }
+  ],
+  "conditions_nearby": [
+   "case CS_DEST_TEMPLE_OF_TIME_GET_LIGHT_ARROWS:",
+   "case CS_DEST_LAKE_HYLIA_FROM_LAKE_RESTORED:"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_LAKE_HYLIA_5;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 928,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_KAKARIKO_VILLAGE_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_KAKARIKO_VILLAGE_0",
+    "entrance": 219,
+    "entrance_hex": "0x0db",
+    "scene_enum": "SCENE_KAKARIKO_VILLAGE",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "case CS_DEST_LAKE_HYLIA_FROM_LAKE_RESTORED:",
+   "case CS_DEST_KAKARIKO_VILLAGE_DRAIN_WELL:"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_KAKARIKO_VILLAGE_0;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 935,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_WINDMILL_AND_DAMPES_GRAVE_2",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_WINDMILL_AND_DAMPES_GRAVE_2",
+    "entrance": 1283,
+    "entrance_hex": "0x503",
+    "scene_enum": "SCENE_WINDMILL_AND_DAMPES_GRAVE",
+    "spawn": 2
+   }
+  ],
+  "conditions_nearby": [
+   "case CS_DEST_KAKARIKO_VILLAGE_DRAIN_WELL:",
+   "case CS_DEST_WINDMILL_FROM_WELL_DRAINED:"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_WINDMILL_AND_DAMPES_GRAVE_2;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 941,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_TEMPLE_OF_TIME_3",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_TEMPLE_OF_TIME_3",
+    "entrance": 800,
+    "entrance_hex": "0x320",
+    "scene_enum": "SCENE_TEMPLE_OF_TIME",
+    "spawn": 3
+   }
+  ],
+  "conditions_nearby": [
+   "case CS_DEST_WINDMILL_FROM_WELL_DRAINED:",
+   "case CS_DEST_TEMPLE_OF_TIME_FROM_ALL_STONES_RESTORED:"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_TEMPLE_OF_TIME_3;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 950,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_TEMPLE_OF_TIME_4",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_TEMPLE_OF_TIME_4",
+    "entrance": 804,
+    "entrance_hex": "0x324",
+    "scene_enum": "SCENE_TEMPLE_OF_TIME",
+    "spawn": 4
+   }
+  ],
+  "conditions_nearby": [
+   "case CS_DEST_TEMPLE_OF_TIME_FROM_ALL_STONES_RESTORED:",
+   "case CS_DEST_TEMPLE_OF_TIME_AFTER_LIGHT_MEDALLION_ALT:"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_TEMPLE_OF_TIME_4;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 958,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_KAKARIKO_VILLAGE_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_KAKARIKO_VILLAGE_0",
+    "entrance": 219,
+    "entrance_hex": "0x0db",
+    "scene_enum": "SCENE_KAKARIKO_VILLAGE",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "case CS_DEST_KAKARIKO_VILLAGE_NOCTURNE_PART_2:"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_KAKARIKO_VILLAGE_0;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 965,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_DESERT_COLOSSUS_4",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_DESERT_COLOSSUS_4",
+    "entrance": 493,
+    "entrance_hex": "0x1ed",
+    "scene_enum": "SCENE_DESERT_COLOSSUS",
+    "spawn": 4
+   }
+  ],
+  "conditions_nearby": [
+   "case CS_DEST_KAKARIKO_VILLAGE_NOCTURNE_PART_2:",
+   "case CS_DEST_DESERT_COLOSSUS_FROM_REQUIEM:"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_DESERT_COLOSSUS_4;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 972,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_TEMPLE_OF_TIME_5",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_TEMPLE_OF_TIME_5",
+    "entrance": 1420,
+    "entrance_hex": "0x58c",
+    "scene_enum": "SCENE_TEMPLE_OF_TIME",
+    "spawn": 5
+   }
+  ],
+  "conditions_nearby": [
+   "case CS_DEST_DESERT_COLOSSUS_FROM_REQUIEM:",
+   "case CS_DEST_TEMPLE_OF_TIME_FROM_LIGHT_ARROWS:"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_TEMPLE_OF_TIME_5;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 978,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_KAKARIKO_VILLAGE_13",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_KAKARIKO_VILLAGE_13",
+    "entrance": 1299,
+    "entrance_hex": "0x513",
+    "scene_enum": "SCENE_KAKARIKO_VILLAGE",
+    "spawn": 13
+   }
+  ],
+  "conditions_nearby": [
+   "case CS_DEST_TEMPLE_OF_TIME_FROM_LIGHT_ARROWS:",
+   "case CS_DEST_KAKARIKO_VILLAGE_FROM_NOCTURNE:"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_KAKARIKO_VILLAGE_13;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 984,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_HYRULE_FIELD_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_HYRULE_FIELD_0",
+    "entrance": 205,
+    "entrance_hex": "0x0cd",
+    "scene_enum": "SCENE_HYRULE_FIELD",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "case CS_DEST_KAKARIKO_VILLAGE_FROM_NOCTURNE:",
+   "case CS_DEST_HYRULE_FIELD_FROM_ZELDAS_COURTYARD:"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_HYRULE_FIELD_0;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 991,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_TEMPLE_OF_TIME_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_TEMPLE_OF_TIME_0",
+    "entrance": 83,
+    "entrance_hex": "0x053",
+    "scene_enum": "SCENE_TEMPLE_OF_TIME",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "case CS_DEST_HYRULE_FIELD_FROM_ZELDAS_COURTYARD:",
+   "case CS_DEST_TEMPLE_OF_TIME_SONG_OF_TIME:"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_TEMPLE_OF_TIME_0;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 998,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_HYRULE_FIELD_16",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_HYRULE_FIELD_16",
+    "entrance": 1295,
+    "entrance_hex": "0x50f",
+    "scene_enum": "SCENE_HYRULE_FIELD",
+    "spawn": 16
+   }
+  ],
+  "conditions_nearby": [
+   "case CS_DEST_TEMPLE_OF_TIME_SONG_OF_TIME:",
+   "case CS_DEST_HYRULE_FIELD_FROM_SONG_OF_TIME:"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_HYRULE_FIELD_16;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 1009,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_GERUDO_VALLEY_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_GERUDO_VALLEY_0",
+    "entrance": 279,
+    "entrance_hex": "0x117",
+    "scene_enum": "SCENE_GERUDO_VALLEY",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "case CS_DEST_GERUDO_VALLEY_CREDITS:"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_GERUDO_VALLEY_0;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 1016,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_GERUDOS_FORTRESS_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_GERUDOS_FORTRESS_0",
+    "entrance": 297,
+    "entrance_hex": "0x129",
+    "scene_enum": "SCENE_GERUDOS_FORTRESS",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "case CS_DEST_GERUDO_FORTRESS_CREDITS:"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_GERUDOS_FORTRESS_0;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 1023,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_KAKARIKO_VILLAGE_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_KAKARIKO_VILLAGE_0",
+    "entrance": 219,
+    "entrance_hex": "0x0db",
+    "scene_enum": "SCENE_KAKARIKO_VILLAGE",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "case CS_DEST_GERUDO_FORTRESS_CREDITS:",
+   "case CS_DEST_KAKARIKO_VILLAGE_CREDITS:"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_KAKARIKO_VILLAGE_0;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 1030,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_DEATH_MOUNTAIN_TRAIL_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_DEATH_MOUNTAIN_TRAIL_0",
+    "entrance": 317,
+    "entrance_hex": "0x13d",
+    "scene_enum": "SCENE_DEATH_MOUNTAIN_TRAIL",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "case CS_DEST_KAKARIKO_VILLAGE_CREDITS:",
+   "case CS_DEST_DEATH_MOUNTAIN_TRAIL_CREDITS_PART_1:"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_DEATH_MOUNTAIN_TRAIL_0;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 1037,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_GORON_CITY_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_GORON_CITY_0",
+    "entrance": 333,
+    "entrance_hex": "0x14d",
+    "scene_enum": "SCENE_GORON_CITY",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "case CS_DEST_DEATH_MOUNTAIN_TRAIL_CREDITS_PART_1:",
+   "case CS_DEST_GORON_CITY_CREDITS:"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_GORON_CITY_0;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 1044,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_LAKE_HYLIA_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_LAKE_HYLIA_0",
+    "entrance": 258,
+    "entrance_hex": "0x102",
+    "scene_enum": "SCENE_LAKE_HYLIA",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "case CS_DEST_GORON_CITY_CREDITS:",
+   "case CS_DEST_LAKE_HYLIA_CREDITS:"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_LAKE_HYLIA_0;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 1051,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_ZORAS_FOUNTAIN_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_ZORAS_FOUNTAIN_0",
+    "entrance": 270,
+    "entrance_hex": "0x10e",
+    "scene_enum": "SCENE_ZORAS_FOUNTAIN",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "case CS_DEST_LAKE_HYLIA_CREDITS:",
+   "case CS_DEST_ZORAS_FOUNTAIN_CREDITS:"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_ZORAS_FOUNTAIN_0;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 1058,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_ZORAS_DOMAIN_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_ZORAS_DOMAIN_0",
+    "entrance": 264,
+    "entrance_hex": "0x108",
+    "scene_enum": "SCENE_ZORAS_DOMAIN",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "case CS_DEST_ZORAS_FOUNTAIN_CREDITS:",
+   "case CS_DEST_ZORAS_DOMAIN_CREDITS:"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_ZORAS_DOMAIN_0;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 1066,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_KOKIRI_FOREST_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_KOKIRI_FOREST_0",
+    "entrance": 238,
+    "entrance_hex": "0x0ee",
+    "scene_enum": "SCENE_KOKIRI_FOREST",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "case CS_DEST_ZORAS_DOMAIN_CREDITS:",
+   "case CS_DEST_KOKIRI_FOREST_CREDITS_PART_1:"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_KOKIRI_FOREST_0;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 1073,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_KOKIRI_FOREST_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_KOKIRI_FOREST_0",
+    "entrance": 238,
+    "entrance_hex": "0x0ee",
+    "scene_enum": "SCENE_KOKIRI_FOREST",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "case CS_DEST_KOKIRI_FOREST_CREDITS_PART_1:",
+   "case CS_DEST_KOKIRI_FOREST_CREDITS_PART_2:"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_KOKIRI_FOREST_0;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 1080,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_HYRULE_FIELD_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_HYRULE_FIELD_0",
+    "entrance": 205,
+    "entrance_hex": "0x0cd",
+    "scene_enum": "SCENE_HYRULE_FIELD",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "case CS_DEST_KOKIRI_FOREST_CREDITS_PART_2:",
+   "case CS_DEST_HYRULE_FIELD_CREDITS:"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_HYRULE_FIELD_0;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 1088,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_LON_LON_RANCH_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_LON_LON_RANCH_0",
+    "entrance": 343,
+    "entrance_hex": "0x157",
+    "scene_enum": "SCENE_LON_LON_RANCH",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "case CS_DEST_HYRULE_FIELD_CREDITS:",
+   "case CS_DEST_LON_LON_RANCH_CREDITS_PART_1_ALT:"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_LON_LON_RANCH_0;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 1095,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_KAKARIKO_VILLAGE_14",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_KAKARIKO_VILLAGE_14",
+    "entrance": 1364,
+    "entrance_hex": "0x554",
+    "scene_enum": "SCENE_KAKARIKO_VILLAGE",
+    "spawn": 14
+   }
+  ],
+  "conditions_nearby": [
+   "case CS_DEST_LON_LON_RANCH_CREDITS_PART_1_ALT:",
+   "case CS_DEST_KAKARIKO_VILLAGE_FROM_TRAIL_OWL:"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_KAKARIKO_VILLAGE_14;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 1101,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_HYRULE_FIELD_9",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_HYRULE_FIELD_9",
+    "entrance": 638,
+    "entrance_hex": "0x27e",
+    "scene_enum": "SCENE_HYRULE_FIELD",
+    "spawn": 9
+   }
+  ],
+  "conditions_nearby": [
+   "case CS_DEST_KAKARIKO_VILLAGE_FROM_TRAIL_OWL:",
+   "case CS_DEST_HYRULE_FIELD_FROM_LAKE_HYLIA_OWL:"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_HYRULE_FIELD_9;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 1107,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_CUTSCENE_MAP_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_CUTSCENE_MAP_0",
+    "entrance": 160,
+    "entrance_hex": "0x0a0",
+    "scene_enum": "SCENE_CUTSCENE_MAP",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "case CS_DEST_HYRULE_FIELD_FROM_LAKE_HYLIA_OWL:",
+   "case CS_DEST_CUTSCENE_MAP_DEKU_SPROUT_PART_2:"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_CUTSCENE_MAP_0;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 1114,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_KOKIRI_FOREST_12",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_KOKIRI_FOREST_12",
+    "entrance": 1512,
+    "entrance_hex": "0x5e8",
+    "scene_enum": "SCENE_KOKIRI_FOREST",
+    "spawn": 12
+   }
+  ],
+  "conditions_nearby": [
+   "case CS_DEST_CUTSCENE_MAP_DEKU_SPROUT_PART_2:",
+   "case CS_DEST_KOKIRI_FOREST_DEKU_SPROUT_PART_3:"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_KOKIRI_FOREST_12;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 1120,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_DEATH_MOUNTAIN_TRAIL_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_DEATH_MOUNTAIN_TRAIL_0",
+    "entrance": 317,
+    "entrance_hex": "0x13d",
+    "scene_enum": "SCENE_DEATH_MOUNTAIN_TRAIL",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "case CS_DEST_KOKIRI_FOREST_DEKU_SPROUT_PART_3:",
+   "case CS_DEST_DEATH_MOUNTAIN_TRAIL_CREDITS_PART_2:"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_DEATH_MOUNTAIN_TRAIL_0;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 1133,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_TEMPLE_OF_TIME_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_TEMPLE_OF_TIME_0",
+    "entrance": 83,
+    "entrance_hex": "0x053",
+    "scene_enum": "SCENE_TEMPLE_OF_TIME",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "case CS_DEST_TEMPLE_OF_TIME_CREDITS:"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_TEMPLE_OF_TIME_0;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 1140,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_CASTLE_COURTYARD_ZELDA_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_CASTLE_COURTYARD_ZELDA_0",
+    "entrance": 1024,
+    "entrance_hex": "0x400",
+    "scene_enum": "SCENE_CASTLE_COURTYARD_ZELDA",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "case CS_DEST_ZELDAS_COURTYARD_CREDITS:"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_CASTLE_COURTYARD_ZELDA_0;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 1149,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_LON_LON_RANCH_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_LON_LON_RANCH_0",
+    "entrance": 343,
+    "entrance_hex": "0x157",
+    "scene_enum": "SCENE_LON_LON_RANCH",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "case CS_DEST_ZELDAS_COURTYARD_CREDITS:",
+   "case CS_DEST_LON_LON_RANCH_CREDITS_PART_1:"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_LON_LON_RANCH_0;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 1156,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_LON_LON_RANCH_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_LON_LON_RANCH_0",
+    "entrance": 343,
+    "entrance_hex": "0x157",
+    "scene_enum": "SCENE_LON_LON_RANCH",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "case CS_DEST_LON_LON_RANCH_CREDITS_PART_1:",
+   "case CS_DEST_LON_LON_RANCH_CREDITS_PART_2:"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_LON_LON_RANCH_0;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 1165,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_LON_LON_RANCH_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_LON_LON_RANCH_0",
+    "entrance": 343,
+    "entrance_hex": "0x157",
+    "scene_enum": "SCENE_LON_LON_RANCH",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "case CS_DEST_LON_LON_RANCH_CREDITS_PART_2:",
+   "case CS_DEST_LON_LON_RANCH_CREDITS_PART_3:"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_LON_LON_RANCH_0;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 1173,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_LON_LON_RANCH_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_LON_LON_RANCH_0",
+    "entrance": 343,
+    "entrance_hex": "0x157",
+    "scene_enum": "SCENE_LON_LON_RANCH",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "case CS_DEST_LON_LON_RANCH_CREDITS_PART_3:",
+   "case CS_DEST_LON_LON_RANCH_CREDITS_PART_4:"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_LON_LON_RANCH_0;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 1181,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_LON_LON_RANCH_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_LON_LON_RANCH_0",
+    "entrance": 343,
+    "entrance_hex": "0x157",
+    "scene_enum": "SCENE_LON_LON_RANCH",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "case CS_DEST_LON_LON_RANCH_CREDITS_PART_4:",
+   "case CS_DEST_LON_LON_RANCH_CREDITS_PART_6:"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_LON_LON_RANCH_0;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 1188,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_LON_LON_RANCH_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_LON_LON_RANCH_0",
+    "entrance": 343,
+    "entrance_hex": "0x157",
+    "scene_enum": "SCENE_LON_LON_RANCH",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "case CS_DEST_LON_LON_RANCH_CREDITS_PART_6:",
+   "case CS_DEST_LON_LON_RANCH_CREDITS_PART_5:"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_LON_LON_RANCH_0;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 1209,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_LON_LON_RANCH_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_LON_LON_RANCH_0",
+    "entrance": 343,
+    "entrance_hex": "0x157",
+    "scene_enum": "SCENE_LON_LON_RANCH",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "case CS_DEST_LON_LON_RANCH_12:",
+   "case CS_DEST_LON_LON_RANCH_13:",
+   "case CS_DEST_LON_LON_RANCH_14:",
+   "case CS_DEST_LON_LON_RANCH_15:"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_LON_LON_RANCH_0;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 1215,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_LON_LON_RANCH_1",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_LON_LON_RANCH_1",
+    "entrance": 686,
+    "entrance_hex": "0x2ae",
+    "scene_enum": "SCENE_LON_LON_RANCH",
+    "spawn": 1
+   }
+  ],
+  "conditions_nearby": [
+   "case CS_DEST_LON_LON_RANCH_13:",
+   "case CS_DEST_LON_LON_RANCH_14:",
+   "case CS_DEST_LON_LON_RANCH_15:",
+   "case CS_DEST_LON_LON_RANCH_FROM_EPONAS_SONG:"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_LON_LON_RANCH_1;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 1228,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_TEMPLE_OF_TIME_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_TEMPLE_OF_TIME_0",
+    "entrance": 83,
+    "entrance_hex": "0x053",
+    "scene_enum": "SCENE_TEMPLE_OF_TIME",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "case CS_DEST_STONES_RESTORED_CONDITIONAL:",
+   "if (GET_EVENTCHKINF(EVENTCHKINF_48) && GET_EVENTCHKINF(EVENTCHKINF_49) &&"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_TEMPLE_OF_TIME_0;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 1235,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_SACRED_FOREST_MEADOW_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_SACRED_FOREST_MEADOW_0",
+    "entrance": 252,
+    "entrance_hex": "0x0fc",
+    "scene_enum": "SCENE_SACRED_FOREST_MEADOW",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "if (GET_EVENTCHKINF(EVENTCHKINF_48) && GET_EVENTCHKINF(EVENTCHKINF_49) &&",
+   "} else {",
+   "switch (gSaveContext.sceneLayer) {",
+   "case 8:"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_SACRED_FOREST_MEADOW_0;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 1241,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_DEATH_MOUNTAIN_CRATER_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_DEATH_MOUNTAIN_CRATER_0",
+    "entrance": 327,
+    "entrance_hex": "0x147",
+    "scene_enum": "SCENE_DEATH_MOUNTAIN_CRATER",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "} else {",
+   "switch (gSaveContext.sceneLayer) {",
+   "case 8:",
+   "case 9:"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_DEATH_MOUNTAIN_CRATER_0;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 1247,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_LAKE_HYLIA_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_LAKE_HYLIA_0",
+    "entrance": 258,
+    "entrance_hex": "0x102",
+    "scene_enum": "SCENE_LAKE_HYLIA",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "case 9:",
+   "case 10:"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_LAKE_HYLIA_0;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 1258,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_CHAMBER_OF_THE_SAGES_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_CHAMBER_OF_THE_SAGES_0",
+    "entrance": 107,
+    "entrance_hex": "0x06b",
+    "scene_enum": "SCENE_CHAMBER_OF_THE_SAGES",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "case CS_DEST_DESERT_COLOSSUS_FROM_CHAMBER_OF_SAGES:",
+   "if (CHECK_QUEST_ITEM(QUEST_MEDALLION_SHADOW)) {"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_CHAMBER_OF_THE_SAGES_0;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 1264,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_DESERT_COLOSSUS_8",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_DESERT_COLOSSUS_8",
+    "entrance": 1552,
+    "entrance_hex": "0x610",
+    "scene_enum": "SCENE_DESERT_COLOSSUS",
+    "spawn": 8
+   }
+  ],
+  "conditions_nearby": [
+   "case CS_DEST_DESERT_COLOSSUS_FROM_CHAMBER_OF_SAGES:",
+   "if (CHECK_QUEST_ITEM(QUEST_MEDALLION_SHADOW)) {",
+   "} else {"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_DESERT_COLOSSUS_8;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 1273,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_CHAMBER_OF_THE_SAGES_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_CHAMBER_OF_THE_SAGES_0",
+    "entrance": 107,
+    "entrance_hex": "0x06b",
+    "scene_enum": "SCENE_CHAMBER_OF_THE_SAGES",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "} else {",
+   "case CS_DEST_GRAVEYARD_FROM_CHAMBER_OF_SAGES:",
+   "if (CHECK_QUEST_ITEM(QUEST_MEDALLION_SPIRIT)) {"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_CHAMBER_OF_THE_SAGES_0;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 1278,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_GRAVEYARD_8",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_GRAVEYARD_8",
+    "entrance": 1408,
+    "entrance_hex": "0x580",
+    "scene_enum": "SCENE_GRAVEYARD",
+    "spawn": 8
+   }
+  ],
+  "conditions_nearby": [
+   "case CS_DEST_GRAVEYARD_FROM_CHAMBER_OF_SAGES:",
+   "if (CHECK_QUEST_ITEM(QUEST_MEDALLION_SPIRIT)) {",
+   "} else {"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_GRAVEYARD_8;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 1286,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_DEATH_MOUNTAIN_CRATER_5",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_DEATH_MOUNTAIN_CRATER_5",
+    "entrance": 1380,
+    "entrance_hex": "0x564",
+    "scene_enum": "SCENE_DEATH_MOUNTAIN_CRATER",
+    "spawn": 5
+   }
+  ],
+  "conditions_nearby": [
+   "} else {",
+   "case CS_DEST_DEATH_MOUNTAIN_CRATER_FROM_CHAMBER_OF_SAGES:"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_DEATH_MOUNTAIN_CRATER_5;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 1293,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_SACRED_FOREST_MEADOW_3",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_SACRED_FOREST_MEADOW_3",
+    "entrance": 1544,
+    "entrance_hex": "0x608",
+    "scene_enum": "SCENE_SACRED_FOREST_MEADOW",
+    "spawn": 3
+   }
+  ],
+  "conditions_nearby": [
+   "case CS_DEST_DEATH_MOUNTAIN_CRATER_FROM_CHAMBER_OF_SAGES:",
+   "case CS_DEST_SACRED_FOREST_MEADOW_WARP_PAD:"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_SACRED_FOREST_MEADOW_3;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 1300,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_KOKIRI_FOREST_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_KOKIRI_FOREST_0",
+    "entrance": 238,
+    "entrance_hex": "0x0ee",
+    "scene_enum": "SCENE_KOKIRI_FOREST",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "case CS_DEST_SACRED_FOREST_MEADOW_WARP_PAD:",
+   "case CS_DEST_KOKIRI_FOREST_FROM_CHAMBER_OF_SAGES:"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_KOKIRI_FOREST_0;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 1308,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_DESERT_COLOSSUS_6",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_DESERT_COLOSSUS_6",
+    "entrance": 501,
+    "entrance_hex": "0x1f5",
+    "scene_enum": "SCENE_DESERT_COLOSSUS",
+    "spawn": 6
+   }
+  ],
+  "conditions_nearby": [
+   "case CS_DEST_KOKIRI_FOREST_FROM_CHAMBER_OF_SAGES:",
+   "case CS_DEST_DESERT_COLOSSUS_FROM_NABOORU_CAPTURE:"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_DESERT_COLOSSUS_6;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 1314,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_TEMPLE_OF_TIME_6",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_TEMPLE_OF_TIME_6",
+    "entrance": 1424,
+    "entrance_hex": "0x590",
+    "scene_enum": "SCENE_TEMPLE_OF_TIME",
+    "spawn": 6
+   }
+  ],
+  "conditions_nearby": [
+   "case CS_DEST_DESERT_COLOSSUS_FROM_NABOORU_CAPTURE:",
+   "case CS_DEST_TEMPLE_OF_TIME_FRONT_OF_PEDESTAL:"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_TEMPLE_OF_TIME_6;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 1320,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_HYRULE_FIELD_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_HYRULE_FIELD_0",
+    "entrance": 205,
+    "entrance_hex": "0x0cd",
+    "scene_enum": "SCENE_HYRULE_FIELD",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "case CS_DEST_TEMPLE_OF_TIME_FRONT_OF_PEDESTAL:",
+   "case CS_DEST_HYRULE_FIELD_TITLE_SCREEN:"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_HYRULE_FIELD_0;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 1329,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_SPIRIT_TEMPLE_BOSS_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_SPIRIT_TEMPLE_BOSS_0",
+    "entrance": 141,
+    "entrance_hex": "0x08d",
+    "scene_enum": "SCENE_SPIRIT_TEMPLE_BOSS",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "case CS_DEST_HYRULE_FIELD_TITLE_SCREEN:",
+   "case CS_DEST_TITLE_SCREEN_DEMO:",
+   "switch (sTitleDemoDestination) {",
+   "case TITLE_DEMO_SPIRIT_TEMPLE:"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_SPIRIT_TEMPLE_BOSS_0;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 1337,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_DEATH_MOUNTAIN_CRATER_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_DEATH_MOUNTAIN_CRATER_0",
+    "entrance": 327,
+    "entrance_hex": "0x147",
+    "scene_enum": "SCENE_DEATH_MOUNTAIN_CRATER",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "case CS_DEST_TITLE_SCREEN_DEMO:",
+   "switch (sTitleDemoDestination) {",
+   "case TITLE_DEMO_SPIRIT_TEMPLE:",
+   "case TITLE_DEMO_DEATH_MOUNTAIN_CRATER:"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_DEATH_MOUNTAIN_CRATER_0;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 1345,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_CUTSCENE_MAP_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_CUTSCENE_MAP_0",
+    "entrance": 160,
+    "entrance_hex": "0x0a0",
+    "scene_enum": "SCENE_CUTSCENE_MAP",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "case TITLE_DEMO_DEATH_MOUNTAIN_CRATER:",
+   "case TITLE_DEMO_GANONDORF_HORSE:"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_CUTSCENE_MAP_0;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 1355,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_GRAVEYARD_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_GRAVEYARD_0",
+    "entrance": 228,
+    "entrance_hex": "0x0e4",
+    "scene_enum": "SCENE_GRAVEYARD",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "case TITLE_DEMO_GANONDORF_HORSE:",
+   "case CS_DEST_GRAVEYARD_SUNS_SONG_PART_2:"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_GRAVEYARD_0;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 1362,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_ROYAL_FAMILYS_TOMB_1",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_ROYAL_FAMILYS_TOMB_1",
+    "entrance": 1396,
+    "entrance_hex": "0x574",
+    "scene_enum": "SCENE_ROYAL_FAMILYS_TOMB",
+    "spawn": 1
+   }
+  ],
+  "conditions_nearby": [
+   "case CS_DEST_GRAVEYARD_SUNS_SONG_PART_2:",
+   "case CS_DEST_ROYAL_FAMILYS_TOMB_SUNS_SONG_PART_3:"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_ROYAL_FAMILYS_TOMB_1;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 1368,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_INSIDE_GANONS_CASTLE_2",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_INSIDE_GANONS_CASTLE_2",
+    "entrance": 1336,
+    "entrance_hex": "0x538",
+    "scene_enum": "SCENE_INSIDE_GANONS_CASTLE",
+    "spawn": 2
+   }
+  ],
+  "conditions_nearby": [
+   "case CS_DEST_ROYAL_FAMILYS_TOMB_SUNS_SONG_PART_3:",
+   "case CS_DEST_GANONS_CASTLE_DISPEL_FOREST_BEAM:"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_INSIDE_GANONS_CASTLE_2;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 1374,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_INSIDE_GANONS_CASTLE_3",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_INSIDE_GANONS_CASTLE_3",
+    "entrance": 1340,
+    "entrance_hex": "0x53c",
+    "scene_enum": "SCENE_INSIDE_GANONS_CASTLE",
+    "spawn": 3
+   }
+  ],
+  "conditions_nearby": [
+   "case CS_DEST_GANONS_CASTLE_DISPEL_FOREST_BEAM:",
+   "case CS_DEST_GANONS_CASTLE_DISPEL_WATER_BEAM:"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_INSIDE_GANONS_CASTLE_3;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 1380,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_INSIDE_GANONS_CASTLE_4",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_INSIDE_GANONS_CASTLE_4",
+    "entrance": 1344,
+    "entrance_hex": "0x540",
+    "scene_enum": "SCENE_INSIDE_GANONS_CASTLE",
+    "spawn": 4
+   }
+  ],
+  "conditions_nearby": [
+   "case CS_DEST_GANONS_CASTLE_DISPEL_WATER_BEAM:",
+   "case CS_DEST_GANONS_CASTLE_DISPEL_SHADOW_BEAM:"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_INSIDE_GANONS_CASTLE_4;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 1386,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_INSIDE_GANONS_CASTLE_5",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_INSIDE_GANONS_CASTLE_5",
+    "entrance": 1348,
+    "entrance_hex": "0x544",
+    "scene_enum": "SCENE_INSIDE_GANONS_CASTLE",
+    "spawn": 5
+   }
+  ],
+  "conditions_nearby": [
+   "case CS_DEST_GANONS_CASTLE_DISPEL_SHADOW_BEAM:",
+   "case CS_DEST_GANONS_CASTLE_DISPEL_FIRE_BEAM:"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_INSIDE_GANONS_CASTLE_5;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 1392,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_INSIDE_GANONS_CASTLE_6",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_INSIDE_GANONS_CASTLE_6",
+    "entrance": 1352,
+    "entrance_hex": "0x548",
+    "scene_enum": "SCENE_INSIDE_GANONS_CASTLE",
+    "spawn": 6
+   }
+  ],
+  "conditions_nearby": [
+   "case CS_DEST_GANONS_CASTLE_DISPEL_FIRE_BEAM:",
+   "case CS_DEST_GANONS_CASTLE_DISPEL_LIGHT_BEAM:"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_INSIDE_GANONS_CASTLE_6;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 1398,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_INSIDE_GANONS_CASTLE_7",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_INSIDE_GANONS_CASTLE_7",
+    "entrance": 1356,
+    "entrance_hex": "0x54c",
+    "scene_enum": "SCENE_INSIDE_GANONS_CASTLE",
+    "spawn": 7
+   }
+  ],
+  "conditions_nearby": [
+   "case CS_DEST_GANONS_CASTLE_DISPEL_LIGHT_BEAM:",
+   "case CS_DEST_GANONS_CASTLE_DISPEL_SPIRIT_BEAM:"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_INSIDE_GANONS_CASTLE_7;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 1425,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_HYRULE_FIELD_3",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_HYRULE_FIELD_3",
+    "entrance": 389,
+    "entrance_hex": "0x185",
+    "scene_enum": "SCENE_HYRULE_FIELD",
+    "spawn": 3
+   }
+  ],
+  "conditions_nearby": [
+   "} else {",
+   "case CS_DEST_HYRULE_FIELD_FROM_FAIRY_OCARINA:"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_HYRULE_FIELD_3;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 1431,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_HYRULE_FIELD_17",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_HYRULE_FIELD_17",
+    "entrance": 1428,
+    "entrance_hex": "0x594",
+    "scene_enum": "SCENE_HYRULE_FIELD",
+    "spawn": 17
+   }
+  ],
+  "conditions_nearby": [
+   "case CS_DEST_HYRULE_FIELD_FROM_FAIRY_OCARINA:",
+   "case CS_DEST_HYRULE_FIELD_FROM_IMPA_ESCORT:"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_HYRULE_FIELD_17;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 1439,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_GRAVEYARD_8",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_GRAVEYARD_8",
+    "entrance": 1408,
+    "entrance_hex": "0x580",
+    "scene_enum": "SCENE_GRAVEYARD",
+    "spawn": 8
+   }
+  ],
+  "conditions_nearby": [
+   "case CS_DEST_HYRULE_FIELD_FROM_IMPA_ESCORT:",
+   "case CS_DEST_FROM_RAURU_FINAL_MESSAGE_CONDITIONAL:",
+   "if (GET_EVENTCHKINF(EVENTCHKINF_C8)) {"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_GRAVEYARD_8;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 1443,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_DESERT_COLOSSUS_8",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_DESERT_COLOSSUS_8",
+    "entrance": 1552,
+    "entrance_hex": "0x610",
+    "scene_enum": "SCENE_DESERT_COLOSSUS",
+    "spawn": 8
+   }
+  ],
+  "conditions_nearby": [
+   "case CS_DEST_FROM_RAURU_FINAL_MESSAGE_CONDITIONAL:",
+   "if (GET_EVENTCHKINF(EVENTCHKINF_C8)) {",
+   "} else {"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_DESERT_COLOSSUS_8;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 1455,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_HYRULE_FIELD_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_HYRULE_FIELD_0",
+    "entrance": 205,
+    "entrance_hex": "0x0cd",
+    "scene_enum": "SCENE_HYRULE_FIELD",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "case CS_DEST_HYRULE_FIELD_CREDITS_SKY:"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_HYRULE_FIELD_0;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 1462,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "respawn[RESPAWN_MODE_DOWN].entranceIndex",
+  "expression": "ENTR_GANON_BOSS_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_GANON_BOSS_0",
+    "entrance": 1303,
+    "entrance_hex": "0x517",
+    "scene_enum": "SCENE_GANON_BOSS",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "case CS_DEST_HYRULE_FIELD_CREDITS_SKY:",
+   "case CS_DEST_GANON_BATTLE_TOWER_COLLAPSE:"
+  ],
+  "statement": "gSaveContext.respawn[RESPAWN_MODE_DOWN].entranceIndex = ENTR_GANON_BOSS_0;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 1471,
+  "function": "CutsceneCmd_Destination",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_CASTLE_COURTYARD_ZELDA_1",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_CASTLE_COURTYARD_ZELDA_1",
+    "entrance": 1520,
+    "entrance_hex": "0x5f0",
+    "scene_enum": "SCENE_CASTLE_COURTYARD_ZELDA",
+    "spawn": 1
+   }
+  ],
+  "conditions_nearby": [
+   "case CS_DEST_GANON_BATTLE_TOWER_COLLAPSE:",
+   "case CS_DEST_ZELDAS_COURTYARD_RECEIVE_LETTER:"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_CASTLE_COURTYARD_ZELDA_1;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 2445,
+  "function": "Cutscene_HandleConditionalTriggers",
+  "module": "code",
+  "owner": null,
+  "field": "entranceIndex",
+  "expression": "ENTR_DESERT_COLOSSUS_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_DESERT_COLOSSUS_0",
+    "entrance": 291,
+    "entrance_hex": "0x123",
+    "scene_enum": "SCENE_DESERT_COLOSSUS",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "if ((gSaveContext.gameMode == GAMEMODE_NORMAL) && (gSaveContext.respawnFlag <= 0) &&",
+   "if ((gSaveContext.save.entranceIndex == ENTR_DESERT_COLOSSUS_1) && !Flags_GetEventChkInf(EVENTCHKINF_AC)) {"
+  ],
+  "statement": "gSaveContext.save.entranceIndex = ENTR_DESERT_COLOSSUS_0;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 2455,
+  "function": "Cutscene_HandleConditionalTriggers",
+  "module": "code",
+  "owner": null,
+  "field": "entranceIndex",
+  "expression": "ENTR_LOST_WOODS_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_LOST_WOODS_0",
+    "entrance": 286,
+    "entrance_hex": "0x11e",
+    "scene_enum": "SCENE_LOST_WOODS",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "} else if ((gSaveContext.save.entranceIndex == ENTR_KAKARIKO_VILLAGE_0) && LINK_IS_ADULT &&",
+   "} else if ((gSaveContext.save.entranceIndex == ENTR_LOST_WOODS_9) && !Flags_GetEventChkInf(EVENTCHKINF_C1)) {"
+  ],
+  "statement": "gSaveContext.save.entranceIndex = ENTR_LOST_WOODS_0;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 2461,
+  "function": "Cutscene_HandleConditionalTriggers",
+  "module": "code",
+  "owner": null,
+  "field": "entranceIndex",
+  "expression": "ENTR_TEMPLE_OF_TIME_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_TEMPLE_OF_TIME_0",
+    "entrance": 83,
+    "entrance_hex": "0x053",
+    "scene_enum": "SCENE_TEMPLE_OF_TIME",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "} else if ((gSaveContext.save.entranceIndex == ENTR_LOST_WOODS_9) && !Flags_GetEventChkInf(EVENTCHKINF_C1)) {",
+   "} else if (CHECK_QUEST_ITEM(QUEST_MEDALLION_SPIRIT) && CHECK_QUEST_ITEM(QUEST_MEDALLION_SHADOW) &&"
+  ],
+  "statement": "gSaveContext.save.entranceIndex = ENTR_TEMPLE_OF_TIME_0;"
+ },
+ {
+  "file": "src/code/z_demo.c",
+  "line": 2466,
+  "function": "Cutscene_HandleConditionalTriggers",
+  "module": "code",
+  "owner": null,
+  "field": "entranceIndex",
+  "expression": "ENTR_GANON_BOSS_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_GANON_BOSS_0",
+    "entrance": 1303,
+    "entrance_hex": "0x517",
+    "scene_enum": "SCENE_GANON_BOSS",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "} else if (CHECK_QUEST_ITEM(QUEST_MEDALLION_SPIRIT) && CHECK_QUEST_ITEM(QUEST_MEDALLION_SHADOW) &&",
+   "} else if (!Flags_GetEventChkInf(EVENTCHKINF_GERUDO_CAUGHT_TOWER_FALL) &&"
+  ],
+  "statement": "gSaveContext.save.entranceIndex = ENTR_GANON_BOSS_0;"
+ },
+ {
+  "file": "src/code/z_kankyo.c",
+  "line": 2655,
+  "function": "Environment_WarpSongLeave",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "gSaveContext.respawn[RESPAWN_MODE_RETURN].entranceIndex",
+  "targets": [],
+  "conditions_nearby": [],
+  "statement": "play->nextEntranceIndex = gSaveContext.respawn[RESPAWN_MODE_RETURN].entranceIndex;"
+ },
+ {
+  "file": "src/code/z_parameter.c",
+  "line": 3591,
+  "function": "Interface_Draw",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "spoilingItemEntrances[svar1]",
+  "targets": [],
+  "conditions_nearby": [
+   "if (INV_CONTENT(ITEM_TRADE_ADULT) == gSpoilingItems[svar1]) {"
+  ],
+  "statement": "play->nextEntranceIndex = spoilingItemEntrances[svar1];"
+ },
+ {
+  "file": "src/code/z_parameter.c",
+  "line": 4410,
+  "function": "Interface_Update",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "gSaveContext.save.entranceIndex",
+  "targets": [],
+  "conditions_nearby": [
+   "if (play->sceneId == SCENE_HAUNTED_WASTELAND) {"
+  ],
+  "statement": "play->nextEntranceIndex = gSaveContext.save.entranceIndex;"
+ },
+ {
+  "file": "src/code/z_play.c",
+  "line": 335,
+  "function": "Play_Init",
+  "module": "code",
+  "owner": null,
+  "field": "entranceIndex",
+  "expression": "0",
+  "targets": [],
+  "conditions_nearby": [
+   "if (gSaveContext.save.entranceIndex == ENTR_LOAD_OPENING) {"
+  ],
+  "statement": "gSaveContext.save.entranceIndex = 0;"
+ },
+ {
+  "file": "src/code/z_play.c",
+  "line": 389,
+  "function": "Play_Init",
+  "module": "code",
+  "owner": null,
+  "field": "nextCutsceneIndex",
+  "expression": "NEXT_CS_INDEX_NONE",
+  "targets": [],
+  "conditions_nearby": [
+   "if (gSaveContext.nextCutsceneIndex != NEXT_CS_INDEX_NONE) {"
+  ],
+  "statement": "gSaveContext.nextCutsceneIndex = NEXT_CS_INDEX_NONE;"
+ },
+ {
+  "file": "src/code/z_play.c",
+  "line": 785,
+  "function": "Play_Update",
+  "module": "code",
+  "owner": null,
+  "field": "entranceIndex",
+  "expression": "this->nextEntranceIndex",
+  "targets": [],
+  "conditions_nearby": [
+   "if (this->transitionCtx.transitionType >= TRANS_TYPE_MAX) {",
+   "if (this->transitionTrigger == TRANS_TRIGGER_END) {",
+   "} else if (this->transitionTrigger != TRANS_TRIGGER_END) {",
+   "if (gSaveContext.gameMode != GAMEMODE_FILE_SELECT) {"
+  ],
+  "statement": "gSaveContext.save.entranceIndex = this->nextEntranceIndex;"
+ },
+ {
+  "file": "src/code/z_play.c",
+  "line": 836,
+  "function": "Play_Update",
+  "module": "code",
+  "owner": null,
+  "field": "entranceIndex",
+  "expression": "this->nextEntranceIndex",
+  "targets": [],
+  "conditions_nearby": [
+   "case TRANS_MODE_FILL_IN:",
+   "if (sTransitionFillTimer >= 20) {"
+  ],
+  "statement": "gSaveContext.save.entranceIndex = this->nextEntranceIndex;"
+ },
+ {
+  "file": "src/code/z_play.c",
+  "line": 878,
+  "function": "Play_Update",
+  "module": "code",
+  "owner": null,
+  "field": "entranceIndex",
+  "expression": "this->nextEntranceIndex",
+  "targets": [],
+  "conditions_nearby": [
+   "} else {",
+   "case TRANS_MODE_INSTANT:",
+   "if (this->transitionTrigger != TRANS_TRIGGER_END) {"
+  ],
+  "statement": "gSaveContext.save.entranceIndex = this->nextEntranceIndex;"
+ },
+ {
+  "file": "src/code/z_play.c",
+  "line": 921,
+  "function": "Play_Update",
+  "module": "code",
+  "owner": null,
+  "field": "entranceIndex",
+  "expression": "this->nextEntranceIndex",
+  "targets": [],
+  "conditions_nearby": [
+   "if (this->transitionTrigger == TRANS_TRIGGER_END) {",
+   "if (this->envCtx.sandstormPrimA < 110) {",
+   "} else {",
+   "if (this->envCtx.sandstormEnvA == 255) {"
+  ],
+  "statement": "gSaveContext.save.entranceIndex = this->nextEntranceIndex;"
+ },
+ {
+  "file": "src/code/z_play.c",
+  "line": 1906,
+  "function": "Play_SetRespawnData",
+  "module": "code",
+  "owner": null,
+  "field": "entranceIndex",
+  "expression": "entranceIndex",
+  "targets": [],
+  "conditions_nearby": [],
+  "statement": ""
+ },
+ {
+  "file": "src/code/z_play.c",
+  "line": 1923,
+  "function": "Play_SetupRespawnPoint",
+  "module": "code",
+  "owner": null,
+  "field": "entranceIndex",
+  "expression": "gSaveContext.save.entranceIndex",
+  "targets": [],
+  "conditions_nearby": [
+   "if ((this->sceneId != SCENE_FAIRYS_FOUNTAIN) && (this->sceneId != SCENE_GROTTOS)) {"
+  ],
+  "statement": "entranceIndex = gSaveContext.save.entranceIndex;"
+ },
+ {
+  "file": "src/code/z_play.c",
+  "line": 1934,
+  "function": "Play_TriggerVoidOut",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "gSaveContext.respawn[RESPAWN_MODE_DOWN].entranceIndex",
+  "targets": [],
+  "conditions_nearby": [],
+  "statement": "this->nextEntranceIndex = gSaveContext.respawn[RESPAWN_MODE_DOWN].entranceIndex;"
+ },
+ {
+  "file": "src/code/z_play.c",
+  "line": 1945,
+  "function": "Play_LoadToLastEntrance",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_GANONS_TOWER_COLLAPSE_EXTERIOR_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_GANONS_TOWER_COLLAPSE_EXTERIOR_0",
+    "entrance": 1087,
+    "entrance_hex": "0x43f",
+    "scene_enum": "SCENE_GANONS_TOWER_COLLAPSE_EXTERIOR",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "if ((this->sceneId == SCENE_GANONS_TOWER_COLLAPSE_INTERIOR) ||"
+  ],
+  "statement": "this->nextEntranceIndex = ENTR_GANONS_TOWER_COLLAPSE_EXTERIOR_0;"
+ },
+ {
+  "file": "src/code/z_play.c",
+  "line": 1953,
+  "function": "Play_LoadToLastEntrance",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_HYRULE_FIELD_6",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_HYRULE_FIELD_6",
+    "entrance": 505,
+    "entrance_hex": "0x1f9",
+    "scene_enum": "SCENE_HYRULE_FIELD",
+    "spawn": 6
+   }
+  ],
+  "conditions_nearby": [
+   "if ((this->sceneId == SCENE_GANONS_TOWER_COLLAPSE_INTERIOR) ||",
+   "} else if ((gSaveContext.save.entranceIndex == ENTR_HYRULE_FIELD_11) ||"
+  ],
+  "statement": "this->nextEntranceIndex = ENTR_HYRULE_FIELD_6;"
+ },
+ {
+  "file": "src/code/z_play.c",
+  "line": 1956,
+  "function": "Play_LoadToLastEntrance",
+  "module": "code",
+  "owner": null,
+  "field": "nextEntranceIndex",
+  "expression": "gSaveContext.save.entranceIndex",
+  "targets": [],
+  "conditions_nearby": [
+   "} else if ((gSaveContext.save.entranceIndex == ENTR_HYRULE_FIELD_11) ||",
+   "} else {"
+  ],
+  "statement": "this->nextEntranceIndex = gSaveContext.save.entranceIndex;"
+ },
+ {
+  "file": "src/code/z_scene.c",
+  "line": 572,
+  "function": "Scene_CommandTimeSettings",
+  "module": "code",
+  "owner": null,
+  "field": "entranceIndex",
+  "expression": "play->nextEntranceIndex + SCENE_LAYER_CHILD_NIGHT",
+  "targets": [],
+  "conditions_nearby": [
+   "if (!IS_DAY) {",
+   "if (!LINK_IS_ADULT) {"
+  ],
+  "statement": "entranceIndex = play->nextEntranceIndex + SCENE_LAYER_CHILD_NIGHT;"
+ },
+ {
+  "file": "src/code/z_scene.c",
+  "line": 574,
+  "function": "Scene_CommandTimeSettings",
+  "module": "code",
+  "owner": null,
+  "field": "entranceIndex",
+  "expression": "play->nextEntranceIndex + SCENE_LAYER_ADULT_NIGHT",
+  "targets": [],
+  "conditions_nearby": [
+   "if (!IS_DAY) {",
+   "if (!LINK_IS_ADULT) {",
+   "} else {"
+  ],
+  "statement": "entranceIndex = play->nextEntranceIndex + SCENE_LAYER_ADULT_NIGHT;"
+ },
+ {
+  "file": "src/code/z_scene.c",
+  "line": 578,
+  "function": "Scene_CommandTimeSettings",
+  "module": "code",
+  "owner": null,
+  "field": "entranceIndex",
+  "expression": "play->nextEntranceIndex + SCENE_LAYER_CHILD_DAY",
+  "targets": [],
+  "conditions_nearby": [
+   "if (!LINK_IS_ADULT) {",
+   "} else {",
+   "} else {",
+   "if (!LINK_IS_ADULT) {"
+  ],
+  "statement": "entranceIndex = play->nextEntranceIndex + SCENE_LAYER_CHILD_DAY;"
+ },
+ {
+  "file": "src/code/z_scene.c",
+  "line": 580,
+  "function": "Scene_CommandTimeSettings",
+  "module": "code",
+  "owner": null,
+  "field": "entranceIndex",
+  "expression": "play->nextEntranceIndex + SCENE_LAYER_ADULT_DAY",
+  "targets": [],
+  "conditions_nearby": [
+   "} else {",
+   "} else {",
+   "if (!LINK_IS_ADULT) {",
+   "} else {"
+  ],
+  "statement": "entranceIndex = play->nextEntranceIndex + SCENE_LAYER_ADULT_DAY;"
+ },
+ {
+  "file": "src/code/z_scene.c",
+  "line": 572,
+  "function": "Scene_SetTransitionForNextEntrance",
+  "module": "code",
+  "owner": null,
+  "field": "entranceIndex",
+  "expression": "play->nextEntranceIndex + SCENE_LAYER_CHILD_NIGHT",
+  "targets": [],
+  "conditions_nearby": [
+   "if (!IS_DAY) {",
+   "if (!LINK_IS_ADULT) {"
+  ],
+  "statement": "entranceIndex = play->nextEntranceIndex + SCENE_LAYER_CHILD_NIGHT;"
+ },
+ {
+  "file": "src/code/z_scene.c",
+  "line": 574,
+  "function": "Scene_SetTransitionForNextEntrance",
+  "module": "code",
+  "owner": null,
+  "field": "entranceIndex",
+  "expression": "play->nextEntranceIndex + SCENE_LAYER_ADULT_NIGHT",
+  "targets": [],
+  "conditions_nearby": [
+   "if (!IS_DAY) {",
+   "if (!LINK_IS_ADULT) {",
+   "} else {"
+  ],
+  "statement": "entranceIndex = play->nextEntranceIndex + SCENE_LAYER_ADULT_NIGHT;"
+ },
+ {
+  "file": "src/code/z_scene.c",
+  "line": 578,
+  "function": "Scene_SetTransitionForNextEntrance",
+  "module": "code",
+  "owner": null,
+  "field": "entranceIndex",
+  "expression": "play->nextEntranceIndex + SCENE_LAYER_CHILD_DAY",
+  "targets": [],
+  "conditions_nearby": [
+   "if (!LINK_IS_ADULT) {",
+   "} else {",
+   "} else {",
+   "if (!LINK_IS_ADULT) {"
+  ],
+  "statement": "entranceIndex = play->nextEntranceIndex + SCENE_LAYER_CHILD_DAY;"
+ },
+ {
+  "file": "src/code/z_scene.c",
+  "line": 580,
+  "function": "Scene_SetTransitionForNextEntrance",
+  "module": "code",
+  "owner": null,
+  "field": "entranceIndex",
+  "expression": "play->nextEntranceIndex + SCENE_LAYER_ADULT_DAY",
+  "targets": [],
+  "conditions_nearby": [
+   "} else {",
+   "} else {",
+   "if (!LINK_IS_ADULT) {",
+   "} else {"
+  ],
+  "statement": "entranceIndex = play->nextEntranceIndex + SCENE_LAYER_ADULT_DAY;"
+ },
+ {
+  "file": "src/code/z_sram.c",
+  "line": 413,
+  "function": "Sram_InitDebugSave",
+  "module": "code",
+  "owner": null,
+  "field": "entranceIndex",
+  "expression": "ENTR_HYRULE_FIELD_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_HYRULE_FIELD_0",
+    "entrance": 205,
+    "entrance_hex": "0x0cd",
+    "scene_enum": "SCENE_HYRULE_FIELD",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "if (LINK_AGE_IN_YEARS == YEARS_CHILD) {",
+   "if (gSaveContext.fileNum == 0xFF) {"
+  ],
+  "statement": "gSaveContext.save.entranceIndex = ENTR_HYRULE_FIELD_0;"
+ },
+ {
+  "file": "src/code/z_sram.c",
+  "line": 477,
+  "function": "Sram_OpenSave",
+  "module": "code",
+  "owner": null,
+  "field": "entranceIndex",
+  "expression": "sDungeonEntrances[gSaveContext.save.info.playerData.savedSceneId]",
+  "targets": [],
+  "conditions_nearby": [
+   "case SCENE_GANONS_TOWER:",
+   "case SCENE_GERUDO_TRAINING_GROUND:",
+   "case SCENE_THIEVES_HIDEOUT:",
+   "case SCENE_INSIDE_GANONS_CASTLE:"
+  ],
+  "statement": "gSaveContext.save.entranceIndex = sDungeonEntrances[gSaveContext.save.info.playerData.savedSceneId];"
+ },
+ {
+  "file": "src/code/z_sram.c",
+  "line": 481,
+  "function": "Sram_OpenSave",
+  "module": "code",
+  "owner": null,
+  "field": "entranceIndex",
+  "expression": "ENTR_DEKU_TREE_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_DEKU_TREE_0",
+    "entrance": 0,
+    "entrance_hex": "0x000",
+    "scene_enum": "SCENE_DEKU_TREE",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "case SCENE_GERUDO_TRAINING_GROUND:",
+   "case SCENE_THIEVES_HIDEOUT:",
+   "case SCENE_INSIDE_GANONS_CASTLE:",
+   "case SCENE_DEKU_TREE_BOSS:"
+  ],
+  "statement": "gSaveContext.save.entranceIndex = ENTR_DEKU_TREE_0;"
+ },
+ {
+  "file": "src/code/z_sram.c",
+  "line": 485,
+  "function": "Sram_OpenSave",
+  "module": "code",
+  "owner": null,
+  "field": "entranceIndex",
+  "expression": "ENTR_DODONGOS_CAVERN_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_DODONGOS_CAVERN_0",
+    "entrance": 4,
+    "entrance_hex": "0x004",
+    "scene_enum": "SCENE_DODONGOS_CAVERN",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "case SCENE_THIEVES_HIDEOUT:",
+   "case SCENE_INSIDE_GANONS_CASTLE:",
+   "case SCENE_DEKU_TREE_BOSS:",
+   "case SCENE_DODONGOS_CAVERN_BOSS:"
+  ],
+  "statement": "gSaveContext.save.entranceIndex = ENTR_DODONGOS_CAVERN_0;"
+ },
+ {
+  "file": "src/code/z_sram.c",
+  "line": 489,
+  "function": "Sram_OpenSave",
+  "module": "code",
+  "owner": null,
+  "field": "entranceIndex",
+  "expression": "ENTR_JABU_JABU_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_JABU_JABU_0",
+    "entrance": 40,
+    "entrance_hex": "0x028",
+    "scene_enum": "SCENE_JABU_JABU",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "case SCENE_DEKU_TREE_BOSS:",
+   "case SCENE_DODONGOS_CAVERN_BOSS:",
+   "case SCENE_JABU_JABU_BOSS:"
+  ],
+  "statement": "gSaveContext.save.entranceIndex = ENTR_JABU_JABU_0;"
+ },
+ {
+  "file": "src/code/z_sram.c",
+  "line": 493,
+  "function": "Sram_OpenSave",
+  "module": "code",
+  "owner": null,
+  "field": "entranceIndex",
+  "expression": "ENTR_FOREST_TEMPLE_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_FOREST_TEMPLE_0",
+    "entrance": 361,
+    "entrance_hex": "0x169",
+    "scene_enum": "SCENE_FOREST_TEMPLE",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "case SCENE_DODONGOS_CAVERN_BOSS:",
+   "case SCENE_JABU_JABU_BOSS:",
+   "case SCENE_FOREST_TEMPLE_BOSS:"
+  ],
+  "statement": "gSaveContext.save.entranceIndex = ENTR_FOREST_TEMPLE_0;"
+ },
+ {
+  "file": "src/code/z_sram.c",
+  "line": 497,
+  "function": "Sram_OpenSave",
+  "module": "code",
+  "owner": null,
+  "field": "entranceIndex",
+  "expression": "ENTR_FIRE_TEMPLE_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_FIRE_TEMPLE_0",
+    "entrance": 357,
+    "entrance_hex": "0x165",
+    "scene_enum": "SCENE_FIRE_TEMPLE",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "case SCENE_JABU_JABU_BOSS:",
+   "case SCENE_FOREST_TEMPLE_BOSS:",
+   "case SCENE_FIRE_TEMPLE_BOSS:"
+  ],
+  "statement": "gSaveContext.save.entranceIndex = ENTR_FIRE_TEMPLE_0;"
+ },
+ {
+  "file": "src/code/z_sram.c",
+  "line": 501,
+  "function": "Sram_OpenSave",
+  "module": "code",
+  "owner": null,
+  "field": "entranceIndex",
+  "expression": "ENTR_WATER_TEMPLE_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_WATER_TEMPLE_0",
+    "entrance": 16,
+    "entrance_hex": "0x010",
+    "scene_enum": "SCENE_WATER_TEMPLE",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "case SCENE_FOREST_TEMPLE_BOSS:",
+   "case SCENE_FIRE_TEMPLE_BOSS:",
+   "case SCENE_WATER_TEMPLE_BOSS:"
+  ],
+  "statement": "gSaveContext.save.entranceIndex = ENTR_WATER_TEMPLE_0;"
+ },
+ {
+  "file": "src/code/z_sram.c",
+  "line": 505,
+  "function": "Sram_OpenSave",
+  "module": "code",
+  "owner": null,
+  "field": "entranceIndex",
+  "expression": "ENTR_SPIRIT_TEMPLE_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_SPIRIT_TEMPLE_0",
+    "entrance": 130,
+    "entrance_hex": "0x082",
+    "scene_enum": "SCENE_SPIRIT_TEMPLE",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "case SCENE_FIRE_TEMPLE_BOSS:",
+   "case SCENE_WATER_TEMPLE_BOSS:",
+   "case SCENE_SPIRIT_TEMPLE_BOSS:"
+  ],
+  "statement": "gSaveContext.save.entranceIndex = ENTR_SPIRIT_TEMPLE_0;"
+ },
+ {
+  "file": "src/code/z_sram.c",
+  "line": 509,
+  "function": "Sram_OpenSave",
+  "module": "code",
+  "owner": null,
+  "field": "entranceIndex",
+  "expression": "ENTR_SHADOW_TEMPLE_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_SHADOW_TEMPLE_0",
+    "entrance": 55,
+    "entrance_hex": "0x037",
+    "scene_enum": "SCENE_SHADOW_TEMPLE",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "case SCENE_WATER_TEMPLE_BOSS:",
+   "case SCENE_SPIRIT_TEMPLE_BOSS:",
+   "case SCENE_SHADOW_TEMPLE_BOSS:"
+  ],
+  "statement": "gSaveContext.save.entranceIndex = ENTR_SHADOW_TEMPLE_0;"
+ },
+ {
+  "file": "src/code/z_sram.c",
+  "line": 517,
+  "function": "Sram_OpenSave",
+  "module": "code",
+  "owner": null,
+  "field": "entranceIndex",
+  "expression": "ENTR_GANONS_TOWER_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_GANONS_TOWER_0",
+    "entrance": 1051,
+    "entrance_hex": "0x41b",
+    "scene_enum": "SCENE_GANONS_TOWER",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "case SCENE_INSIDE_GANONS_CASTLE_COLLAPSE:",
+   "case SCENE_GANONDORF_BOSS:",
+   "case SCENE_GANONS_TOWER_COLLAPSE_EXTERIOR:",
+   "case SCENE_GANON_BOSS:"
+  ],
+  "statement": "gSaveContext.save.entranceIndex = ENTR_GANONS_TOWER_0;"
+ },
+ {
+  "file": "src/code/z_sram.c",
+  "line": 523,
+  "function": "Sram_OpenSave",
+  "module": "code",
+  "owner": null,
+  "field": "entranceIndex",
+  "expression": "ENTR_LINKS_HOUSE_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_LINKS_HOUSE_0",
+    "entrance": 187,
+    "entrance_hex": "0x0bb",
+    "scene_enum": "SCENE_LINKS_HOUSE",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "case SCENE_GANON_BOSS:",
+   "default:",
+   "if (gSaveContext.save.info.playerData.savedSceneId != SCENE_LINKS_HOUSE) {",
+   "if (LINK_AGE_IN_YEARS == YEARS_CHILD) {"
+  ],
+  "statement": "gSaveContext.save.entranceIndex = ENTR_LINKS_HOUSE_0;"
+ },
+ {
+  "file": "src/code/z_sram.c",
+  "line": 525,
+  "function": "Sram_OpenSave",
+  "module": "code",
+  "owner": null,
+  "field": "entranceIndex",
+  "expression": "ENTR_TEMPLE_OF_TIME_7",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_TEMPLE_OF_TIME_7",
+    "entrance": 1524,
+    "entrance_hex": "0x5f4",
+    "scene_enum": "SCENE_TEMPLE_OF_TIME",
+    "spawn": 7
+   }
+  ],
+  "conditions_nearby": [
+   "default:",
+   "if (gSaveContext.save.info.playerData.savedSceneId != SCENE_LINKS_HOUSE) {",
+   "if (LINK_AGE_IN_YEARS == YEARS_CHILD) {",
+   "} else {"
+  ],
+  "statement": "gSaveContext.save.entranceIndex = ENTR_TEMPLE_OF_TIME_7;"
+ },
+ {
+  "file": "src/code/z_sram.c",
+  "line": 528,
+  "function": "Sram_OpenSave",
+  "module": "code",
+  "owner": null,
+  "field": "entranceIndex",
+  "expression": "ENTR_LINKS_HOUSE_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_LINKS_HOUSE_0",
+    "entrance": 187,
+    "entrance_hex": "0x0bb",
+    "scene_enum": "SCENE_LINKS_HOUSE",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "if (gSaveContext.save.info.playerData.savedSceneId != SCENE_LINKS_HOUSE) {",
+   "if (LINK_AGE_IN_YEARS == YEARS_CHILD) {",
+   "} else {",
+   "} else {"
+  ],
+  "statement": "gSaveContext.save.entranceIndex = ENTR_LINKS_HOUSE_0;"
+ },
+ {
+  "file": "src/code/z_sram.c",
+  "line": 868,
+  "function": "Sram_InitSave",
+  "module": "code",
+  "owner": null,
+  "field": "entranceIndex",
+  "expression": "ENTR_LINKS_HOUSE_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_LINKS_HOUSE_0",
+    "entrance": 187,
+    "entrance_hex": "0x0bb",
+    "scene_enum": "SCENE_LINKS_HOUSE",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "if (fileSelect->buttonIndex != 0) {",
+   "} else {"
+  ],
+  "statement": "gSaveContext.save.entranceIndex = ENTR_LINKS_HOUSE_0;"
+ },
+ {
+  "file": "src/overlays/actors/ovl_Bg_Spot00_Hanebasi/z_bg_spot00_hanebasi.c",
+  "line": 235,
+  "function": "BgSpot00Hanebasi_Update",
+  "module": "actors",
+  "owner": "Bg_Spot00_Hanebasi",
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_HYRULE_FIELD_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_HYRULE_FIELD_0",
+    "entrance": 205,
+    "entrance_hex": "0x0cd",
+    "scene_enum": "SCENE_HYRULE_FIELD",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "if ((player->actor.world.pos.x > -450.0f) && (player->actor.world.pos.x < 450.0f) &&"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_HYRULE_FIELD_0;"
+ },
+ {
+  "file": "src/overlays/actors/ovl_Bg_Spot00_Hanebasi/z_bg_spot00_hanebasi.c",
+  "line": 236,
+  "function": "BgSpot00Hanebasi_Update",
+  "module": "actors",
+  "owner": "Bg_Spot00_Hanebasi",
+  "field": "nextCutsceneIndex",
+  "expression": "CS_INDEX_1",
+  "targets": [],
+  "conditions_nearby": [
+   "if ((player->actor.world.pos.x > -450.0f) && (player->actor.world.pos.x < 450.0f) &&"
+  ],
+  "statement": "gSaveContext.nextCutsceneIndex = CS_INDEX_1;"
+ },
+ {
+  "file": "src/overlays/actors/ovl_Boss_Ganon2/z_boss_ganon2.c",
+  "line": 2145,
+  "function": "func_8090120C",
+  "module": "actors",
+  "owner": "Boss_Ganon2",
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_CHAMBER_OF_THE_SAGES_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_CHAMBER_OF_THE_SAGES_0",
+    "entrance": 107,
+    "entrance_hex": "0x06b",
+    "scene_enum": "SCENE_CHAMBER_OF_THE_SAGES",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "if (this->unk_398 == 110) {",
+   "if (this->unk_398 == 140) {",
+   "if (this->unk_398 < 160) {",
+   "case 20:"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_CHAMBER_OF_THE_SAGES_0;"
+ },
+ {
+  "file": "src/overlays/actors/ovl_Boss_Ganon2/z_boss_ganon2.c",
+  "line": 2146,
+  "function": "func_8090120C",
+  "module": "actors",
+  "owner": "Boss_Ganon2",
+  "field": "nextCutsceneIndex",
+  "expression": "CS_INDEX_2",
+  "targets": [],
+  "conditions_nearby": [
+   "if (this->unk_398 == 140) {",
+   "if (this->unk_398 < 160) {",
+   "case 20:"
+  ],
+  "statement": "gSaveContext.nextCutsceneIndex = CS_INDEX_2;"
+ },
+ {
+  "file": "src/overlays/actors/ovl_Boss_Ganon/z_boss_ganon.c",
+  "line": 1543,
+  "function": "BossGanon_DeathAndTowerCutscene",
+  "module": "actors",
+  "owner": "Boss_Ganon",
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_GANONS_TOWER_COLLAPSE_EXTERIOR_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_GANONS_TOWER_COLLAPSE_EXTERIOR_0",
+    "entrance": 1087,
+    "entrance_hex": "0x43f",
+    "scene_enum": "SCENE_GANONS_TOWER_COLLAPSE_EXTERIOR",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "} else {",
+   "if (this->csTimer >= 130) {",
+   "if (this->csTimer == 180) {"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_GANONS_TOWER_COLLAPSE_EXTERIOR_0;"
+ },
+ {
+  "file": "src/overlays/actors/ovl_Demo_Im/z_demo_im.c",
+  "line": 902,
+  "function": "func_80986B2C",
+  "module": "actors",
+  "owner": "Demo_Im",
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_HYRULE_FIELD_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_HYRULE_FIELD_0",
+    "entrance": 205,
+    "entrance_hex": "0x0cd",
+    "scene_enum": "SCENE_HYRULE_FIELD",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "if (Message_GetState(&play->msgCtx) == TEXT_STATE_CLOSING) {"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_HYRULE_FIELD_0;"
+ },
+ {
+  "file": "src/overlays/actors/ovl_Door_Ana/z_door_ana.c",
+  "line": 152,
+  "function": "DoorAna_WaitOpen",
+  "module": "actors",
+  "owner": "Door_Ana",
+  "field": "nextEntranceIndex",
+  "expression": "sGrottoEntrances[destinationIdx]",
+  "targets": [],
+  "conditions_nearby": [
+   "if ((this->actor.attentionRangeType != 0) && (play->transitionTrigger == TRANS_TRIGGER_OFF) &&",
+   "if (destinationIdx < 0) {"
+  ],
+  "statement": "play->nextEntranceIndex = sGrottoEntrances[destinationIdx];"
+ },
+ {
+  "file": "src/overlays/actors/ovl_Door_Warp1/z_door_warp1.c",
+  "line": 520,
+  "function": "DoorWarp1_ChildWarpOut",
+  "module": "actors",
+  "owner": "Door_Warp1",
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_DEATH_MOUNTAIN_TRAIL_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_DEATH_MOUNTAIN_TRAIL_0",
+    "entrance": 317,
+    "entrance_hex": "0x13d",
+    "scene_enum": "SCENE_DEATH_MOUNTAIN_TRAIL",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "if (sWarpTimerTarget < this->warpTimer && gSaveContext.nextCutsceneIndex == NEXT_CS_INDEX_NONE) {",
+   "if (play->sceneId == SCENE_DODONGOS_CAVERN_BOSS) {",
+   "if (!Flags_GetEventChkInf(EVENTCHKINF_25)) {"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_DEATH_MOUNTAIN_TRAIL_0;"
+ },
+ {
+  "file": "src/overlays/actors/ovl_Door_Warp1/z_door_warp1.c",
+  "line": 521,
+  "function": "DoorWarp1_ChildWarpOut",
+  "module": "actors",
+  "owner": "Door_Warp1",
+  "field": "nextCutsceneIndex",
+  "expression": "CS_INDEX_1",
+  "targets": [],
+  "conditions_nearby": [
+   "if (sWarpTimerTarget < this->warpTimer && gSaveContext.nextCutsceneIndex == NEXT_CS_INDEX_NONE) {",
+   "if (play->sceneId == SCENE_DODONGOS_CAVERN_BOSS) {",
+   "if (!Flags_GetEventChkInf(EVENTCHKINF_25)) {"
+  ],
+  "statement": "gSaveContext.nextCutsceneIndex = CS_INDEX_1;"
+ },
+ {
+  "file": "src/overlays/actors/ovl_Door_Warp1/z_door_warp1.c",
+  "line": 523,
+  "function": "DoorWarp1_ChildWarpOut",
+  "module": "actors",
+  "owner": "Door_Warp1",
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_DEATH_MOUNTAIN_TRAIL_5",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_DEATH_MOUNTAIN_TRAIL_5",
+    "entrance": 1146,
+    "entrance_hex": "0x47a",
+    "scene_enum": "SCENE_DEATH_MOUNTAIN_TRAIL",
+    "spawn": 5
+   }
+  ],
+  "conditions_nearby": [
+   "if (play->sceneId == SCENE_DODONGOS_CAVERN_BOSS) {",
+   "if (!Flags_GetEventChkInf(EVENTCHKINF_25)) {",
+   "} else {"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_DEATH_MOUNTAIN_TRAIL_5;"
+ },
+ {
+  "file": "src/overlays/actors/ovl_Door_Warp1/z_door_warp1.c",
+  "line": 524,
+  "function": "DoorWarp1_ChildWarpOut",
+  "module": "actors",
+  "owner": "Door_Warp1",
+  "field": "nextCutsceneIndex",
+  "expression": "CS_INDEX_NONE",
+  "targets": [],
+  "conditions_nearby": [
+   "if (play->sceneId == SCENE_DODONGOS_CAVERN_BOSS) {",
+   "if (!Flags_GetEventChkInf(EVENTCHKINF_25)) {",
+   "} else {"
+  ],
+  "statement": "gSaveContext.nextCutsceneIndex = CS_INDEX_NONE;"
+ },
+ {
+  "file": "src/overlays/actors/ovl_Door_Warp1/z_door_warp1.c",
+  "line": 531,
+  "function": "DoorWarp1_ChildWarpOut",
+  "module": "actors",
+  "owner": "Door_Warp1",
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_KOKIRI_FOREST_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_KOKIRI_FOREST_0",
+    "entrance": 238,
+    "entrance_hex": "0x0ee",
+    "scene_enum": "SCENE_KOKIRI_FOREST",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "} else {",
+   "} else if (play->sceneId == SCENE_DEKU_TREE_BOSS) {",
+   "if (!Flags_GetEventChkInf(EVENTCHKINF_07)) {"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_KOKIRI_FOREST_0;"
+ },
+ {
+  "file": "src/overlays/actors/ovl_Door_Warp1/z_door_warp1.c",
+  "line": 532,
+  "function": "DoorWarp1_ChildWarpOut",
+  "module": "actors",
+  "owner": "Door_Warp1",
+  "field": "nextCutsceneIndex",
+  "expression": "CS_INDEX_1",
+  "targets": [],
+  "conditions_nearby": [
+   "} else {",
+   "} else if (play->sceneId == SCENE_DEKU_TREE_BOSS) {",
+   "if (!Flags_GetEventChkInf(EVENTCHKINF_07)) {"
+  ],
+  "statement": "gSaveContext.nextCutsceneIndex = CS_INDEX_1;"
+ },
+ {
+  "file": "src/overlays/actors/ovl_Door_Warp1/z_door_warp1.c",
+  "line": 534,
+  "function": "DoorWarp1_ChildWarpOut",
+  "module": "actors",
+  "owner": "Door_Warp1",
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_KOKIRI_FOREST_11",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_KOKIRI_FOREST_11",
+    "entrance": 1111,
+    "entrance_hex": "0x457",
+    "scene_enum": "SCENE_KOKIRI_FOREST",
+    "spawn": 11
+   }
+  ],
+  "conditions_nearby": [
+   "} else if (play->sceneId == SCENE_DEKU_TREE_BOSS) {",
+   "if (!Flags_GetEventChkInf(EVENTCHKINF_07)) {",
+   "} else {"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_KOKIRI_FOREST_11;"
+ },
+ {
+  "file": "src/overlays/actors/ovl_Door_Warp1/z_door_warp1.c",
+  "line": 535,
+  "function": "DoorWarp1_ChildWarpOut",
+  "module": "actors",
+  "owner": "Door_Warp1",
+  "field": "nextCutsceneIndex",
+  "expression": "CS_INDEX_NONE",
+  "targets": [],
+  "conditions_nearby": [
+   "} else if (play->sceneId == SCENE_DEKU_TREE_BOSS) {",
+   "if (!Flags_GetEventChkInf(EVENTCHKINF_07)) {",
+   "} else {"
+  ],
+  "statement": "gSaveContext.nextCutsceneIndex = CS_INDEX_NONE;"
+ },
+ {
+  "file": "src/overlays/actors/ovl_Door_Warp1/z_door_warp1.c",
+  "line": 538,
+  "function": "DoorWarp1_ChildWarpOut",
+  "module": "actors",
+  "owner": "Door_Warp1",
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_ZORAS_FOUNTAIN_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_ZORAS_FOUNTAIN_0",
+    "entrance": 270,
+    "entrance_hex": "0x10e",
+    "scene_enum": "SCENE_ZORAS_FOUNTAIN",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "if (!Flags_GetEventChkInf(EVENTCHKINF_07)) {",
+   "} else {",
+   "} else if (play->sceneId == SCENE_JABU_JABU_BOSS) {"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_ZORAS_FOUNTAIN_0;"
+ },
+ {
+  "file": "src/overlays/actors/ovl_Door_Warp1/z_door_warp1.c",
+  "line": 539,
+  "function": "DoorWarp1_ChildWarpOut",
+  "module": "actors",
+  "owner": "Door_Warp1",
+  "field": "nextCutsceneIndex",
+  "expression": "CS_INDEX_NONE",
+  "targets": [],
+  "conditions_nearby": [
+   "} else {",
+   "} else if (play->sceneId == SCENE_JABU_JABU_BOSS) {"
+  ],
+  "statement": "gSaveContext.nextCutsceneIndex = CS_INDEX_NONE;"
+ },
+ {
+  "file": "src/overlays/actors/ovl_Door_Warp1/z_door_warp1.c",
+  "line": 626,
+  "function": "DoorWarp1_RutoWarpOut",
+  "module": "actors",
+  "owner": "Door_Warp1",
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_ZORAS_FOUNTAIN_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_ZORAS_FOUNTAIN_0",
+    "entrance": 270,
+    "entrance_hex": "0x10e",
+    "scene_enum": "SCENE_ZORAS_FOUNTAIN",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "} else {",
+   "if (this->warpTimer > sWarpTimerTarget && gSaveContext.nextCutsceneIndex == NEXT_CS_INDEX_NONE) {"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_ZORAS_FOUNTAIN_0;"
+ },
+ {
+  "file": "src/overlays/actors/ovl_Door_Warp1/z_door_warp1.c",
+  "line": 627,
+  "function": "DoorWarp1_RutoWarpOut",
+  "module": "actors",
+  "owner": "Door_Warp1",
+  "field": "nextCutsceneIndex",
+  "expression": "CS_INDEX_0",
+  "targets": [],
+  "conditions_nearby": [
+   "} else {",
+   "if (this->warpTimer > sWarpTimerTarget && gSaveContext.nextCutsceneIndex == NEXT_CS_INDEX_NONE) {"
+  ],
+  "statement": "gSaveContext.nextCutsceneIndex = CS_INDEX_0;"
+ },
+ {
+  "file": "src/overlays/actors/ovl_Door_Warp1/z_door_warp1.c",
+  "line": 727,
+  "function": "DoorWarp1_AdultWarpOut",
+  "module": "actors",
+  "owner": "Door_Warp1",
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_CHAMBER_OF_THE_SAGES_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_CHAMBER_OF_THE_SAGES_0",
+    "entrance": 107,
+    "entrance_hex": "0x06b",
+    "scene_enum": "SCENE_CHAMBER_OF_THE_SAGES",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "if (this->warpTimer > sWarpTimerTarget && gSaveContext.nextCutsceneIndex == NEXT_CS_INDEX_NONE) {",
+   "if (play->sceneId == SCENE_FOREST_TEMPLE_BOSS) {",
+   "if (!GET_EVENTCHKINF(EVENTCHKINF_48)) {"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_CHAMBER_OF_THE_SAGES_0;"
+ },
+ {
+  "file": "src/overlays/actors/ovl_Door_Warp1/z_door_warp1.c",
+  "line": 728,
+  "function": "DoorWarp1_AdultWarpOut",
+  "module": "actors",
+  "owner": "Door_Warp1",
+  "field": "nextCutsceneIndex",
+  "expression": "CS_INDEX_NONE",
+  "targets": [],
+  "conditions_nearby": [
+   "if (this->warpTimer > sWarpTimerTarget && gSaveContext.nextCutsceneIndex == NEXT_CS_INDEX_NONE) {",
+   "if (play->sceneId == SCENE_FOREST_TEMPLE_BOSS) {",
+   "if (!GET_EVENTCHKINF(EVENTCHKINF_48)) {"
+  ],
+  "statement": "gSaveContext.nextCutsceneIndex = CS_INDEX_NONE;"
+ },
+ {
+  "file": "src/overlays/actors/ovl_Door_Warp1/z_door_warp1.c",
+  "line": 732,
+  "function": "DoorWarp1_AdultWarpOut",
+  "module": "actors",
+  "owner": "Door_Warp1",
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_SACRED_FOREST_MEADOW_2",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_SACRED_FOREST_MEADOW_2",
+    "entrance": 1536,
+    "entrance_hex": "0x600",
+    "scene_enum": "SCENE_SACRED_FOREST_MEADOW",
+    "spawn": 2
+   }
+  ],
+  "conditions_nearby": [
+   "if (play->sceneId == SCENE_FOREST_TEMPLE_BOSS) {",
+   "if (!GET_EVENTCHKINF(EVENTCHKINF_48)) {",
+   "} else {",
+   "if (!LINK_IS_ADULT) {"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_SACRED_FOREST_MEADOW_2;"
+ },
+ {
+  "file": "src/overlays/actors/ovl_Door_Warp1/z_door_warp1.c",
+  "line": 734,
+  "function": "DoorWarp1_AdultWarpOut",
+  "module": "actors",
+  "owner": "Door_Warp1",
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_SACRED_FOREST_MEADOW_3",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_SACRED_FOREST_MEADOW_3",
+    "entrance": 1544,
+    "entrance_hex": "0x608",
+    "scene_enum": "SCENE_SACRED_FOREST_MEADOW",
+    "spawn": 3
+   }
+  ],
+  "conditions_nearby": [
+   "if (!GET_EVENTCHKINF(EVENTCHKINF_48)) {",
+   "} else {",
+   "if (!LINK_IS_ADULT) {",
+   "} else {"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_SACRED_FOREST_MEADOW_3;"
+ },
+ {
+  "file": "src/overlays/actors/ovl_Door_Warp1/z_door_warp1.c",
+  "line": 736,
+  "function": "DoorWarp1_AdultWarpOut",
+  "module": "actors",
+  "owner": "Door_Warp1",
+  "field": "nextCutsceneIndex",
+  "expression": "CS_INDEX_NONE",
+  "targets": [],
+  "conditions_nearby": [
+   "} else {",
+   "if (!LINK_IS_ADULT) {",
+   "} else {"
+  ],
+  "statement": "gSaveContext.nextCutsceneIndex = CS_INDEX_NONE;"
+ },
+ {
+  "file": "src/overlays/actors/ovl_Door_Warp1/z_door_warp1.c",
+  "line": 742,
+  "function": "DoorWarp1_AdultWarpOut",
+  "module": "actors",
+  "owner": "Door_Warp1",
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_KAKARIKO_VILLAGE_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_KAKARIKO_VILLAGE_0",
+    "entrance": 219,
+    "entrance_hex": "0x0db",
+    "scene_enum": "SCENE_KAKARIKO_VILLAGE",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "if (!LINK_IS_ADULT) {",
+   "} else {",
+   "} else if (play->sceneId == SCENE_FIRE_TEMPLE_BOSS) {",
+   "if (!GET_EVENTCHKINF(EVENTCHKINF_49)) {"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_KAKARIKO_VILLAGE_0;"
+ },
+ {
+  "file": "src/overlays/actors/ovl_Door_Warp1/z_door_warp1.c",
+  "line": 743,
+  "function": "DoorWarp1_AdultWarpOut",
+  "module": "actors",
+  "owner": "Door_Warp1",
+  "field": "nextCutsceneIndex",
+  "expression": "CS_INDEX_3",
+  "targets": [],
+  "conditions_nearby": [
+   "} else {",
+   "} else if (play->sceneId == SCENE_FIRE_TEMPLE_BOSS) {",
+   "if (!GET_EVENTCHKINF(EVENTCHKINF_49)) {"
+  ],
+  "statement": "gSaveContext.nextCutsceneIndex = CS_INDEX_3;"
+ },
+ {
+  "file": "src/overlays/actors/ovl_Door_Warp1/z_door_warp1.c",
+  "line": 746,
+  "function": "DoorWarp1_AdultWarpOut",
+  "module": "actors",
+  "owner": "Door_Warp1",
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_DEATH_MOUNTAIN_CRATER_4",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_DEATH_MOUNTAIN_CRATER_4",
+    "entrance": 1270,
+    "entrance_hex": "0x4f6",
+    "scene_enum": "SCENE_DEATH_MOUNTAIN_CRATER",
+    "spawn": 4
+   }
+  ],
+  "conditions_nearby": [
+   "} else if (play->sceneId == SCENE_FIRE_TEMPLE_BOSS) {",
+   "if (!GET_EVENTCHKINF(EVENTCHKINF_49)) {",
+   "} else {",
+   "if (!LINK_IS_ADULT) {"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_DEATH_MOUNTAIN_CRATER_4;"
+ },
+ {
+  "file": "src/overlays/actors/ovl_Door_Warp1/z_door_warp1.c",
+  "line": 748,
+  "function": "DoorWarp1_AdultWarpOut",
+  "module": "actors",
+  "owner": "Door_Warp1",
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_DEATH_MOUNTAIN_CRATER_5",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_DEATH_MOUNTAIN_CRATER_5",
+    "entrance": 1380,
+    "entrance_hex": "0x564",
+    "scene_enum": "SCENE_DEATH_MOUNTAIN_CRATER",
+    "spawn": 5
+   }
+  ],
+  "conditions_nearby": [
+   "if (!GET_EVENTCHKINF(EVENTCHKINF_49)) {",
+   "} else {",
+   "if (!LINK_IS_ADULT) {",
+   "} else {"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_DEATH_MOUNTAIN_CRATER_5;"
+ },
+ {
+  "file": "src/overlays/actors/ovl_Door_Warp1/z_door_warp1.c",
+  "line": 750,
+  "function": "DoorWarp1_AdultWarpOut",
+  "module": "actors",
+  "owner": "Door_Warp1",
+  "field": "nextCutsceneIndex",
+  "expression": "CS_INDEX_NONE",
+  "targets": [],
+  "conditions_nearby": [
+   "if (!GET_EVENTCHKINF(EVENTCHKINF_49)) {",
+   "} else {",
+   "if (!LINK_IS_ADULT) {",
+   "} else {"
+  ],
+  "statement": "gSaveContext.nextCutsceneIndex = CS_INDEX_NONE;"
+ },
+ {
+  "file": "src/overlays/actors/ovl_Door_Warp1/z_door_warp1.c",
+  "line": 756,
+  "function": "DoorWarp1_AdultWarpOut",
+  "module": "actors",
+  "owner": "Door_Warp1",
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_CHAMBER_OF_THE_SAGES_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_CHAMBER_OF_THE_SAGES_0",
+    "entrance": 107,
+    "entrance_hex": "0x06b",
+    "scene_enum": "SCENE_CHAMBER_OF_THE_SAGES",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "if (!LINK_IS_ADULT) {",
+   "} else {",
+   "} else if (play->sceneId == SCENE_WATER_TEMPLE_BOSS) {",
+   "if (!GET_EVENTCHKINF(EVENTCHKINF_4A)) {"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_CHAMBER_OF_THE_SAGES_0;"
+ },
+ {
+  "file": "src/overlays/actors/ovl_Door_Warp1/z_door_warp1.c",
+  "line": 757,
+  "function": "DoorWarp1_AdultWarpOut",
+  "module": "actors",
+  "owner": "Door_Warp1",
+  "field": "nextCutsceneIndex",
+  "expression": "CS_INDEX_NONE",
+  "targets": [],
+  "conditions_nearby": [
+   "} else {",
+   "} else if (play->sceneId == SCENE_WATER_TEMPLE_BOSS) {",
+   "if (!GET_EVENTCHKINF(EVENTCHKINF_4A)) {"
+  ],
+  "statement": "gSaveContext.nextCutsceneIndex = CS_INDEX_NONE;"
+ },
+ {
+  "file": "src/overlays/actors/ovl_Door_Warp1/z_door_warp1.c",
+  "line": 761,
+  "function": "DoorWarp1_AdultWarpOut",
+  "module": "actors",
+  "owner": "Door_Warp1",
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_LAKE_HYLIA_8",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_LAKE_HYLIA_8",
+    "entrance": 1540,
+    "entrance_hex": "0x604",
+    "scene_enum": "SCENE_LAKE_HYLIA",
+    "spawn": 8
+   }
+  ],
+  "conditions_nearby": [
+   "} else if (play->sceneId == SCENE_WATER_TEMPLE_BOSS) {",
+   "if (!GET_EVENTCHKINF(EVENTCHKINF_4A)) {",
+   "} else {",
+   "if (!LINK_IS_ADULT) {"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_LAKE_HYLIA_8;"
+ },
+ {
+  "file": "src/overlays/actors/ovl_Door_Warp1/z_door_warp1.c",
+  "line": 763,
+  "function": "DoorWarp1_AdultWarpOut",
+  "module": "actors",
+  "owner": "Door_Warp1",
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_LAKE_HYLIA_9",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_LAKE_HYLIA_9",
+    "entrance": 1548,
+    "entrance_hex": "0x60c",
+    "scene_enum": "SCENE_LAKE_HYLIA",
+    "spawn": 9
+   }
+  ],
+  "conditions_nearby": [
+   "if (!GET_EVENTCHKINF(EVENTCHKINF_4A)) {",
+   "} else {",
+   "if (!LINK_IS_ADULT) {",
+   "} else {"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_LAKE_HYLIA_9;"
+ },
+ {
+  "file": "src/overlays/actors/ovl_Door_Warp1/z_door_warp1.c",
+  "line": 765,
+  "function": "DoorWarp1_AdultWarpOut",
+  "module": "actors",
+  "owner": "Door_Warp1",
+  "field": "nextCutsceneIndex",
+  "expression": "CS_INDEX_NONE",
+  "targets": [],
+  "conditions_nearby": [
+   "} else {",
+   "if (!LINK_IS_ADULT) {",
+   "} else {"
+  ],
+  "statement": "gSaveContext.nextCutsceneIndex = CS_INDEX_NONE;"
+ },
+ {
+  "file": "src/overlays/actors/ovl_Door_Warp1/z_door_warp1.c",
+  "line": 770,
+  "function": "DoorWarp1_AdultWarpOut",
+  "module": "actors",
+  "owner": "Door_Warp1",
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_CHAMBER_OF_THE_SAGES_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_CHAMBER_OF_THE_SAGES_0",
+    "entrance": 107,
+    "entrance_hex": "0x06b",
+    "scene_enum": "SCENE_CHAMBER_OF_THE_SAGES",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "if (!LINK_IS_ADULT) {",
+   "} else {",
+   "} else if (play->sceneId == SCENE_SPIRIT_TEMPLE_BOSS) {",
+   "if (!CHECK_QUEST_ITEM(QUEST_MEDALLION_SPIRIT)) {"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_CHAMBER_OF_THE_SAGES_0;"
+ },
+ {
+  "file": "src/overlays/actors/ovl_Door_Warp1/z_door_warp1.c",
+  "line": 771,
+  "function": "DoorWarp1_AdultWarpOut",
+  "module": "actors",
+  "owner": "Door_Warp1",
+  "field": "nextCutsceneIndex",
+  "expression": "CS_INDEX_NONE",
+  "targets": [],
+  "conditions_nearby": [
+   "if (!LINK_IS_ADULT) {",
+   "} else {",
+   "} else if (play->sceneId == SCENE_SPIRIT_TEMPLE_BOSS) {",
+   "if (!CHECK_QUEST_ITEM(QUEST_MEDALLION_SPIRIT)) {"
+  ],
+  "statement": "gSaveContext.nextCutsceneIndex = CS_INDEX_NONE;"
+ },
+ {
+  "file": "src/overlays/actors/ovl_Door_Warp1/z_door_warp1.c",
+  "line": 775,
+  "function": "DoorWarp1_AdultWarpOut",
+  "module": "actors",
+  "owner": "Door_Warp1",
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_DESERT_COLOSSUS_5",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_DESERT_COLOSSUS_5",
+    "entrance": 497,
+    "entrance_hex": "0x1f1",
+    "scene_enum": "SCENE_DESERT_COLOSSUS",
+    "spawn": 5
+   }
+  ],
+  "conditions_nearby": [
+   "} else if (play->sceneId == SCENE_SPIRIT_TEMPLE_BOSS) {",
+   "if (!CHECK_QUEST_ITEM(QUEST_MEDALLION_SPIRIT)) {",
+   "} else {",
+   "if (!LINK_IS_ADULT) {"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_DESERT_COLOSSUS_5;"
+ },
+ {
+  "file": "src/overlays/actors/ovl_Door_Warp1/z_door_warp1.c",
+  "line": 777,
+  "function": "DoorWarp1_AdultWarpOut",
+  "module": "actors",
+  "owner": "Door_Warp1",
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_DESERT_COLOSSUS_8",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_DESERT_COLOSSUS_8",
+    "entrance": 1552,
+    "entrance_hex": "0x610",
+    "scene_enum": "SCENE_DESERT_COLOSSUS",
+    "spawn": 8
+   }
+  ],
+  "conditions_nearby": [
+   "if (!CHECK_QUEST_ITEM(QUEST_MEDALLION_SPIRIT)) {",
+   "} else {",
+   "if (!LINK_IS_ADULT) {",
+   "} else {"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_DESERT_COLOSSUS_8;"
+ },
+ {
+  "file": "src/overlays/actors/ovl_Door_Warp1/z_door_warp1.c",
+  "line": 779,
+  "function": "DoorWarp1_AdultWarpOut",
+  "module": "actors",
+  "owner": "Door_Warp1",
+  "field": "nextCutsceneIndex",
+  "expression": "CS_INDEX_NONE",
+  "targets": [],
+  "conditions_nearby": [
+   "if (!CHECK_QUEST_ITEM(QUEST_MEDALLION_SPIRIT)) {",
+   "} else {",
+   "if (!LINK_IS_ADULT) {",
+   "} else {"
+  ],
+  "statement": "gSaveContext.nextCutsceneIndex = CS_INDEX_NONE;"
+ },
+ {
+  "file": "src/overlays/actors/ovl_Door_Warp1/z_door_warp1.c",
+  "line": 784,
+  "function": "DoorWarp1_AdultWarpOut",
+  "module": "actors",
+  "owner": "Door_Warp1",
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_CHAMBER_OF_THE_SAGES_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_CHAMBER_OF_THE_SAGES_0",
+    "entrance": 107,
+    "entrance_hex": "0x06b",
+    "scene_enum": "SCENE_CHAMBER_OF_THE_SAGES",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "if (!LINK_IS_ADULT) {",
+   "} else {",
+   "} else if (play->sceneId == SCENE_SHADOW_TEMPLE_BOSS) {",
+   "if (!CHECK_QUEST_ITEM(QUEST_MEDALLION_SHADOW)) {"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_CHAMBER_OF_THE_SAGES_0;"
+ },
+ {
+  "file": "src/overlays/actors/ovl_Door_Warp1/z_door_warp1.c",
+  "line": 785,
+  "function": "DoorWarp1_AdultWarpOut",
+  "module": "actors",
+  "owner": "Door_Warp1",
+  "field": "nextCutsceneIndex",
+  "expression": "CS_INDEX_NONE",
+  "targets": [],
+  "conditions_nearby": [
+   "if (!LINK_IS_ADULT) {",
+   "} else {",
+   "} else if (play->sceneId == SCENE_SHADOW_TEMPLE_BOSS) {",
+   "if (!CHECK_QUEST_ITEM(QUEST_MEDALLION_SHADOW)) {"
+  ],
+  "statement": "gSaveContext.nextCutsceneIndex = CS_INDEX_NONE;"
+ },
+ {
+  "file": "src/overlays/actors/ovl_Door_Warp1/z_door_warp1.c",
+  "line": 789,
+  "function": "DoorWarp1_AdultWarpOut",
+  "module": "actors",
+  "owner": "Door_Warp1",
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_GRAVEYARD_7",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_GRAVEYARD_7",
+    "entrance": 1384,
+    "entrance_hex": "0x568",
+    "scene_enum": "SCENE_GRAVEYARD",
+    "spawn": 7
+   }
+  ],
+  "conditions_nearby": [
+   "} else if (play->sceneId == SCENE_SHADOW_TEMPLE_BOSS) {",
+   "if (!CHECK_QUEST_ITEM(QUEST_MEDALLION_SHADOW)) {",
+   "} else {",
+   "if (!LINK_IS_ADULT) {"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_GRAVEYARD_7;"
+ },
+ {
+  "file": "src/overlays/actors/ovl_Door_Warp1/z_door_warp1.c",
+  "line": 791,
+  "function": "DoorWarp1_AdultWarpOut",
+  "module": "actors",
+  "owner": "Door_Warp1",
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_GRAVEYARD_8",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_GRAVEYARD_8",
+    "entrance": 1408,
+    "entrance_hex": "0x580",
+    "scene_enum": "SCENE_GRAVEYARD",
+    "spawn": 8
+   }
+  ],
+  "conditions_nearby": [
+   "if (!CHECK_QUEST_ITEM(QUEST_MEDALLION_SHADOW)) {",
+   "} else {",
+   "if (!LINK_IS_ADULT) {",
+   "} else {"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_GRAVEYARD_8;"
+ },
+ {
+  "file": "src/overlays/actors/ovl_Door_Warp1/z_door_warp1.c",
+  "line": 793,
+  "function": "DoorWarp1_AdultWarpOut",
+  "module": "actors",
+  "owner": "Door_Warp1",
+  "field": "nextCutsceneIndex",
+  "expression": "CS_INDEX_NONE",
+  "targets": [],
+  "conditions_nearby": [
+   "if (!CHECK_QUEST_ITEM(QUEST_MEDALLION_SHADOW)) {",
+   "} else {",
+   "if (!LINK_IS_ADULT) {",
+   "} else {"
+  ],
+  "statement": "gSaveContext.nextCutsceneIndex = CS_INDEX_NONE;"
+ },
+ {
+  "file": "src/overlays/actors/ovl_En_Ge1/z_en_ge1.c",
+  "line": 247,
+  "function": "EnGe1_KickPlayer",
+  "module": "actors",
+  "owner": "En_Ge1",
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_GERUDO_VALLEY_1",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_GERUDO_VALLEY_1",
+    "entrance": 421,
+    "entrance_hex": "0x1a5",
+    "scene_enum": "SCENE_GERUDO_VALLEY",
+    "spawn": 1
+   }
+  ],
+  "conditions_nearby": [
+   "if (this->cutsceneTimer > 0) {",
+   "} else {",
+   "if ((INV_CONTENT(ITEM_HOOKSHOT) == ITEM_NONE) || (INV_CONTENT(ITEM_LONGSHOT) == ITEM_NONE)) {"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_GERUDO_VALLEY_1;"
+ },
+ {
+  "file": "src/overlays/actors/ovl_En_Ge1/z_en_ge1.c",
+  "line": 249,
+  "function": "EnGe1_KickPlayer",
+  "module": "actors",
+  "owner": "En_Ge1",
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_GERUDOS_FORTRESS_18",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_GERUDOS_FORTRESS_18",
+    "entrance": 1528,
+    "entrance_hex": "0x5f8",
+    "scene_enum": "SCENE_GERUDOS_FORTRESS",
+    "spawn": 18
+   }
+  ],
+  "conditions_nearby": [
+   "if (this->cutsceneTimer > 0) {",
+   "} else {",
+   "if ((INV_CONTENT(ITEM_HOOKSHOT) == ITEM_NONE) || (INV_CONTENT(ITEM_LONGSHOT) == ITEM_NONE)) {",
+   "} else if (GET_EVENTCHKINF(EVENTCHKINF_GERUDO_CAUGHT_TOWER_FALL)) { // Caught previously"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_GERUDOS_FORTRESS_18;"
+ },
+ {
+  "file": "src/overlays/actors/ovl_En_Ge1/z_en_ge1.c",
+  "line": 251,
+  "function": "EnGe1_KickPlayer",
+  "module": "actors",
+  "owner": "En_Ge1",
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_GERUDOS_FORTRESS_17",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_GERUDOS_FORTRESS_17",
+    "entrance": 948,
+    "entrance_hex": "0x3b4",
+    "scene_enum": "SCENE_GERUDOS_FORTRESS",
+    "spawn": 17
+   }
+  ],
+  "conditions_nearby": [
+   "} else {",
+   "if ((INV_CONTENT(ITEM_HOOKSHOT) == ITEM_NONE) || (INV_CONTENT(ITEM_LONGSHOT) == ITEM_NONE)) {",
+   "} else if (GET_EVENTCHKINF(EVENTCHKINF_GERUDO_CAUGHT_TOWER_FALL)) { // Caught previously",
+   "} else {"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_GERUDOS_FORTRESS_17;"
+ },
+ {
+  "file": "src/overlays/actors/ovl_En_Ge1/z_en_ge1.c",
+  "line": 596,
+  "function": "EnGe1_BeginGame_Archery",
+  "module": "actors",
+  "owner": "En_Ge1",
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_GERUDOS_FORTRESS_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_GERUDOS_FORTRESS_0",
+    "entrance": 297,
+    "entrance_hex": "0x129",
+    "scene_enum": "SCENE_GERUDOS_FORTRESS",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "switch (play->msgCtx.choiceIndex) {",
+   "case 0:",
+   "if (gSaveContext.save.info.playerData.rupees < 20) {",
+   "} else {"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_GERUDOS_FORTRESS_0;"
+ },
+ {
+  "file": "src/overlays/actors/ovl_En_Ge1/z_en_ge1.c",
+  "line": 597,
+  "function": "EnGe1_BeginGame_Archery",
+  "module": "actors",
+  "owner": "En_Ge1",
+  "field": "nextCutsceneIndex",
+  "expression": "CS_INDEX_0",
+  "targets": [],
+  "conditions_nearby": [
+   "switch (play->msgCtx.choiceIndex) {",
+   "case 0:",
+   "if (gSaveContext.save.info.playerData.rupees < 20) {",
+   "} else {"
+  ],
+  "statement": "gSaveContext.nextCutsceneIndex = CS_INDEX_0;"
+ },
+ {
+  "file": "src/overlays/actors/ovl_En_Ge2/z_en_ge2.c",
+  "line": 259,
+  "function": "EnGe2_PlayerCaught",
+  "module": "actors",
+  "owner": "En_Ge2",
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_GERUDO_VALLEY_1",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_GERUDO_VALLEY_1",
+    "entrance": 421,
+    "entrance_hex": "0x1a5",
+    "scene_enum": "SCENE_GERUDO_VALLEY",
+    "spawn": 1
+   }
+  ],
+  "conditions_nearby": [
+   "if (this->timer > 0) {",
+   "} else {",
+   "if ((INV_CONTENT(ITEM_HOOKSHOT) == ITEM_NONE) || (INV_CONTENT(ITEM_LONGSHOT) == ITEM_NONE)) {"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_GERUDO_VALLEY_1;"
+ },
+ {
+  "file": "src/overlays/actors/ovl_En_Ge2/z_en_ge2.c",
+  "line": 261,
+  "function": "EnGe2_PlayerCaught",
+  "module": "actors",
+  "owner": "En_Ge2",
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_GERUDOS_FORTRESS_18",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_GERUDOS_FORTRESS_18",
+    "entrance": 1528,
+    "entrance_hex": "0x5f8",
+    "scene_enum": "SCENE_GERUDOS_FORTRESS",
+    "spawn": 18
+   }
+  ],
+  "conditions_nearby": [
+   "if (this->timer > 0) {",
+   "} else {",
+   "if ((INV_CONTENT(ITEM_HOOKSHOT) == ITEM_NONE) || (INV_CONTENT(ITEM_LONGSHOT) == ITEM_NONE)) {",
+   "} else if (GET_EVENTCHKINF(EVENTCHKINF_GERUDO_CAUGHT_TOWER_FALL)) {"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_GERUDOS_FORTRESS_18;"
+ },
+ {
+  "file": "src/overlays/actors/ovl_En_Ge2/z_en_ge2.c",
+  "line": 263,
+  "function": "EnGe2_PlayerCaught",
+  "module": "actors",
+  "owner": "En_Ge2",
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_GERUDOS_FORTRESS_17",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_GERUDOS_FORTRESS_17",
+    "entrance": 948,
+    "entrance_hex": "0x3b4",
+    "scene_enum": "SCENE_GERUDOS_FORTRESS",
+    "spawn": 17
+   }
+  ],
+  "conditions_nearby": [
+   "} else {",
+   "if ((INV_CONTENT(ITEM_HOOKSHOT) == ITEM_NONE) || (INV_CONTENT(ITEM_LONGSHOT) == ITEM_NONE)) {",
+   "} else if (GET_EVENTCHKINF(EVENTCHKINF_GERUDO_CAUGHT_TOWER_FALL)) {",
+   "} else {"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_GERUDOS_FORTRESS_17;"
+ },
+ {
+  "file": "src/overlays/actors/ovl_En_Ge2/z_en_ge2.c",
+  "line": 282,
+  "function": "EnGe2_PlayerCaughtRun",
+  "module": "actors",
+  "owner": "En_Ge2",
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_GERUDO_VALLEY_1",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_GERUDO_VALLEY_1",
+    "entrance": 421,
+    "entrance_hex": "0x1a5",
+    "scene_enum": "SCENE_GERUDO_VALLEY",
+    "spawn": 1
+   }
+  ],
+  "conditions_nearby": [
+   "if (this->actor.xzDistToPlayer < 50.0f) {",
+   "if (this->timer > 0) {",
+   "} else {",
+   "if ((INV_CONTENT(ITEM_HOOKSHOT) == ITEM_NONE) || (INV_CONTENT(ITEM_LONGSHOT) == ITEM_NONE)) {"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_GERUDO_VALLEY_1;"
+ },
+ {
+  "file": "src/overlays/actors/ovl_En_Ge2/z_en_ge2.c",
+  "line": 284,
+  "function": "EnGe2_PlayerCaughtRun",
+  "module": "actors",
+  "owner": "En_Ge2",
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_GERUDOS_FORTRESS_18",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_GERUDOS_FORTRESS_18",
+    "entrance": 1528,
+    "entrance_hex": "0x5f8",
+    "scene_enum": "SCENE_GERUDOS_FORTRESS",
+    "spawn": 18
+   }
+  ],
+  "conditions_nearby": [
+   "if (this->timer > 0) {",
+   "} else {",
+   "if ((INV_CONTENT(ITEM_HOOKSHOT) == ITEM_NONE) || (INV_CONTENT(ITEM_LONGSHOT) == ITEM_NONE)) {",
+   "} else if (GET_EVENTCHKINF(EVENTCHKINF_GERUDO_CAUGHT_TOWER_FALL)) {"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_GERUDOS_FORTRESS_18;"
+ },
+ {
+  "file": "src/overlays/actors/ovl_En_Ge2/z_en_ge2.c",
+  "line": 286,
+  "function": "EnGe2_PlayerCaughtRun",
+  "module": "actors",
+  "owner": "En_Ge2",
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_GERUDOS_FORTRESS_17",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_GERUDOS_FORTRESS_17",
+    "entrance": 948,
+    "entrance_hex": "0x3b4",
+    "scene_enum": "SCENE_GERUDOS_FORTRESS",
+    "spawn": 17
+   }
+  ],
+  "conditions_nearby": [
+   "} else {",
+   "if ((INV_CONTENT(ITEM_HOOKSHOT) == ITEM_NONE) || (INV_CONTENT(ITEM_LONGSHOT) == ITEM_NONE)) {",
+   "} else if (GET_EVENTCHKINF(EVENTCHKINF_GERUDO_CAUGHT_TOWER_FALL)) {",
+   "} else {"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_GERUDOS_FORTRESS_17;"
+ },
+ {
+  "file": "src/overlays/actors/ovl_En_GeldB/z_en_geldb.c",
+  "line": 1601,
+  "function": "EnGeldB_Draw",
+  "module": "actors",
+  "owner": "En_GeldB",
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_GERUDO_VALLEY_1",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_GERUDO_VALLEY_1",
+    "entrance": 421,
+    "entrance_hex": "0x1a5",
+    "scene_enum": "SCENE_GERUDO_VALLEY",
+    "spawn": 1
+   }
+  ],
+  "conditions_nearby": [
+   "if (this->spinAttackState == 2) {",
+   "} else {",
+   "if (this->timer == 0) {",
+   "if ((INV_CONTENT(ITEM_HOOKSHOT) == ITEM_NONE) || (INV_CONTENT(ITEM_LONGSHOT) == ITEM_NONE)) {"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_GERUDO_VALLEY_1;"
+ },
+ {
+  "file": "src/overlays/actors/ovl_En_GeldB/z_en_geldb.c",
+  "line": 1603,
+  "function": "EnGeldB_Draw",
+  "module": "actors",
+  "owner": "En_GeldB",
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_GERUDOS_FORTRESS_18",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_GERUDOS_FORTRESS_18",
+    "entrance": 1528,
+    "entrance_hex": "0x5f8",
+    "scene_enum": "SCENE_GERUDOS_FORTRESS",
+    "spawn": 18
+   }
+  ],
+  "conditions_nearby": [
+   "} else {",
+   "if (this->timer == 0) {",
+   "if ((INV_CONTENT(ITEM_HOOKSHOT) == ITEM_NONE) || (INV_CONTENT(ITEM_LONGSHOT) == ITEM_NONE)) {",
+   "} else if (GET_EVENTCHKINF(EVENTCHKINF_GERUDO_CAUGHT_TOWER_FALL)) {"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_GERUDOS_FORTRESS_18;"
+ },
+ {
+  "file": "src/overlays/actors/ovl_En_GeldB/z_en_geldb.c",
+  "line": 1605,
+  "function": "EnGeldB_Draw",
+  "module": "actors",
+  "owner": "En_GeldB",
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_GERUDOS_FORTRESS_17",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_GERUDOS_FORTRESS_17",
+    "entrance": 948,
+    "entrance_hex": "0x3b4",
+    "scene_enum": "SCENE_GERUDOS_FORTRESS",
+    "spawn": 17
+   }
+  ],
+  "conditions_nearby": [
+   "if (this->timer == 0) {",
+   "if ((INV_CONTENT(ITEM_HOOKSHOT) == ITEM_NONE) || (INV_CONTENT(ITEM_LONGSHOT) == ITEM_NONE)) {",
+   "} else if (GET_EVENTCHKINF(EVENTCHKINF_GERUDO_CAUGHT_TOWER_FALL)) {",
+   "} else {"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_GERUDOS_FORTRESS_17;"
+ },
+ {
+  "file": "src/overlays/actors/ovl_En_Heishi1/z_en_heishi1.c",
+  "line": 378,
+  "function": "EnHeishi1_Kick",
+  "module": "actors",
+  "owner": "En_Heishi1",
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_HYRULE_CASTLE_3",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_HYRULE_CASTLE_3",
+    "entrance": 1274,
+    "entrance_hex": "0x4fa",
+    "scene_enum": "SCENE_HYRULE_CASTLE",
+    "spawn": 3
+   }
+  ],
+  "conditions_nearby": [
+   "if (!this->loadStarted) {",
+   "if ((Message_GetState(&play->msgCtx) == TEXT_STATE_EVENT) && Message_ShouldAdvance(play)) {",
+   "if (!this->loadStarted) {"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_HYRULE_CASTLE_3;"
+ },
+ {
+  "file": "src/overlays/actors/ovl_En_Heishi3/z_en_heishi3.c",
+  "line": 224,
+  "function": "func_80A55D00",
+  "module": "actors",
+  "owner": "En_Heishi3",
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_HYRULE_CASTLE_4",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_HYRULE_CASTLE_4",
+    "entrance": 1150,
+    "entrance_hex": "0x47e",
+    "scene_enum": "SCENE_HYRULE_CASTLE",
+    "spawn": 4
+   }
+  ],
+  "conditions_nearby": [
+   "if ((Message_GetState(&play->msgCtx) == TEXT_STATE_EVENT) && Message_ShouldAdvance(play) &&"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_HYRULE_CASTLE_4;"
+ },
+ {
+  "file": "src/overlays/actors/ovl_En_Holl/z_en_holl.c",
+  "line": 121,
+  "function": "EnHoll_IsKokiriLayer8",
+  "module": "actors",
+  "owner": "En_Holl",
+  "field": "entranceIndex",
+  "expression": "= ENTR_KOKIRI_FOREST_0 && gSaveContext.sceneLayer == 8",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_KOKIRI_FOREST_0",
+    "entrance": 238,
+    "entrance_hex": "0x0ee",
+    "scene_enum": "SCENE_KOKIRI_FOREST",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [],
+  "statement": "return gSaveContext.save.entranceIndex == ENTR_KOKIRI_FOREST_0 && gSaveContext.sceneLayer == 8;"
+ },
+ {
+  "file": "src/overlays/actors/ovl_En_Horse/z_en_horse.c",
+  "line": 2549,
+  "function": "EnHorse_UpdateHorsebackArchery",
+  "module": "actors",
+  "owner": "En_Horse",
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_GERUDOS_FORTRESS_16",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_GERUDOS_FORTRESS_16",
+    "entrance": 944,
+    "entrance_hex": "0x3b0",
+    "scene_enum": "SCENE_GERUDOS_FORTRESS",
+    "spawn": 16
+   }
+  ],
+  "conditions_nearby": [
+   "if (play->interfaceCtx.hbaAmmo == 0) {",
+   "if ((this->hbaFlags & 1) || (this->hbaTimer >= 46)) {",
+   "if ((isFanfarePlaying != true) && (gSaveContext.minigameState != 3)) {"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_GERUDOS_FORTRESS_16;"
+ },
+ {
+  "file": "src/overlays/actors/ovl_En_Horse_Game_Check/z_en_horse_game_check.c",
+  "line": 128,
+  "function": "EnHorseGameCheck_FinishIngoRace",
+  "module": "actors",
+  "owner": "En_Horse_Game_Check",
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_LON_LON_RANCH_7",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_LON_LON_RANCH_7",
+    "entrance": 1230,
+    "entrance_hex": "0x4ce",
+    "scene_enum": "SCENE_LON_LON_RANCH",
+    "spawn": 7
+   }
+  ],
+  "conditions_nearby": [
+   "if (this->result == INGO_RACE_PLAYER_WIN) {"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_LON_LON_RANCH_7;"
+ },
+ {
+  "file": "src/overlays/actors/ovl_En_Horse_Game_Check/z_en_horse_game_check.c",
+  "line": 141,
+  "function": "EnHorseGameCheck_FinishIngoRace",
+  "module": "actors",
+  "owner": "En_Horse_Game_Check",
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_LON_LON_RANCH_8",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_LON_LON_RANCH_8",
+    "entrance": 1368,
+    "entrance_hex": "0x558",
+    "scene_enum": "SCENE_LON_LON_RANCH",
+    "spawn": 8
+   }
+  ],
+  "conditions_nearby": [
+   "} else {",
+   "} else {"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_LON_LON_RANCH_8;"
+ },
+ {
+  "file": "src/overlays/actors/ovl_En_Horse_Game_Check/z_en_horse_game_check.c",
+  "line": 311,
+  "function": "EnHorseGameCheck_FinishMalonRace",
+  "module": "actors",
+  "owner": "En_Horse_Game_Check",
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_LON_LON_RANCH_7",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_LON_LON_RANCH_7",
+    "entrance": 1230,
+    "entrance_hex": "0x4ce",
+    "scene_enum": "SCENE_LON_LON_RANCH",
+    "spawn": 7
+   }
+  ],
+  "conditions_nearby": [
+   "if ((this->result == MALONRACE_SUCCESS) || (this->result == MALONRACE_TIME_UP)) {"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_LON_LON_RANCH_7;"
+ },
+ {
+  "file": "src/overlays/actors/ovl_En_Horse_Game_Check/z_en_horse_game_check.c",
+  "line": 318,
+  "function": "EnHorseGameCheck_FinishMalonRace",
+  "module": "actors",
+  "owner": "En_Horse_Game_Check",
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_LON_LON_RANCH_7",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_LON_LON_RANCH_7",
+    "entrance": 1230,
+    "entrance_hex": "0x4ce",
+    "scene_enum": "SCENE_LON_LON_RANCH",
+    "spawn": 7
+   }
+  ],
+  "conditions_nearby": [
+   "if ((this->result == MALONRACE_SUCCESS) || (this->result == MALONRACE_TIME_UP)) {",
+   "} else if (this->result == MALONRACE_FAILURE) {"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_LON_LON_RANCH_7;"
+ },
+ {
+  "file": "src/overlays/actors/ovl_En_Horse_Game_Check/z_en_horse_game_check.c",
+  "line": 324,
+  "function": "EnHorseGameCheck_FinishMalonRace",
+  "module": "actors",
+  "owner": "En_Horse_Game_Check",
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_LON_LON_RANCH_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_LON_LON_RANCH_0",
+    "entrance": 343,
+    "entrance_hex": "0x157",
+    "scene_enum": "SCENE_LON_LON_RANCH",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "} else if (this->result == MALONRACE_FAILURE) {",
+   "} else {"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_LON_LON_RANCH_0;"
+ },
+ {
+  "file": "src/overlays/actors/ovl_En_In/z_en_in.c",
+  "line": 465,
+  "function": "EnIn_StartTransition",
+  "module": "actors",
+  "owner": "En_In",
+  "field": "nextEntranceIndex",
+  "expression": "entrances[index]",
+  "targets": [],
+  "conditions_nearby": [],
+  "statement": "play->nextEntranceIndex = entrances[index];"
+ },
+ {
+  "file": "src/overlays/actors/ovl_En_In/z_en_in.c",
+  "line": 467,
+  "function": "EnIn_StartTransition",
+  "module": "actors",
+  "owner": "En_In",
+  "field": "nextCutsceneIndex",
+  "expression": "CS_INDEX_0",
+  "targets": [],
+  "conditions_nearby": [
+   "if (index == 2) {"
+  ],
+  "statement": "gSaveContext.nextCutsceneIndex = CS_INDEX_0;"
+ },
+ {
+  "file": "src/overlays/actors/ovl_En_In/z_en_in.c",
+  "line": 714,
+  "function": "EnIn_RentalPeriod",
+  "module": "actors",
+  "owner": "En_In",
+  "field": "entranceIndex",
+  "expression": "2",
+  "targets": [],
+  "conditions_nearby": [
+   "} else if (this->interactInfo.talkState == NPC_TALK_STATE_ACTION) {",
+   "if (play->msgCtx.choiceIndex == 0) {",
+   "if (gSaveContext.save.info.playerData.rupees < 50) {"
+  ],
+  "statement": "entranceIndex = 2;"
+ },
+ {
+  "file": "src/overlays/actors/ovl_En_In/z_en_in.c",
+  "line": 725,
+  "function": "EnIn_RentalPeriod",
+  "module": "actors",
+  "owner": "En_In",
+  "field": "entranceIndex",
+  "expression": "0",
+  "targets": [],
+  "conditions_nearby": [
+   "} else {",
+   "if (!GET_EVENTCHKINF(EVENTCHKINF_1B)) {",
+   "if (GET_INFTABLE(INFTABLE_AB)) {"
+  ],
+  "statement": "entranceIndex = 0;"
+ },
+ {
+  "file": "src/overlays/actors/ovl_En_In/z_en_in.c",
+  "line": 909,
+  "function": "EnIn_GuardingGate",
+  "module": "actors",
+  "owner": "En_In",
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_HYRULE_FIELD_15",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_HYRULE_FIELD_15",
+    "entrance": 1142,
+    "entrance_hex": "0x476",
+    "scene_enum": "SCENE_HYRULE_FIELD",
+    "spawn": 15
+   }
+  ],
+  "conditions_nearby": [
+   "if (ABS(yaw) > 0x4000) {"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_HYRULE_FIELD_15;"
+ },
+ {
+  "file": "src/overlays/actors/ovl_En_Ma1/z_en_ma1.c",
+  "line": 397,
+  "function": "EnMa1_WaitForPlayback",
+  "module": "actors",
+  "owner": "En_Ma1",
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_LON_LON_RANCH_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_LON_LON_RANCH_0",
+    "entrance": 343,
+    "entrance_hex": "0x157",
+    "scene_enum": "SCENE_LON_LON_RANCH",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "if (play->msgCtx.ocarinaMode == OCARINA_MODE_03) {"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_LON_LON_RANCH_0;"
+ },
+ {
+  "file": "src/overlays/actors/ovl_En_Ma1/z_en_ma1.c",
+  "line": 398,
+  "function": "EnMa1_WaitForPlayback",
+  "module": "actors",
+  "owner": "En_Ma1",
+  "field": "nextCutsceneIndex",
+  "expression": "CS_INDEX_1",
+  "targets": [],
+  "conditions_nearby": [
+   "if (play->msgCtx.ocarinaMode == OCARINA_MODE_03) {"
+  ],
+  "statement": "gSaveContext.nextCutsceneIndex = CS_INDEX_1;"
+ },
+ {
+  "file": "src/overlays/actors/ovl_En_Ma3/z_en_ma3.c",
+  "line": 136,
+  "function": "EnMa3_UpdateTalkState",
+  "module": "actors",
+  "owner": "En_Ma3",
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_LON_LON_RANCH_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_LON_LON_RANCH_0",
+    "entrance": 343,
+    "entrance_hex": "0x157",
+    "scene_enum": "SCENE_LON_LON_RANCH",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "switch (Message_GetState(&play->msgCtx)) {",
+   "case TEXT_STATE_EVENT:",
+   "if (Message_ShouldAdvance(play)) {"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_LON_LON_RANCH_0;"
+ },
+ {
+  "file": "src/overlays/actors/ovl_En_Ma3/z_en_ma3.c",
+  "line": 137,
+  "function": "EnMa3_UpdateTalkState",
+  "module": "actors",
+  "owner": "En_Ma3",
+  "field": "nextCutsceneIndex",
+  "expression": "CS_INDEX_0",
+  "targets": [],
+  "conditions_nearby": [
+   "switch (Message_GetState(&play->msgCtx)) {",
+   "case TEXT_STATE_EVENT:",
+   "if (Message_ShouldAdvance(play)) {"
+  ],
+  "statement": "gSaveContext.nextCutsceneIndex = CS_INDEX_0;"
+ },
+ {
+  "file": "src/overlays/actors/ovl_En_Ossan/z_en_ossan.c",
+  "line": 946,
+  "function": "EnOssan_State_StartConversation",
+  "module": "actors",
+  "owner": "En_Ossan",
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_MARKET_DAY_9",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_MARKET_DAY_9",
+    "entrance": 465,
+    "entrance_hex": "0x1d1",
+    "scene_enum": "SCENE_MARKET_DAY",
+    "spawn": 9
+   }
+  ],
+  "conditions_nearby": [
+   "case OSSAN_HAPPY_STATE_REQUEST_PAYMENT_SPOOKY_MASK:",
+   "case OSSAN_HAPPY_STATE_REQUEST_PAYMENT_SKULL_MASK:",
+   "case OSSAN_HAPPY_STATE_REQUEST_PAYMENT_BUNNY_HOOD:",
+   "case OSSAN_HAPPY_STATE_ANGRY:"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_MARKET_DAY_9;"
+ },
+ {
+  "file": "src/overlays/actors/ovl_En_Syateki_Niw/z_en_syateki_niw.c",
+  "line": 481,
+  "function": "EnSyatekiNiw_Archery",
+  "module": "actors",
+  "owner": "En_Syateki_Niw",
+  "field": "nextEntranceIndex",
+  "expression": "gSaveContext.save.entranceIndex",
+  "targets": [],
+  "conditions_nearby": [
+   "if ((this->archeryTimer == 0) && ((player->actor.world.pos.z - 30.0f) < this->actor.world.pos.z)) {",
+   "case 6:",
+   "if (this->movementTimer == 1) {"
+  ],
+  "statement": "play->nextEntranceIndex = gSaveContext.save.entranceIndex;"
+ },
+ {
+  "file": "src/overlays/actors/ovl_En_Ta/z_en_ta.c",
+  "line": 739,
+  "function": "EnTa_TalkCuccoGameEnd",
+  "module": "actors",
+  "owner": "En_Ta",
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_LON_LON_BUILDINGS_2",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_LON_LON_BUILDINGS_2",
+    "entrance": 1508,
+    "entrance_hex": "0x5e4",
+    "scene_enum": "SCENE_LON_LON_BUILDINGS",
+    "spawn": 2
+   }
+  ],
+  "conditions_nearby": [
+   "if ((Message_GetState(&play->msgCtx) == TEXT_STATE_EVENT) && Message_ShouldAdvance(play)) {"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_LON_LON_BUILDINGS_2;"
+ },
+ {
+  "file": "src/overlays/actors/ovl_En_Zl4/z_en_zl4.c",
+  "line": 799,
+  "function": "EnZl4_CsAskName",
+  "module": "actors",
+  "owner": "En_Zl4",
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_CUTSCENE_MAP_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_CUTSCENE_MAP_0",
+    "entrance": 160,
+    "entrance_hex": "0x0a0",
+    "scene_enum": "SCENE_CUTSCENE_MAP",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "case 16:",
+   "if ((Message_GetState(&play->msgCtx) == TEXT_STATE_EVENT) && Message_ShouldAdvance(play)) {",
+   "case 17:",
+   "if (this->talkTimer2 == 130) {"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_CUTSCENE_MAP_0;"
+ },
+ {
+  "file": "src/overlays/actors/ovl_En_Zl4/z_en_zl4.c",
+  "line": 800,
+  "function": "EnZl4_CsAskName",
+  "module": "actors",
+  "owner": "En_Zl4",
+  "field": "nextCutsceneIndex",
+  "expression": "CS_INDEX_7",
+  "targets": [],
+  "conditions_nearby": [
+   "case 16:",
+   "if ((Message_GetState(&play->msgCtx) == TEXT_STATE_EVENT) && Message_ShouldAdvance(play)) {",
+   "case 17:",
+   "if (this->talkTimer2 == 130) {"
+  ],
+  "statement": "gSaveContext.nextCutsceneIndex = CS_INDEX_7;"
+ },
+ {
+  "file": "src/overlays/actors/ovl_player_actor/z_player.c",
+  "line": 5209,
+  "function": "Player_HandleExitsAndVoids",
+  "module": "actors",
+  "owner": "player_actor",
+  "field": "nextEntranceIndex",
+  "expression": "play->exitList[exitIndex - 1]",
+  "targets": [],
+  "conditions_nearby": [
+   "if (!(this->stateFlags1 & (PLAYER_STATE1_23 | PLAYER_STATE1_27 | PLAYER_STATE1_29)) &&",
+   "if (exitIndex == 0) {",
+   "} else {"
+  ],
+  "statement": "play->nextEntranceIndex = play->exitList[exitIndex - 1];"
+ },
+ {
+  "file": "src/overlays/actors/ovl_player_actor/z_player.c",
+  "line": 5213,
+  "function": "Player_HandleExitsAndVoids",
+  "module": "actors",
+  "owner": "player_actor",
+  "field": "nextEntranceIndex",
+  "expression": "gSaveContext.respawn[RESPAWN_MODE_RETURN].entranceIndex",
+  "targets": [],
+  "conditions_nearby": [
+   "if (exitIndex == 0) {",
+   "} else {",
+   "if (play->nextEntranceIndex == ENTR_RETURN_GROTTO) {"
+  ],
+  "statement": "play->nextEntranceIndex = gSaveContext.respawn[RESPAWN_MODE_RETURN].entranceIndex;"
+ },
+ {
+  "file": "src/overlays/actors/ovl_player_actor/z_player.c",
+  "line": 5224,
+  "function": "Player_HandleExitsAndVoids",
+  "module": "actors",
+  "owner": "player_actor",
+  "field": "respawn[RESPAWN_MODE_DOWN].entranceIndex",
+  "expression": "play->nextEntranceIndex",
+  "targets": [],
+  "conditions_nearby": [
+   "} else if (play->nextEntranceIndex >= ENTR_RETURN_GREAT_FAIRYS_FOUNTAIN_SPELLS) {",
+   "} else {",
+   "if (SurfaceType_GetFloorEffect(&play->colCtx, poly, bgId) == FLOOR_EFFECT_2) {"
+  ],
+  "statement": "gSaveContext.respawn[RESPAWN_MODE_DOWN].entranceIndex = play->nextEntranceIndex;"
+ },
+ {
+  "file": "src/overlays/actors/ovl_player_actor/z_player.c",
+  "line": 13719,
+  "function": "func_8084DFF4",
+  "module": "actors",
+  "owner": "player_actor",
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_DESERT_COLOSSUS_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_DESERT_COLOSSUS_0",
+    "entrance": 291,
+    "entrance_hex": "0x123",
+    "scene_enum": "SCENE_DESERT_COLOSSUS",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "} else {",
+   "} else {",
+   "if (Message_GetState(&play->msgCtx) == TEXT_STATE_CLOSING) {",
+   "if (this->getItemId == GI_SILVER_GAUNTLETS) {"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_DESERT_COLOSSUS_0;"
+ },
+ {
+  "file": "src/overlays/actors/ovl_player_actor/z_player.c",
+  "line": 13721,
+  "function": "func_8084DFF4",
+  "module": "actors",
+  "owner": "player_actor",
+  "field": "nextCutsceneIndex",
+  "expression": "CS_INDEX_1",
+  "targets": [],
+  "conditions_nearby": [
+   "} else {",
+   "} else {",
+   "if (Message_GetState(&play->msgCtx) == TEXT_STATE_CLOSING) {",
+   "if (this->getItemId == GI_SILVER_GAUNTLETS) {"
+  ],
+  "statement": "gSaveContext.nextCutsceneIndex = CS_INDEX_1;"
+ },
+ {
+  "file": "src/overlays/actors/ovl_player_actor/z_player.c",
+  "line": 13819,
+  "function": "Player_Action_8084E3C4",
+  "module": "actors",
+  "owner": "player_actor",
+  "field": "respawn[RESPAWN_MODE_RETURN].entranceIndex",
+  "expression": "sWarpSongEntrances[play->msgCtx.lastPlayedSong]",
+  "targets": [],
+  "conditions_nearby": [
+   "} else if (!Player_ActionHandler_13(this, play)) {",
+   "} else if (play->msgCtx.ocarinaMode == OCARINA_MODE_02) {"
+  ],
+  "statement": "gSaveContext.respawn[RESPAWN_MODE_RETURN].entranceIndex = sWarpSongEntrances[play->msgCtx.lastPlayedSong];"
+ },
+ {
+  "file": "src/overlays/actors/ovl_player_actor/z_player.c",
+  "line": 14387,
+  "function": "Player_Action_8084F88C",
+  "module": "actors",
+  "owner": "player_actor",
+  "field": "nextEntranceIndex",
+  "expression": "ENTR_ICE_CAVERN_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_ICE_CAVERN_0",
+    "entrance": 136,
+    "entrance_hex": "0x088",
+    "scene_enum": "SCENE_ICE_CAVERN",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "if ((this->av2.actionVar2++ > 8) && (play->transitionTrigger == TRANS_TRIGGER_OFF)) {",
+   "if (this->av1.actionVar1 != 0) {",
+   "if (play->sceneId == SCENE_ICE_CAVERN) {"
+  ],
+  "statement": "play->nextEntranceIndex = ENTR_ICE_CAVERN_0;"
+ },
+ {
+  "file": "src/overlays/actors/ovl_player_actor/z_player.c",
+  "line": 14754,
+  "function": "Player_Action_8085063C",
+  "module": "actors",
+  "owner": "player_actor",
+  "field": "nextEntranceIndex",
+  "expression": "gSaveContext.respawn[RESPAWN_MODE_TOP].entranceIndex",
+  "targets": [],
+  "conditions_nearby": [
+   "if (Message_GetState(&play->msgCtx) == TEXT_STATE_CLOSING) {",
+   "if (play->msgCtx.choiceIndex == 0) {"
+  ],
+  "statement": "play->nextEntranceIndex = gSaveContext.respawn[RESPAWN_MODE_TOP].entranceIndex;"
+ },
+ {
+  "file": "src/overlays/actors/ovl_player_actor/z_player.c",
+  "line": 14851,
+  "function": "Player_Action_808507F4",
+  "module": "actors",
+  "owner": "player_actor",
+  "field": "entranceIndex",
+  "expression": "gSaveContext.respawn[RESPAWN_MODE_DOWN].entranceIndex",
+  "targets": [],
+  "conditions_nearby": [
+   "if (this->av2.actionVar2 == 0) {"
+  ],
+  "statement": "gSaveContext.save.info.fw.entranceIndex = gSaveContext.respawn[RESPAWN_MODE_DOWN].entranceIndex;"
+ },
+ {
+  "file": "src/overlays/gamestates/ovl_file_choose/z_file_choose.c",
+  "line": 1891,
+  "function": "FileSelect_InitModeDraw",
+  "module": "gamestates",
+  "owner": "file_choose",
+  "field": "respawn[RESPAWN_MODE_DOWN].entranceIndex",
+  "expression": "ENTR_LOAD_OPENING",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_LOAD_OPENING"
+   }
+  ],
+  "conditions_nearby": [
+   "} else"
+  ],
+  "statement": "gSaveContext.respawn[RESPAWN_MODE_DOWN].entranceIndex = ENTR_LOAD_OPENING;"
+ },
+ {
+  "file": "src/overlays/gamestates/ovl_file_choose/z_file_choose.c",
+  "line": 1911,
+  "function": "FileSelect_InitModeDraw",
+  "module": "gamestates",
+  "owner": "file_choose",
+  "field": "nextCutsceneIndex",
+  "expression": "NEXT_CS_INDEX_NONE",
+  "targets": [],
+  "conditions_nearby": [],
+  "statement": "gSaveContext.nextCutsceneIndex = NEXT_CS_INDEX_NONE;"
+ },
+ {
+  "file": "src/overlays/gamestates/ovl_file_choose/z_file_choose.c",
+  "line": 1891,
+  "function": "FileSelect_LoadGame",
+  "module": "gamestates",
+  "owner": "file_choose",
+  "field": "respawn[RESPAWN_MODE_DOWN].entranceIndex",
+  "expression": "ENTR_LOAD_OPENING",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_LOAD_OPENING"
+   }
+  ],
+  "conditions_nearby": [
+   "} else"
+  ],
+  "statement": "gSaveContext.respawn[RESPAWN_MODE_DOWN].entranceIndex = ENTR_LOAD_OPENING;"
+ },
+ {
+  "file": "src/overlays/gamestates/ovl_file_choose/z_file_choose.c",
+  "line": 1911,
+  "function": "FileSelect_LoadGame",
+  "module": "gamestates",
+  "owner": "file_choose",
+  "field": "nextCutsceneIndex",
+  "expression": "NEXT_CS_INDEX_NONE",
+  "targets": [],
+  "conditions_nearby": [],
+  "statement": "gSaveContext.nextCutsceneIndex = NEXT_CS_INDEX_NONE;"
+ },
+ {
+  "file": "src/overlays/gamestates/ovl_select/z_select.c",
+  "line": 57,
+  "function": "MapSelect_LoadGame",
+  "module": "gamestates",
+  "owner": "select",
+  "field": "entranceIndex",
+  "expression": "entranceIndex",
+  "targets": [],
+  "conditions_nearby": [],
+  "statement": "gSaveContext.save.entranceIndex = entranceIndex;"
+ },
+ {
+  "file": "src/overlays/gamestates/ovl_select/z_select.c",
+  "line": 59,
+  "function": "MapSelect_LoadGame",
+  "module": "gamestates",
+  "owner": "select",
+  "field": "respawn[RESPAWN_MODE_DOWN].entranceIndex",
+  "expression": "ENTR_LOAD_OPENING",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_LOAD_OPENING"
+   }
+  ],
+  "conditions_nearby": [],
+  "statement": "gSaveContext.respawn[RESPAWN_MODE_DOWN].entranceIndex = ENTR_LOAD_OPENING;"
+ },
+ {
+  "file": "src/overlays/misc/ovl_kaleido_scope/z_kaleido_scope.c",
+  "line": 4598,
+  "function": "KaleidoScope_Update",
+  "module": "misc",
+  "owner": "kaleido_scope",
+  "field": "entranceIndex",
+  "expression": "ENTR_DEKU_TREE_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_DEKU_TREE_0",
+    "entrance": 0,
+    "entrance_hex": "0x000",
+    "scene_enum": "SCENE_DEKU_TREE",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "case ENTR_BOTTOM_OF_THE_WELL_0:",
+   "case ENTR_INSIDE_GANONS_CASTLE_0:",
+   "case ENTR_GANONS_TOWER_COLLAPSE_INTERIOR_0:",
+   "case ENTR_DEKU_TREE_BOSS_0:"
+  ],
+  "statement": "gSaveContext.save.entranceIndex = ENTR_DEKU_TREE_0;"
+ },
+ {
+  "file": "src/overlays/misc/ovl_kaleido_scope/z_kaleido_scope.c",
+  "line": 4602,
+  "function": "KaleidoScope_Update",
+  "module": "misc",
+  "owner": "kaleido_scope",
+  "field": "entranceIndex",
+  "expression": "ENTR_DODONGOS_CAVERN_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_DODONGOS_CAVERN_0",
+    "entrance": 4,
+    "entrance_hex": "0x004",
+    "scene_enum": "SCENE_DODONGOS_CAVERN",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "case ENTR_INSIDE_GANONS_CASTLE_0:",
+   "case ENTR_GANONS_TOWER_COLLAPSE_INTERIOR_0:",
+   "case ENTR_DEKU_TREE_BOSS_0:",
+   "case ENTR_DODONGOS_CAVERN_BOSS_0:"
+  ],
+  "statement": "gSaveContext.save.entranceIndex = ENTR_DODONGOS_CAVERN_0;"
+ },
+ {
+  "file": "src/overlays/misc/ovl_kaleido_scope/z_kaleido_scope.c",
+  "line": 4606,
+  "function": "KaleidoScope_Update",
+  "module": "misc",
+  "owner": "kaleido_scope",
+  "field": "entranceIndex",
+  "expression": "ENTR_JABU_JABU_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_JABU_JABU_0",
+    "entrance": 40,
+    "entrance_hex": "0x028",
+    "scene_enum": "SCENE_JABU_JABU",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "case ENTR_DEKU_TREE_BOSS_0:",
+   "case ENTR_DODONGOS_CAVERN_BOSS_0:",
+   "case ENTR_JABU_JABU_BOSS_0:"
+  ],
+  "statement": "gSaveContext.save.entranceIndex = ENTR_JABU_JABU_0;"
+ },
+ {
+  "file": "src/overlays/misc/ovl_kaleido_scope/z_kaleido_scope.c",
+  "line": 4610,
+  "function": "KaleidoScope_Update",
+  "module": "misc",
+  "owner": "kaleido_scope",
+  "field": "entranceIndex",
+  "expression": "ENTR_FOREST_TEMPLE_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_FOREST_TEMPLE_0",
+    "entrance": 361,
+    "entrance_hex": "0x169",
+    "scene_enum": "SCENE_FOREST_TEMPLE",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "case ENTR_DODONGOS_CAVERN_BOSS_0:",
+   "case ENTR_JABU_JABU_BOSS_0:",
+   "case ENTR_FOREST_TEMPLE_BOSS_0:"
+  ],
+  "statement": "gSaveContext.save.entranceIndex = ENTR_FOREST_TEMPLE_0;"
+ },
+ {
+  "file": "src/overlays/misc/ovl_kaleido_scope/z_kaleido_scope.c",
+  "line": 4614,
+  "function": "KaleidoScope_Update",
+  "module": "misc",
+  "owner": "kaleido_scope",
+  "field": "entranceIndex",
+  "expression": "ENTR_FIRE_TEMPLE_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_FIRE_TEMPLE_0",
+    "entrance": 357,
+    "entrance_hex": "0x165",
+    "scene_enum": "SCENE_FIRE_TEMPLE",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "case ENTR_JABU_JABU_BOSS_0:",
+   "case ENTR_FOREST_TEMPLE_BOSS_0:",
+   "case ENTR_FIRE_TEMPLE_BOSS_0:"
+  ],
+  "statement": "gSaveContext.save.entranceIndex = ENTR_FIRE_TEMPLE_0;"
+ },
+ {
+  "file": "src/overlays/misc/ovl_kaleido_scope/z_kaleido_scope.c",
+  "line": 4618,
+  "function": "KaleidoScope_Update",
+  "module": "misc",
+  "owner": "kaleido_scope",
+  "field": "entranceIndex",
+  "expression": "ENTR_WATER_TEMPLE_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_WATER_TEMPLE_0",
+    "entrance": 16,
+    "entrance_hex": "0x010",
+    "scene_enum": "SCENE_WATER_TEMPLE",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "case ENTR_FOREST_TEMPLE_BOSS_0:",
+   "case ENTR_FIRE_TEMPLE_BOSS_0:",
+   "case ENTR_WATER_TEMPLE_BOSS_0:"
+  ],
+  "statement": "gSaveContext.save.entranceIndex = ENTR_WATER_TEMPLE_0;"
+ },
+ {
+  "file": "src/overlays/misc/ovl_kaleido_scope/z_kaleido_scope.c",
+  "line": 4622,
+  "function": "KaleidoScope_Update",
+  "module": "misc",
+  "owner": "kaleido_scope",
+  "field": "entranceIndex",
+  "expression": "ENTR_SPIRIT_TEMPLE_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_SPIRIT_TEMPLE_0",
+    "entrance": 130,
+    "entrance_hex": "0x082",
+    "scene_enum": "SCENE_SPIRIT_TEMPLE",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "case ENTR_FIRE_TEMPLE_BOSS_0:",
+   "case ENTR_WATER_TEMPLE_BOSS_0:",
+   "case ENTR_SPIRIT_TEMPLE_BOSS_0:"
+  ],
+  "statement": "gSaveContext.save.entranceIndex = ENTR_SPIRIT_TEMPLE_0;"
+ },
+ {
+  "file": "src/overlays/misc/ovl_kaleido_scope/z_kaleido_scope.c",
+  "line": 4626,
+  "function": "KaleidoScope_Update",
+  "module": "misc",
+  "owner": "kaleido_scope",
+  "field": "entranceIndex",
+  "expression": "ENTR_SHADOW_TEMPLE_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_SHADOW_TEMPLE_0",
+    "entrance": 55,
+    "entrance_hex": "0x037",
+    "scene_enum": "SCENE_SHADOW_TEMPLE",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "case ENTR_WATER_TEMPLE_BOSS_0:",
+   "case ENTR_SPIRIT_TEMPLE_BOSS_0:",
+   "case ENTR_SHADOW_TEMPLE_BOSS_0:"
+  ],
+  "statement": "gSaveContext.save.entranceIndex = ENTR_SHADOW_TEMPLE_0;"
+ },
+ {
+  "file": "src/overlays/misc/ovl_kaleido_scope/z_kaleido_scope.c",
+  "line": 4630,
+  "function": "KaleidoScope_Update",
+  "module": "misc",
+  "owner": "kaleido_scope",
+  "field": "entranceIndex",
+  "expression": "ENTR_GANONS_TOWER_0",
+  "targets": [
+   {
+    "entrance_enum": "ENTR_GANONS_TOWER_0",
+    "entrance": 1051,
+    "entrance_hex": "0x41b",
+    "scene_enum": "SCENE_GANONS_TOWER",
+    "spawn": 0
+   }
+  ],
+  "conditions_nearby": [
+   "case ENTR_SPIRIT_TEMPLE_BOSS_0:",
+   "case ENTR_SHADOW_TEMPLE_BOSS_0:",
+   "case ENTR_GANONDORF_BOSS_0:"
+  ],
+  "statement": "gSaveContext.save.entranceIndex = ENTR_GANONS_TOWER_0;"
+ }
+]

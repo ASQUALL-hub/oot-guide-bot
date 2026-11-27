@@ -6,6 +6,8 @@ Turns your own copy of *The Legend of Zelda: Ocarina of Time* (NTSC-J 1.0) into 
 - **Geometry:** walkable collision for every scene.
 - **Logic:** the requirement graph.
 - **Functions:** an index of every function in the decompiled game code.
+- **How the game fits together:** what every item and song does, what each item, song or event unlocks, what
+  every location needs, the main story in order, enemies and what hurts them, and how to equip things.
 
 It also includes a basic logic evaluator. It reports what's in logic with your items, and it never says
 anything is unreachable, so it's safe to use for speedrun routing.
@@ -14,38 +16,65 @@ anything is unreachable, so it's safe to use for speedrun routing.
 
 ## Build
 
-You need git and Python 3. Then run this in PowerShell from this folder:
+You only need **Python 3** and your ROM: no git, no downloads, no compiler. It takes under a minute.
 
 ```powershell
-.\build.ps1 -Rom "C:\path\to\Zelda no Densetsu - Toki no Ocarina (Japan).z64"
+python tools/build.py --rom "C:\path\to\Zelda no Densetsu - Toki no Ocarina (Japan).z64"
 ```
 
-The script checks that the ROM is the right version and fetches the two reference projects (pinned versions).
-Then it writes everything into `ootmap\`.
+(On Mac or Linux it's the same command, using `python3`.) The script checks that the ROM is NTSC-J 1.0
+(`.z64`, MD5 `9f04c8e68534b870f707c247fa4b50fc`), then writes everything into `ootmap/`. Add `--out <folder>` to
+build somewhere else; the evaluator and docs are copied there too.
+
+Windows shortcut: `.\build.ps1 -Rom "<path>"` does the same. If PowerShell says running scripts is disabled,
+use the `python` command above instead.
 
 ## Use
 
 - [ootmap/HOW_TO_USE.md](ootmap/HOW_TO_USE.md): the logic evaluator (`logic_eval.py`), in plain steps.
 - [ootmap/BOT_GUIDE.md](ootmap/BOT_GUIDE.md): every data file and field, written for bot authors.
-- `python ootmap/query.py`: quick lookups (`find`, `scene`, `route`, `entrance`, `region`, `func`, `warps`).
+- [ootmap/ACTIONS.md](ootmap/ACTIONS.md): every action Link can be in, and the physics of every move
+  (sidehops, backflips, backwalking, rolls, jumps, slopes), read from the game code.
+- [ootmap/GAME_GUIDE.md](ootmap/GAME_GUIDE.md): how the whole game fits together: the main quest, what unlocks
+  what, every item and song, trade quests, combat and enemies, and the pause menu. Bots read `ootmap/game.json`.
+- `python ootmap/query.py`: quick lookups (`find`, `scene`, `route`, `entrance`, `region`, `func`, `warps`, `item`,
+  `unlocks`, `needs`, `quest`).
 
 ## How it works
 
+- `data/meta/`: the **metadata pack**, shipped with the repo. It holds the names, enums and param layouts from
+  [zeldaret/oot](https://github.com/zeldaret/oot), the [OoT Randomizer](https://github.com/OoTRandomizer/OoT-Randomizer)
+  logic set to vanilla settings, the decomp function index, and the game's own item and combat tables (ages, ammo,
+  magic costs, damage tables, colliders, song notes). It contains nothing read from the ROM, and it's why a build
+  needs only your ROM.
 - `tools/ootrom.py`, `tools/extract_map.py`, `tools/decode.py`: read the ROM directly (file table, Yaz0, scene
   and room headers, actors, exits, collision) and decode actor parameters.
-- `tools/scan_source.py`: indexes functions and entrance changes in the [zeldaret/oot](https://github.com/zeldaret/oot)
-  decompilation. The decomp is used for names and formats only; none of its code is run.
-- `tools/build_bot_db.py`: joins the ROM data with the [OoT Randomizer](https://github.com/OoTRandomizer/OoT-Randomizer)
-  logic, set to vanilla settings. The logic files are read as data and never executed.
+- `tools/build_bot_db.py`: joins the ROM data with the logic into items, graphs and warps.
+- `tools/build_game.py`: replays the original game through the logic to work out what unlocks what, and joins that
+  with the item and combat tables (`game.json`, `GAME_GUIDE.md`).
+- `tools/build.py`: runs all of the above.
+
+### Maintainers: regenerating the metadata pack
+
+Only needed after changing the pinned decomp or randomizer versions (in `tools/fetch_refs.py`):
+
+```powershell
+python -I tools/fetch_refs.py
+```
+```powershell
+python -I tools/make_metadata.py
+```
+
+This fetches both projects into `ref/` (git-ignored) and rewrites `data/meta/`. Neither project's code is
+run; their files are only read as text and data.
 
 ## Publishing
 
-By default `.gitignore` keeps out three things:
-- your ROM and the `ref/` folder (which also contains a copy of the ROM);
-- the generated `ootmap/` data, because it's derived from Nintendo's game data;
-- the function index built from the decomp.
+By default `.gitignore` keeps out:
+- your ROM and the `ref/` folder;
+- the generated `ootmap/` data, because it's derived from Nintendo's game data.
 
-Only the tools, docs, query tool and evaluator are published. If you decide to publish the generated data
+The tools, docs, query tool, evaluator and the metadata pack are published. If you decide to publish the generated data
 too, delete the last block of `.gitignore`. That's your call to make.
 
 ## Credits

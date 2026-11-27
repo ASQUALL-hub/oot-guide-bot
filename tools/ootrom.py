@@ -45,13 +45,16 @@ def yaz0_decompress(src: bytes) -> bytes:
 
 
 class OotRom:
-    def __init__(self, rom_path, segments_csv, dmadata_start):
+    def __init__(self, rom_path, segments, dmadata_start):
+        """segments: path to the decomp's segments.csv, or a list of (name, vram-or-None) in DMA order."""
         with open(rom_path, "rb") as f:
             self.rom = f.read()
-        with open(segments_csv, newline="") as f:
-            rows = list(csv.reader(f))[1:]
-        self.names = [r[0] for r in rows]
-        self.vram = {r[0]: (int(r[1], 16) if len(r) > 1 and r[1] else None) for r in rows}
+        if isinstance(segments, str):
+            with open(segments, newline="") as f:
+                rows = list(csv.reader(f))[1:]
+            segments = [(r[0], int(r[1], 16) if len(r) > 1 and r[1] else None) for r in rows]
+        self.names = [s[0] for s in segments]
+        self.vram = {s[0]: s[1] for s in segments}
         self.entries = []  # (name, vromStart, vromEnd, romStart, romEnd)
         off = dmadata_start
         i = 0

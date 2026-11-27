@@ -9,11 +9,13 @@ tricks, glitches and speedrun skips can bypass those requirements.
   python logic_eval.py --items "..." --location "Deku Tree Slingshot Chest"
   python logic_eval.py --items "..." --scene "Dodongos Cavern" --json
   add --explain to the list/scene views to include what logic wants for every location (slower)
-  options: --all-keys (assume every dungeon key/boss key), --tricks all|logic_name,...,
+  options: --all-keys (assume every dungeon key/boss key), --tricks all|logic_name,..., --strict (stop on an
+           unknown item name instead of warning),
            --glitches (also enable glitch_/adv_ toggles), --hearts N (default 3)
 
 Simplifications (it is "basic"): time of day is treated as always reachable, rupees/wallet
-size are ignored, enemy souls are assumed, and at()/here() are approximated.
+size are ignored, enemy souls are assumed, and at()/here() are approximated. Like the randomizer with
+keys in their original places, it counts one free Fire Temple small key.
 """
 import ast
 import json
@@ -26,9 +28,15 @@ NOTE = ("Standard logic only (glitchless, no tricks unless enabled). Not being i
         "unreachable: tricks, glitches or skips used in speedruns may get there anyway.")
 
 
-def _load(rel):
-    with open(os.path.join(HERE, rel), encoding="utf-8") as f:
-        return json.load(f)
+_CACHE = {}
+
+
+def _load(rel, base=HERE):
+    p = os.path.join(base, rel)
+    if p not in _CACHE:
+        with open(p, encoding="utf-8") as f:
+            _CACHE[p] = json.load(f)
+    return _CACHE[p]
 
 
 def escape(name):
@@ -43,25 +51,83 @@ ALIASES = {  # friendly names -> (identifier, count)
     "Golden_Scale": ("Progressive_Scale", 2), "Bombs": ("Bomb_Bag", 1), "Magic": ("Magic_Meter", 1),
     "Fairy_Ocarina": ("Ocarina", 1), "Ocarina_of_Time": ("Ocarina", 2), "Adult_Wallet": ("Progressive_Wallet", 1),
     "Giants_Wallet": ("Progressive_Wallet", 2), "Bottle": ("Bottle", 1), "Master_Sword": ("Master_Sword", 1),
+    # the in-game names (game.json / GAME_GUIDE.md) -> the randomizer's
+    "Fairy_Bow": ("Bow", 1), "Fairy_Slingshot": ("Slingshot", 1), "Fire_Arrow": ("Fire_Arrows", 1),
+    "Ice_Arrow": ("Ice_Arrows", 1), "Light_Arrow": ("Light_Arrows", 1), "Empty_Bottle": ("Bottle", 1),
+    "Gorons_Bracelet": ("Progressive_Strength_Upgrade", 1), "Adults_Wallet": ("Progressive_Wallet", 1),
+    "Broken_Gorons_Sword": ("Broken_Sword", 1), "Eye_Drops": ("Eyedrops", 1), "Biggorons_Sword": ("Biggoron_Sword", 1),
+    "Gerudos_Membership_Card": ("Gerudo_Membership_Card", 1), "Gerudo_Card": ("Gerudo_Membership_Card", 1),
+    "Kokiris_Emerald": ("Kokiri_Emerald", 1), "Gorons_Ruby": ("Goron_Ruby", 1), "Zoras_Sapphire": ("Zora_Sapphire", 1),
+    "Scarecrows_Song": ("Scarecrow_Song", 1), "Deku_Stick_upgrade": ("Deku_Stick_Capacity", 1),
+    "Deku_Nut_upgrade": ("Deku_Nut_Capacity", 1), "Bomb": ("Bomb_Bag", 1), "Cucco": ("Chicken", 1),
+    "Bottle_with_Letter": ("Rutos_Letter", 1), "Bottle_with_Rutos_Letter": ("Rutos_Letter", 1),
+    "Red_Potion": ("Bottle_with_Red_Potion", 1), "Green_Potion": ("Bottle_with_Green_Potion", 1),
+    "Blue_Potion": ("Bottle_with_Blue_Potion", 1), "Bottled_Fairy": ("Bottle_with_Fairy", 1),
+    "Lon_Lon_Milk": ("Bottle_with_Milk", 1), "Half_Lon_Lon_Milk": ("Bottle_with_Milk", 1), "Bug": ("Bottle_with_Bugs", 1),
+    "Poe": ("Bottle_with_Poe", 1), "Big_Poe": ("Bottle_with_Big_Poe", 1),
+    # the bean seller sells ten; can_plant_bean wants (Magic_Bean, 10)
+    "Magic_Beans": ("Magic_Bean", 10), "Magic_Bean_Pack": ("Magic_Bean", 10), "Buy_Magic_Bean": ("Magic_Bean", 10),
 }
+# Things a bot may list that the logic never looks at (always owned, or handled automatically). Accepted quietly.
+NO_EFFECT = {"Kokiri_Tunic", "Kokiri_Boots", "Bullet_Bag", "Quiver", "Deku_Stick", "Deku_Sticks", "Deku_Nut", "Deku_Nuts",
+             "Bombchu", "Compass", "Dungeon_Map", "Map", "Recovery_Heart", "Rupee", "Rupees", "Arrows", "Deku_Seeds"}
+NEEDS_DUNGEON = {"Small_Key", "Boss_Key", "Silver_Rupee"}
 ITEM_HELPER_NAMES = {"Hookshot", "Longshot", "Silver_Gauntlets", "Golden_Gauntlets", "Bombs"}
+# With keys in their original places the randomizer starts you with one extra Fire Temple key (ItemPool.py: its
+# key rules assume a key could be spent on the locked door near the boss key). Mirror that so vanilla works.
+FREE_KEYS = {"Small_Key_Fire_Temple": 1}
+# Unless notes are shuffled, the randomizer gives every ocarina button at the start (ItemPool.py,
+# "if not world.settings.shuffle_individual_ocarina_notes": collect each of ocarina_buttons). Vanilla always has them.
+OCARINA_BUTTONS = ["Ocarina_A_Button", "Ocarina_C_up_Button", "Ocarina_C_down_Button", "Ocarina_C_left_Button",
+                   "Ocarina_C_right_Button"]
+
+
+def known_names(logic):
+    """Every identifier an inventory entry can mean: words used by any rule or helper, every item the original
+    game puts somewhere, and the aliases."""
+    key = ("known", id(logic.graph))
+    if key not in _CACHE:
+        words = set(ALIASES) | NO_EFFECT
+        texts = list(logic.helpers_text)
+        for r in logic.graph:
+            texts += [e["rule"] for e in r["exits"]] + list(r["locations"].values()) + list(r["events"].values())
+            words |= {escape(k) for k in r["events"]}
+        for t in texts:
+            words |= set(re.findall(r"[A-Za-z_][A-Za-z0-9_]*", t))
+        friendly = set()
+        for loc in logic.locations.values():
+            v = loc.get("vanilla_item")
+            if v:
+                v = v[4:] if v.startswith("Buy ") else v
+                words.add(escape(v))
+                friendly.add(v)
+        friendly |= {k.replace("_", " ") for k in ALIASES}
+        _CACHE[key] = (words, sorted(friendly))
+    return _CACHE[key]
 
 
 class Logic:
-    def __init__(self, items, all_keys=False, tricks=(), glitches=False, hearts=3):
-        self.graph = _load("logic/world_graph.json")["regions"]
+    def __init__(self, items, all_keys=False, tricks=(), glitches=False, hearts=3, data_dir=None):
+        base = data_dir or HERE
+        self.graph = _load("logic/world_graph.json", base)["regions"]
         self.regions = {r["region"]: r for r in self.graph}
-        self.settings = _load("logic/vanilla_settings.json")
-        self.helpers, self.helper_params = {}, {}
-        for k, v in _load("logic/helpers.json").items():
-            m = re.match(r"(\w+)\((.*)\)$", k)
-            body = ast.parse(v.strip(), mode="eval").body
-            if m:
-                self.helpers[m.group(1)] = body
-                self.helper_params[m.group(1)] = [p.strip() for p in m.group(2).split(",") if p.strip()]
-            else:
-                self.helpers[k] = body
-        self.locations = {i["name"]: i for i in _load("items.json")}
+        self.settings = _load("logic/vanilla_settings.json", base)
+        key = ("helpers", base)
+        if key not in _CACHE:
+            helpers, params = {}, {}
+            for k, v in _load("logic/helpers.json", base).items():
+                m = re.match(r"(\w+)\((.*)\)$", k)
+                body = ast.parse(v.strip(), mode="eval").body
+                if m:
+                    helpers[m.group(1)] = body
+                    params[m.group(1)] = [p.strip() for p in m.group(2).split(",") if p.strip()]
+                else:
+                    helpers[k] = body
+            raw = _load("logic/helpers.json", base)
+            _CACHE[key] = (helpers, params, {i["name"]: i for i in _load("items.json", base)}, list(raw) + list(raw.values()))
+        self.helpers, self.helper_params, self.locations, self.helpers_text = _CACHE[key]
+        self.unknown_items = []  # (what you wrote, suggestions): ignored by the logic
+        words, friendly = known_names(self)
         self.inv = {}
         for raw in items:
             raw = raw.strip()
@@ -75,8 +141,14 @@ class Logic:
             if e in ALIASES:
                 ident, c = ALIASES[e]
                 self.inv[ident] = max(self.inv.get(ident, 0), c * n if ident == "Bottle" else c)
+            elif e in NEEDS_DUNGEON:
+                self.unknown_items.append((raw, [f"{raw} (Forest Temple)", "--all-keys"]))
+            elif e not in words:
+                import difflib
+                self.unknown_items.append((raw, difflib.get_close_matches(raw, friendly, n=3, cutoff=0.6)))
             else:
                 self.inv[e] = self.inv.get(e, 0) + n
+        self.fast = False  # True: rules only answer yes/no (no "what's missing"); used by bulk replays
         self.all_keys = all_keys
         self.tricks = set(tricks)
         self.all_tricks = "all" in self.tricks
@@ -84,11 +156,13 @@ class Logic:
         self.hearts = hearts
         self.collected = set()  # events + auto-collected drops/shop items (escaped names)
         self.reached = set()    # (region, age)
-        self._rule_cache = {}
+        self._rule_cache = _CACHE.setdefault("rules", {})  # parsed rule ASTs are shared between instances
 
     # ------------------------------------------------------------ atoms
     def count(self, ident):
-        n = self.inv.get(ident, 0) + (1 if ident in self.collected else 0)
+        n = self.inv.get(ident, 0) + (1 if ident in self.collected else 0) + FREE_KEYS.get(ident, 0)
+        if ident in OCARINA_BUTTONS and not self.settings.get("shuffle_individual_ocarina_notes"):
+            n += 1
         if self.all_keys and (ident.startswith("Small_Key_") or ident.startswith("Boss_Key_") or ident.startswith("Silver_Rupee_")):
             n = max(n, 99)
         return n
@@ -126,6 +200,12 @@ class Logic:
         """Return (bool, missing:set[str]); missing is a small set of atoms that would satisfy a false rule."""
         T, F = (True, frozenset()), None
         if isinstance(node, ast.BoolOp):
+            if self.fast:  # yes/no only: short-circuit, no explanation of what is missing
+                want = isinstance(node.op, ast.Or)
+                for v in node.values:
+                    if self.ev(v, age, env)[0] == want:
+                        return (want, frozenset())
+                return (not want, frozenset())
             if isinstance(node.op, ast.And):
                 miss, ok = set(), True
                 for v in node.values:
@@ -144,7 +224,7 @@ class Logic:
             return False, best or frozenset()
         if isinstance(node, ast.UnaryOp) and isinstance(node.op, ast.Not):
             b, _ = self.ev(node.operand, age, env)
-            return (True, frozenset()) if not b else (False, frozenset({"not " + ast.unparse(node.operand)}))
+            return (True, frozenset()) if not b else (False, frozenset() if self.fast else frozenset({"not " + ast.unparse(node.operand)}))
         if isinstance(node, ast.Constant):
             if isinstance(node.value, bool):
                 return (node.value, frozenset() if node.value else frozenset({"False"}))
@@ -165,7 +245,9 @@ class Logic:
                     r = False
                 ok = ok and r
                 left = right
-            return (True, frozenset()) if ok else (False, frozenset({"condition: " + ast.unparse(node)}))
+            if ok:
+                return (True, frozenset())
+            return (False, frozenset() if self.fast else frozenset({"condition: " + ast.unparse(node)}))
         if isinstance(node, ast.Tuple):  # (Item, count)
             name = self.value(node.elts[0], age, env)
             n = self.value(node.elts[1], age, env)
@@ -211,7 +293,14 @@ class Logic:
         args = node.args
         T = (True, frozenset())
         if fn == "here":
-            return self.ev(args[0], age, env)
+            # RuleParser.here(): an event in the rule's own region, which ANY age that reaches the region can set
+            # (e.g. plant a bean as child, ride its platform as adult).
+            region = getattr(self, "_here", None)
+            ages = [a for a in ("child", "adult") if region and (region, a) in self.reached and self._age_live(a)]
+            for a in ages:
+                if self.ev(args[0], a, env)[0]:
+                    return T
+            return self.ev(args[0], ages[0] if ages else age, env)
         if fn == "at":
             region = self.value(args[0], age, env)
             ages = [a for a in ("child", "adult") if (region, a) in self.reached]
@@ -248,11 +337,18 @@ class Logic:
     def _rank(self, m):
         return (any(x.startswith(self.FIXED) for x in m), len(m))
 
-    def rule(self, text, age):
-        return self.ev(self.parse(text), age, {})
+    def rule(self, text, age, region=None):
+        """Evaluate a rule as `age`. `region` is where the rule lives: here(...) needs it."""
+        prev, self._here = getattr(self, "_here", None), region
+        try:
+            return self.ev(self.parse(text), age, {})
+        finally:
+            self._here = prev
 
     # ------------------------------------------------------------ search
-    AUTO = {"Event", "Drop", "Shop"}
+    # Collected automatically once in logic: events, refills, shop purchases, and the Happy Mask Shop's masks (it lends
+    # each mask again whenever asked, and each borrowed mask is what opens the next one in the chain).
+    AUTO = {"Event", "Drop", "Shop", "MaskShop"}
 
     def solve(self):
         self.reached = {("Root", "child"), ("Root", "adult")}
@@ -265,19 +361,19 @@ class Logic:
                     continue
                 for ev_name, rl in r["events"].items():
                     e = escape(ev_name)
-                    if e not in self.collected and self.rule(rl, age)[0]:
+                    if e not in self.collected and self.rule(rl, age, region)[0]:
                         self.collected.add(e)
                         changed = True
                 for ln, rl in r["locations"].items():
                     loc = self.locations.get(ln)
                     if loc and loc["type"] in self.AUTO and loc.get("vanilla_item"):
                         e = escape(loc["vanilla_item"])
-                        if e not in self.collected and self.rule(rl, age)[0]:
+                        if e not in self.collected and self.rule(rl, age, region)[0]:
                             self.collected.add(e)
                             changed = True
                 for ex in r["exits"]:
                     st = (ex["to"], age)
-                    if st not in self.reached and self.rule(ex["rule"], age)[0]:
+                    if st not in self.reached and self.rule(ex["rule"], age, region)[0]:
                         self.reached.add(st)
                         changed = True
         # Root as adult is only meaningful once time travel is possible
@@ -318,7 +414,7 @@ class Logic:
                 continue
             for ex in r["exits"]:
                 for age in [st[1]]:
-                    b, m = self.rule(ex["rule"], age)
+                    b, m = self.rule(ex["rule"], age, st[0])
                     if any(x.startswith(self.FIXED) for x in m):
                         continue  # needs a fixed setting or the other age: not something you can collect
                     m = frozenset(x for x in m if not x.startswith("region in logic: "))
@@ -358,7 +454,7 @@ class Logic:
                 if src:
                     r, rl = src
                     ages = self.region_ages(r["region"]) or ["child", "adult"]
-                    wants = min((self.rule(rl, ag)[1] for ag in ages), key=len)
+                    wants = min((self.rule(rl, ag, r["region"])[1] for ag in ages), key=len)
                     out.add(f"{a} (in {r['region']}; needs {sorted(wants) or 'reaching that region'})")
                     continue
             out.add(a)
@@ -368,9 +464,11 @@ class Logic:
         loc = self.locations[name]
         region = loc.get("region")
         rule = loc.get("logic_rule") or "True"
-        ages_in = [a for a in self.region_ages(region) if self.rule(rule, a)[0]] if region else []
+        ages_in = [a for a in self.region_ages(region) if self.rule(rule, a, region)[0]] if region else []
         out = dict(name=name, type=loc["type"], vanilla_item=loc.get("vanilla_item"), region=region,
                    scene=loc.get("scene_name") or loc.get("scene_enum"))
+        if not loc.get("vanilla_item"):
+            out["note_no_item"] = "the original game puts no item here, so list views skip it"
         if ages_in:
             out.update(status="in_logic", ages=ages_in)
             return out
@@ -381,10 +479,10 @@ class Logic:
         reg_ages = self.region_ages(region) if region else []
         if reg_ages:
             out["region_in_logic_as"] = reg_ages
-            out["logic_wants_for_location"] = self.expand(min((self.rule(rule, a)[1] for a in reg_ages), key=len))
+            out["logic_wants_for_location"] = self.expand(min((self.rule(rule, a, region)[1] for a in reg_ages), key=len))
         else:
             out["logic_wants_to_enter_region"] = self.access_hint(region)
-            out["logic_wants_for_location"] = self.expand(min((self.rule(rule, a)[1] for a in ("child", "adult")), key=len))
+            out["logic_wants_for_location"] = self.expand(min((self.rule(rule, a, region)[1] for a in ("child", "adult")), key=len))
         return out
 
 
@@ -405,6 +503,11 @@ def main():
     L = Logic(items, all_keys="--all-keys" in a, tricks=tricks, glitches="--glitches" in a,
               hearts=int(opt("--hearts", 3))).solve()
     as_json = "--json" in a
+    for raw, sugg in L.unknown_items:
+        print(f"warning: unknown item {raw!r} was ignored." + (f" Did you mean: {', '.join(sugg)}?" if sugg else ""),
+              file=sys.stderr)
+    if L.unknown_items and "--strict" in a:
+        sys.exit(2)
     if opt("--location"):
         q = opt("--location").lower()
         names = [n for n in L.locations if n.lower() == q] or [n for n in L.locations if q in n.lower()]
@@ -430,7 +533,7 @@ def main():
             continue
         rows.append(L.location_status(n, explain="--explain" in a))
     inl = [r for r in rows if r["status"] == "in_logic"]
-    summary = dict(inventory=L.inv, adult_in_logic=bool(L.count("Time_Travel")), events_in_logic=sorted(L.collected),
+    summary = dict(inventory=L.inv, unknown_items=[dict(name=r, did_you_mean=sg) for r, sg in L.unknown_items], adult_in_logic=bool(L.count("Time_Travel")), events_in_logic=sorted(L.collected),
                    locations_checked=len(rows), in_logic=len(inl), not_in_standard_logic=len(rows) - len(inl), note=NOTE)
     if as_json:
         print(json.dumps(dict(summary=summary, locations=rows), indent=1, ensure_ascii=False))

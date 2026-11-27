@@ -1,6 +1,6 @@
 """Extract a bot-readable world map from an OoT NTSC-J 1.0 ROM.
 
-usage: python -I extract_map.py <tools_dir> <decomp_root> <rom> <out_dir>
+usage: python -I extract_map.py <tools_dir> <decomp_root | data/meta> <rom> <out_dir>
 """
 import sys
 import os
@@ -9,13 +9,13 @@ import struct
 
 sys.path.insert(0, sys.argv[1])
 from ootrom import OotRom, u8, s8, u16, s16, u32  # noqa: E402
-from headers import Decomp  # noqa: E402
+from headers import load_decomp  # noqa: E402
 import decode  # noqa: E402
 
 DECOMP, ROM_PATH, OUT = sys.argv[2], sys.argv[3], sys.argv[4]
 VER = "ntsc-1.0"
-R = OotRom(ROM_PATH, os.path.join(DECOMP, "baseroms", VER, "segments.csv"), 0x7430)
-D = Decomp(DECOMP)
+D = load_decomp(DECOMP)  # decomp checkout, or the bundled metadata pack (data/meta)
+R = OotRom(ROM_PATH, D.segments(VER), 0x7430)
 CODE = R.file("code")
 GI_TABLE = D.get_item_table()
 ENTR_BY_ENUM = D.entrance_by_enum()
